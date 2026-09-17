@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Meier Filter</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       導覽列
+  ========================== -->
+
+  
+
+    <!-- =========================
+     導覽列
+========================== -->
+
+<header class="navbar">
+
+  <!-- LOGO -->
+  <a
+    href="index.html"
+    class="logo"
+  >
+
+    <span class="logo-main">
+      MEIER
+    </span>
+
+    <span class="logo-sub">
+      FILTER & PRESET
+    </span>
+
+  </a>
+
+
+  <!-- 右側選單 -->
+<div class="nav-actions">
+
+  <div class="filter-menu">
+
+    <button
+      type="button"
+      class="filter-menu-btn"
+      onclick="toggleFilterMenu()"
+    >
+      風格
+    </button>
+
+
+    <!-- 下拉選單 -->
+    <div
+      class="filter-dropdown"
+      id="filter-dropdown"
+    >
+
+      <div class="filter-dropdown-inner">
+
+        <p class="filter-dropdown-title">
+          依主題尋找
+        </p>
+
+        <a href="#portrait-filters">
+          人像濾鏡
+        </a>
+
+        <a href="#landscape-filters">
+          風景濾鏡
+        </a>
+
+        <a href="#ig-layout-filters">
+          IG 排版
+        </a>
+
+        <a href="food-filters.html">
+          美食濾鏡
+        </a>
+
+        <a href="#color-pack-filters">
+          包色款
+        </a>
+
+
+        <div class="filter-divider"></div>
+
+
+        <p class="filter-dropdown-title">
+          探索更多
+        </p>
+
+        <a href="#popular">
+          熱門推薦
+        </a>
+
+        <a href="#new">
+          新品上架
+        </a>
+
+        <a href="#filters">
+          全部濾鏡
+        </a>
+
+        <a href="#reviews">
+          客人評價
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+    <!-- 關於 -->
+   <div class="about-menu">
+
+  <button
+    type="button"
+    class="about-menu-btn"
+    onclick="toggleAboutMenu()"
+  >
+    關於
+  </button>
+
+  <div
+    class="about-dropdown"
+    id="about-dropdown"
+  >
+
+    <a href="import-guide.html">
+      匯入檔案
+    </a>
+
+    <a href="preset-guide.html">
+      預設集教學
+    </a>
+
+  </div>
+
+</div>
+<!-- Instagram -->
+
+<a
+  href="https://www.instagram.com/meier.share/"
+  class="ig-link"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  IG
+</a>
+
+    <!-- 購物車 -->
+    <a
+      href="cart.html"
+      class="cart-link"
+    >
+      購物車（<span id="cart-count">0</span>）
+    </a>
+
+
+  </div>
+
+</header>
+
+
+
+  <!-- =========================
+       首頁 HERO
+  ========================== -->
+  <section class="hero">
+
+    <div class="hero-text">
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =========================
+       FILTERS
+  ========================== -->
+
+  <section
+    class="filter-gallery"
+    id="filters"
+  >
+
+
+    <!-- FILTERS 標題 -->
+
+    <div class="gallery-heading">
+      <h2>
+  
+  </h2>
+
+  <p>
+    MEIER FILTER COLLECTION
+  </p>
+
+</div>
+
+      <!-- SHOP 花朵按鈕 -->
+
+<div class="shop-button-wrap">
+
+  <a href="shop.html" class="flower-shop-btn">
+
+    <span class="shop-flower">✿</span>
+
+    <span>SHOP</span>
+
+    <span class="shop-flower">✿</span>
+
+  </a>
+
+</div
+
+
+    <!-- =========================
+     CREAMY DAY
+========================== -->
+
+<section class="filter-collection">
+      <!-- 商品名稱 -->
+
+ <a 
+  href="creamy-day.html" 
+  class="collection-title"
+>
+
+  <div class="title-with-rank">
+
+    <h3>
+      CREAMY DAY
+    </h3>
+
+    <span class="top1-badge">
+      <span class="shine shine-1"></span>
+      <span class="shine shine-2"></span>
+      <span class="shine shine-3"></span>
+      <span class="shine shine-4"></span>
+      <span class="shine shine-5"></span>
+
+      ♛ TOP1
+    </span>
+
+  </div>
+
+  <p>
+    奶油日光
+  </p>
+
+</a>
+
+
+
+      <!-- 左右滑動區 -->
+
+      <div class="carousel-wrapper">
+
+
+        <!-- 左箭頭 -->
+
+        <button
+          class="carousel-arrow left-arrow"
+          type="button"
+          onclick="scrollGallery('creamy-gallery', -1)"
+          aria-label="上一組照片"
+        >
+          ‹
+        </button>
+
+
+
+        <!-- 六張照片 -->
+
+        <div
+          class="carousel"
+          id="creamy-gallery"
+        >
+
+
+          <!-- 01 -->
+
+          <a
+            href="creamy-day.html"
+            class="carousel-card"
+          >
+
+            <img
+              src="images/creamy-01.jpg"
+              alt="CREAMY DAY 奶油日光 1"
+            >
+
+          </a>
+
+
+
+          <!-- 02 -->
+
+          <a
+            href="creamy-day.html"
+            class="carousel-card"
+          >
+
+            <img
+              src="images/creamy-02.jpg"
+              alt="CREAMY DAY 奶油日光 2"
+            >
+
+          </a>
+
+
+
+          <!-- 03 -->
+
+          <a
+            href="creamy-day.html"
+            class="carousel-card"
+          >
+
+            <img
+              src="images/creamy-03.jpg"
+              alt="CREAMY DAY 奶油日光 3"
+            >
+
+          </a>
+
+
+
+          <!-- 04 -->
+
+          <a
+            href="creamy-day.html"
+            class="carousel-card"
+          >
+
+            <img
+              src="images/creamy-04.jpg"
+              alt="CREAMY DAY 奶油日光 4"
+            >
+
+          </a>
+
+
+
+          <!-- 05 -->
+
+          <a
+            href="creamy-day.html"
+            class="carousel-card"
+          >
+
+            <img
+              src="images/creamy-05.jpg"
+              alt="CREAMY DAY 奶油日光 5"
+            >
+
+          </a>
+
+
+
+          <!-- 06 -->
+
+          <a
+            href="creamy-day.html"
+            class="carousel-card"
+          >
+
+            <img
+              src="images/creamy-06.jpg"
+              alt="CREAMY DAY 奶油日光 6"
+            >
+
+          </a>
+
+
+        </div>
+
+
+
+        <!-- 右箭頭 -->
+
+        <button
+          class="carousel-arrow right-arrow"
+          type="button"
+          onclick="scrollGallery('creamy-gallery', 1)"
+          aria-label="下一組照片"
+        >
+          ›
+        </button>
+
+
+      </div>
+
+
+      <!-- 查看商品 -->
+
+      <div class="view-product">
+
+        <a href="creamy-day.html">
+          VIEW CREAMY DAY →
+        </a>
+
+      </div>
+
+
+    </section>
+<!-- =========================
+     COLOR BREEZE
+========================== -->
+
+<section class="filter-collection">
+
+
+  <!-- 商品名稱 -->
+
+  <a
+    href="color-breeze.html"
+    class="collection-title"
+  >
+
+    <h3>
+      COLOR BREEZE
+    </h3>
+
+    <p>
+      晴彩微風
+    </p>
+
+  </a>
+
+
+
+  <!-- 左右滑動區 -->
+
+  <div class="carousel-wrapper">
+
+
+    <!-- 左箭頭 -->
+
+    <button
+      class="carousel-arrow left-arrow"
+      type="button"
+      onclick="scrollGallery('color-breeze-gallery', -1)"
+      aria-label="上一組照片"
+    >
+      ‹
+    </button>
+
+
+    <!-- 五張照片 -->
+
+    <div
+      class="carousel"
+      id="color-breeze-gallery"
+    >
+
+
+      <!-- 01 -->
+
+      <a
+        href="color-breeze.html"
+        class="carousel-card"
+      >
+
+        <img
+          src="images/color-breeze-1.jpg"
+          alt="COLOR BREEZE 晴彩微風 1"
+        >
+
+      </a>
+
+
+
+      <!-- 02 -->
+
+      <a
+        href="color-breeze.html"
+        class="carousel-card"
+      >
+
+        <img
+          src="images/color-breeze-2.jpg"
+          alt="COLOR BREEZE 晴彩微風 2"
+        >
+
+      </a>
+
+
+
+      <!-- 03 -->
+
+      <a
+        href="color-breeze.html"
+        class="carousel-card"
+      >
+
+        <img
+          src="images/color-breeze-3.jpg"
+          alt="COLOR BREEZE 晴彩微風 3"
+        >
+
+      </a>
+
+
+
+      <!-- 04 -->
+
+      <a
+        href="color-breeze.html"
+        class="carousel-card"
+      >
+
+        <img
+          src="images/color-breeze-4.jpg"
+          alt="COLOR BREEZE 晴彩微風 4"
+        >
+
+      </a>
+
+
+
+      <!-- 05 -->
+
+      <a
+        href="color-breeze.html"
+        class="carousel-card"
+      >
+
+        <img
+          src="images/color-breeze-5.jpg"
+          alt="COLOR BREEZE 晴彩微風 5"
+        >
+
+      </a>
+
+
+    </div>
+
+
+
+    <!-- 右箭頭 -->
+
+    <button
+      class="carousel-arrow right-arrow"
+      type="button"
+      onclick="scrollGallery('color-breeze-gallery', 1)"
+      aria-label="下一組照片"
+    >
+      ›
+    </button>
+
+
+  </div>
+
+      <!-- 查看商品 -->
+
+      <div class="view-product">
+
+        <a href="color-breeze.html">
+          VIEW COLOR BREEZE →
+        </a>
+
+      </div>
+
+
+    </section>
+<!-- =========================
+     GOLDEN DAY
+========================== -->
+
+<section class="filter-collection">
+
+  <!-- 商品名稱 -->
+  <a
+    href="golden-day.html"
+    class="collection-title"
+  >
+
+    <h3>
+      GOLDEN DAY
+    </h3>
+
+    <p>
+      金色日光
+    </p>
+
+  </a>
+
+
+  <!-- 左右滑動區 -->
+  <div class="carousel-wrapper">
+
+
+    <!-- 左箭頭 -->
+    <button
+      class="carousel-arrow left-arrow"
+      type="button"
+      onclick="scrollGallery('golden-day-gallery', -1)"
+      aria-label="上一組照片"
+    >
+      ‹
+    </button>
+
+
+    <!-- 五張照片 -->
+    <div
+      class="carousel"
+      id="golden-day-gallery"
+    >
+
+
+      <!-- 01 -->
+      <a
+        href="golden-day.html"
+        class="carousel-card"
+      >
+        <img
+          src="images/golden-day-1.jpg"
+          alt="GOLDEN DAY 金色日光 1"
+        >
+      </a>
+
+
+      <!-- 02 -->
+      <a
+        href="golden-day.html"
+        class="carousel-card"
+      >
+        <img
+          src="images/golden-day-2.jpg"
+          alt="GOLDEN DAY 金色日光 2"
+        >
+      </a>
+
+
+      <!-- 03 -->
+      <a
+        href="golden-day.html"
+        class="carousel-card"
+      >
+        <img
+          src="images/golden-day-3.jpg"
+          alt="GOLDEN DAY 金色日光 3"
+        >
+      </a>
+
+
+      <!-- 04 -->
+      <a
+        href="golden-day.html"
+        class="carousel-card"
+      >
+        <img
+          src="images/golden-day-4.jpg"
+          alt="GOLDEN DAY 金色日光 4"
+        >
+      </a>
+
+
+      <!-- 05 -->
+      <a
+        href="golden-day.html"
+        class="carousel-card"
+      >
+        <img
+          src="images/golden-day-5.jpg"
+          alt="GOLDEN DAY 金色日光 5"
+        >
+      </a>
+
+
+    </div>
+
+
+    <!-- 右箭頭 -->
+    <button
+      class="carousel-arrow right-arrow"
+      type="button"
+      onclick="scrollGallery('golden-day-gallery', 1)"
+      aria-label="下一組照片"
+    >
+      ›
+    </button>
+
+
+  </div>
+
+
+  <!-- 查看商品 -->
+  <div class="view-product">
+
+    <a href="golden-day.html">
+      VIEW GOLDEN DAY →
+    </a>
+
+  </div>
+
+
+</section>
+
+<!-- 所有濾鏡系列結束 -->
+
+<!-- =========================
+     
+========================== -->
+
+<section class="reviews-section" id="reviews">
+
+  <div class="reviews-heading">
+
+    <h2>
+      客人評價
+    </h2>
+
+    <p class="reviews-subtitle">
+      謝謝每一位喜歡 MEIER 濾鏡的你 ♡
+    </p>
+
+  </div>
+
+
+  <div class="reviews-grid">
+
+
+    <!-- 評價 01 -->
+
+    <div class="review-card active-review">
+
+  <p class="review-user">
+    @mXXXXXXx
+  </p>
+
+  <div class="review-stars">
+    ★★★★★
+  </div>
+
+  <p class="review-text">
+    「套上去真的超有氛圍，
+    照片直接變得很乾淨 ♡」
+  </p>
+
+</div>
+
+
+    <!-- 評價 02 -->
+
+<div class="review-card">
+
+  <p class="review-user">
+    @aXXXXXXe
+  </p>
+
+  <div class="review-stars">
+    ★★★★★
+  </div>
+
+  <p class="review-text">
+    「顏色很好看，而且套用之後
+    照片的質感差很多！」
+  </p>
+
+</div>
+
+
+    <!-- 評價 03 -->
+
+<div class="review-card">
+
+  <p class="review-user">
+    @kXXXXXX
+  </p>
+
+  <div class="review-stars">
+    ★★★★★
+  </div>
+
+  <p class="review-text">
+    「第一次使用 Lightroom 預設集，
+    教學很清楚，很快就會用了 ♡」
+  </p>
+
+</div>
+
+
+<!-- 評價 04 -->
+
+<div class="review-card">
+
+  <p class="review-user">
+    @kXXXXXX
+  </p>
+
+  <div class="review-stars">
+    ★★★★★
+  </div>
+
+  <p class="review-text">
+    「這是before/after!! 這個色調好好看🩵,很夢幻的感覺😍」
+  </p>
+
+</div>
+
+  <!-- 評價 04 -->
+
+<div class="review-card">
+
+  <p class="review-user">
+    @jXXXXXX
+  </p>
+
+  <div class="review-stars">
+    ★★★★★
+  </div>
+
+  <p class="review-text">
+    「仙境色調拿到後馬上套用❤️」
+  </p>
+
+</div>
+
+ <!-- 評價 05 -->
+
+<div class="review-card">
+
+  <p class="review-user">
+    @fXXXXXX
+  </p>
+
+  <div class="review-stars">
+    ★★★★★
+  </div>
+
+  <p class="review-text">
+    「色調美美的❤️」
+  </p>
+
+</div>
+<!-- 評價 06 -->
+
+<div class="review-card">
+
+  <p class="review-user">
+    @nXXXXXX
+  </p>
+
+  <div class="review-stars">
+    ★★★★★
+  </div>
+
+  <p class="review-text">
+    「之前參與活動拿到的濾鏡,濾鏡真的豪好看」
+  </p>
+
+</div>
+<!-- 評價 07 -->
+
+<div class="review-card">
+
+  <p class="review-user">
+    @aXXXXXX
+  </p>
+
+  <div class="review-stars">
+    ★★★★★
+  </div>
+
+  <p class="review-text">
+    「焦糖濾鏡真的太美了🤎☕」
+  </p>
+
+</div>
+
+</section>
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer class="footer">
+
+    <p class="footer-logo">
+      MEIER
+    </p>
+
+    <p>
+      FILTER & PRESET
+    </p>
+
+    <p class="copyright">
+      © 2026 MEIER FILTER
+    </p>
+
+  </footer>
+
+
+
+  <!-- =========================
+     JavaScript
+========================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+/* =========================
+   更新購物車數量
+   同一款濾鏡只計算 1 次
+========================= */
+
+let cart = [];
+
+try {
+
+  cart =
+    JSON.parse(
+      localStorage.getItem("meier-cart")
+    ) || [];
+
+} catch (error) {
+
+  cart = [];
+
+}
+
+
+/* 依照商品 id 去除重複 */
+
+const uniqueCart =
+  cart.filter(function (item, index, array) {
+
+    return index ===
+      array.findIndex(function (product) {
+        return product.id === item.id;
+      });
+
+  });
+
+
+/* 如果以前有重複資料，順便清掉 */
+
+localStorage.setItem(
+  "meier-cart",
+  JSON.stringify(uniqueCart)
+);
+
+
+/* 更新右上角數量 */
+
+const cartCount =
+  document.getElementById("cart-count");
+
+if (cartCount) {
+
+  cartCount.textContent =
+    uniqueCart.length;
+
+}
+
+  /* =========================
+     客人評價自動切換
+  ========================= */
+
+  const reviews =
+    document.querySelectorAll(".reviews-grid .review-card");
+
+  if (reviews.length > 0) {
+
+    let currentReview = 0;
+
+    function showReview(index) {
+
+      reviews.forEach(function (review) {
+        review.classList.remove("active-review");
+      });
+
+      reviews[index].classList.add("active-review");
+
+    }
+
+    /* 一開始顯示第一則 */
+    showReview(0);
+
+
+    /* 每 2 秒自動換下一則 */
+    setInterval(function () {
+
+      currentReview =
+        (currentReview + 1) % reviews.length;
+
+      showReview(currentReview);
+
+    }, 2000);
+
+  }
+
+});
+
+
+/* =========================
+   風格選單
+========================= */
+
+function toggleFilterMenu() {
+
+  const filterMenu =
+    document.getElementById("filter-dropdown");
+
+  const aboutMenu =
+    document.getElementById("about-dropdown");
+
+
+  if (!filterMenu) return;
+
+
+  /* 如果關於選單有開，就先關掉 */
+
+  if (aboutMenu) {
+    aboutMenu.classList.remove("show");
+  }
+
+
+  /* 風格選單開啟 / 關閉 */
+
+  filterMenu.classList.toggle("show");
+
+}
+
+
+/* =========================
+   關於選單
+========================= */
+
+function toggleAboutMenu() {
+
+  const aboutMenu =
+    document.getElementById("about-dropdown");
+
+  const filterMenu =
+    document.getElementById("filter-dropdown");
+
+  if (!aboutMenu) return;
+
+
+  /* 點關於 → 關掉風格 */
+
+  if (filterMenu) {
+    filterMenu.classList.remove("show");
+  }
+
+
+  /* 開啟 / 關閉關於 */
+
+  aboutMenu.classList.toggle("show");
+}
+
+
+/* =========================
+   風格選單
+========================= */
+
+function toggleFilterMenu() {
+
+  const filterMenu =
+    document.getElementById("filter-dropdown");
+
+  const aboutMenu =
+    document.getElementById("about-dropdown");
+
+  if (!filterMenu) return;
+
+
+  /* 點風格 → 關掉關於 */
+
+  if (aboutMenu) {
+    aboutMenu.classList.remove("show");
+  }
+
+
+  /* 開啟 / 關閉風格 */
+
+  filterMenu.classList.toggle("show");
+}
+
+</script>
+
+
+</body>
+</html>

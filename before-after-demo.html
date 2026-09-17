@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Before / After Demo</title>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 60px 20px;
+
+      background: #f7f3ed;
+
+      font-family: Arial, sans-serif;
+
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 35px;
+
+      font-size: 20px;
+      font-weight: 400;
+
+      letter-spacing: 4px;
+
+      color: #756553;
+    }
+
+
+    /* 對比區 */
+
+    .compare {
+      position: relative;
+
+      width: 100%;
+      max-width: 380px;
+
+      aspect-ratio: 3 / 4;
+
+      margin: 0 auto;
+
+      overflow: hidden;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 10px 30px rgba(80, 70, 60, 0.12);
+
+      touch-action: none;
+
+      cursor: ew-resize;
+    }
+
+
+    /* AFTER */
+
+    .after-img {
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      inset: 0;
+    }
+
+
+    /* BEFORE */
+
+    .before-wrap {
+      position: absolute;
+
+      top: 0;
+      left: 0;
+
+      width: 50%;
+      height: 100%;
+
+      overflow: hidden;
+    }
+
+    .before-img {
+      width: 380px;
+      max-width: none;
+
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+
+    /* 中間線 */
+
+    .divider {
+      position: absolute;
+
+      top: 0;
+      left: 50%;
+
+      width: 2px;
+      height: 100%;
+
+      background: white;
+
+      transform: translateX(-50%);
+
+      pointer-events: none;
+    }
+
+
+    /* 中間箭頭 */
+
+    .handle {
+      position: absolute;
+
+      top: 50%;
+      left: 50%;
+
+      width: 46px;
+      height: 46px;
+
+      transform:
+        translate(-50%, -50%);
+
+      border-radius: 50%;
+
+      background: white;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      color: #756553;
+
+      font-size: 18px;
+
+      box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.15);
+
+      pointer-events: none;
+    }
+
+
+    /* BEFORE / AFTER */
+
+    .label {
+      position: absolute;
+
+      top: 18px;
+
+      padding: 7px 11px;
+
+      border-radius: 20px;
+
+      background:
+        rgba(255,255,255,0.82);
+
+      color: #756553;
+
+      font-size: 9px;
+
+      letter-spacing: 2px;
+
+      z-index: 5;
+
+      pointer-events: none;
+    }
+
+    .before-label {
+      left: 15px;
+    }
+
+    .after-label {
+      right: 15px;
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <h1>
+    BEFORE / AFTER
+  </h1>
+
+
+  <div
+    class="compare"
+    id="compare"
+  >
+
+    <!-- 套濾鏡 -->
+    <img
+      src="images/creamy-after.jpg"
+      class="after-img"
+      alt="After"
+    >
+
+
+    <!-- 原圖 -->
+    <div
+      class="before-wrap"
+      id="beforeWrap"
+    >
+
+      <img
+        src="images/creamy-before.jpg"
+        class="before-img"
+        id="beforeImage"
+        alt="Before"
+      >
+
+    </div>
+
+
+    <span class="label before-label">
+      BEFORE
+    </span>
+
+    <span class="label after-label">
+      AFTER
+    </span>
+
+
+    <div
+      class="divider"
+      id="divider"
+    ></div>
+
+
+    <div
+      class="handle"
+      id="handle"
+    >
+      ‹ ›
+    </div>
+
+  </div>
+
+
+
+  <script>
+
+    const compare =
+      document.getElementById("compare");
+
+    const beforeWrap =
+      document.getElementById("beforeWrap");
+
+    const beforeImage =
+      document.getElementById("beforeImage");
+
+    const divider =
+      document.getElementById("divider");
+
+    const handle =
+      document.getElementById("handle");
+
+
+    function moveSlider(event) {
+
+      const rect =
+        compare.getBoundingClientRect();
+
+      let x =
+        event.clientX - rect.left;
+
+
+      x =
+        Math.max(
+          0,
+          Math.min(x, rect.width)
+        );
+
+
+      const percent =
+        (x / rect.width) * 100;
+
+
+      beforeWrap.style.width =
+        percent + "%";
+
+
+      divider.style.left =
+        percent + "%";
+
+
+      handle.style.left =
+        percent + "%";
+
+
+      beforeImage.style.width =
+        rect.width + "px";
+
+    }
+
+
+    compare.addEventListener(
+      "pointerdown",
+      function (event) {
+
+        compare.setPointerCapture(
+          event.pointerId
+        );
+
+        moveSlider(event);
+
+      }
+    );
+
+
+    compare.addEventListener(
+      "pointermove",
+      function (event) {
+
+        if (
+          compare.hasPointerCapture(
+            event.pointerId
+          )
+        ) {
+
+          moveSlider(event);
+
+        }
+
+      }
+    );
+
+
+    window.addEventListener(
+      "resize",
+      function () {
+
+        beforeImage.style.width =
+          compare.offsetWidth + "px";
+
+      }
+    );
+
+
+    beforeImage.style.width =
+      compare.offsetWidth + "px";
+
+  </script>
+
+</body>
+
+</html>

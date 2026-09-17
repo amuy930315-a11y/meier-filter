@@ -1,0 +1,3098 @@
+/* =========================
+   基本設定
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+
+  font-family:
+    Arial,
+    "Noto Sans TC",
+    sans-serif;
+
+  background: #e5efcd;
+
+  color: #302824;
+
+}
+
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+img {
+  max-width: 100%;
+}
+
+
+button {
+  font-family: inherit;
+}
+
+
+
+/* =========================
+   導覽列
+========================= */
+
+.navbar {
+
+  width: 100%;
+  height: 88px;
+
+  padding: 0 6%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(255, 253, 249, 0.96);
+
+  position: relative;
+
+  z-index: 20;
+
+}
+
+
+.logo {
+
+  display: flex;
+  flex-direction: column;
+
+  line-height: 1;
+
+}
+
+
+.logo-main {
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 27px;
+
+  letter-spacing: 6px;
+
+}
+
+
+.logo-sub {
+
+  margin-top: 7px;
+
+  font-size: 7px;
+
+  letter-spacing: 4px;
+
+  color: #81736b;
+
+}
+
+
+.nav-links {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 35px;
+
+}
+
+ .nav-links a,
+.cart-link {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+
+.nav-links a:hover {
+  opacity: 0.55;
+}
+
+
+.shop-btn {
+
+  padding: 11px 26px;
+
+  background: #735441;
+
+  color: white;
+
+  border-radius: 30px;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+}
+
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+  width: 100%;
+
+  height:
+    calc(100vh - 88px);
+
+  min-height: 560px;
+
+
+  display: flex;
+
+  align-items: center;
+
+
+  background-image:
+    url("images/hero-new.png");
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+}
+
+
+.hero-text {
+
+  margin-left: 7%;
+
+  color: white;
+
+}
+
+
+.hero-label {
+
+  margin-bottom: 18px;
+
+  font-size: 10px;
+
+  letter-spacing: 5px;
+
+}
+
+
+.hero h1 {
+
+  margin-bottom: 22px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(38px, 5vw, 70px);
+
+  font-weight: 400;
+
+  line-height: 1.08;
+
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 2px 15px
+    rgba(0, 0, 0, 0.15);
+
+}
+
+
+.hero-description {
+
+  margin-bottom: 30px;
+
+  font-size: 14px;
+
+  line-height: 2;
+
+  letter-spacing: 1px;
+
+  text-shadow:
+    0 1px 10px
+    rgba(0, 0, 0, 0.25);
+
+}
+
+
+.hero-btn {
+
+  display: inline-block;
+
+  padding: 13px 28px;
+
+  background: #735441;
+
+  color: white;
+
+  border-radius: 30px;
+
+  font-size: 12px;
+
+  letter-spacing: 1px;
+
+}
+
+
+
+/* =========================
+   FILTERS 整區
+========================= */
+
+.filter-gallery {
+
+  width: 100%;
+
+  padding:
+    70px 6%
+    120px;
+
+  background: #fffdf9;
+
+}
+
+
+.gallery-heading {
+
+  margin-bottom: 65px;
+  text-align: center;
+}
+
+
+.gallery-heading h2 {
+
+  font-size: 30px;
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
+
+}
+
+
+.gallery-heading p {
+
+  margin-top: 9px;
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+
+  color: #a0938b;
+
+}
+
+
+
+/* =========================
+   FILTER COLLECTION
+========================= */
+
+.filter-collection {
+  width: 100%;
+  margin-bottom: 130px;
+}
+
+
+.collection-title {
+
+  display: block;
+
+  margin-bottom: 32px;
+
+  text-align: center;
+
+}
+
+
+.collection-title h3 {
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 34px;
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
+
+}
+
+
+.collection-title p {
+
+  margin-top: 10px;
+
+  font-size: 13px;
+
+  letter-spacing: 5px;
+
+  color: #88756a;
+
+}
+
+
+
+/* =========================
+   左右滑動外框
+========================= */
+
+.carousel-wrapper {
+
+  position: relative;
+
+  width: 100%;
+
+}
+
+
+
+/* =========================
+   六張照片橫向排列
+========================= */
+
+.carousel {
+
+  width: 100%;
+
+  display: flex;
+
+  gap: 18px;
+
+
+  overflow-x: auto;
+
+  overflow-y: hidden;
+
+
+  scroll-behavior: smooth;
+
+  scroll-snap-type:
+    x mandatory;
+
+
+  scrollbar-width: none;
+
+
+  -webkit-overflow-scrolling:
+    touch;
+
+}
+
+
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+
+
+
+/* =========================
+   單張照片
+========================= */
+
+.carousel-card {
+
+  flex:
+    0 0
+    calc((100% - 54px) / 4);
+
+
+  scroll-snap-align: start;
+
+
+  overflow: hidden;
+
+
+  border-radius: 6px;
+
+
+  background: #f1ede8;
+
+}
+
+
+.carousel-card img {
+
+  width: 100%;
+
+  height: auto;
+
+  aspect-ratio: 4 / 5;
+
+
+  display: block;
+
+
+  object-fit: cover;
+
+
+  transition:
+    transform 0.35s ease;
+
+}
+
+
+.carousel-card:hover img {
+
+  transform:
+    scale(1.025);
+
+}
+
+
+
+/* =========================
+   左右箭頭
+========================= */
+
+.carousel-arrow {
+
+  width: 48px;
+  height: 48px;
+
+
+  position: absolute;
+
+  top: 50%;
+
+
+  transform:
+    translateY(-50%);
+
+
+  z-index: 10;
+
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+
+  border: none;
+
+  border-radius: 50%;
+
+
+  background:
+    rgba(
+      255,
+      253,
+      249,
+      0.92
+    );
+
+
+  color: #59483e;
+
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 32px;
+
+
+  cursor: pointer;
+
+
+  box-shadow:
+    0 4px 18px
+    rgba(0, 0, 0, 0.08);
+
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+
+}
+
+
+.carousel-arrow:hover {
+
+  background: #f3e9e1;
+
+}
+
+
+.left-arrow {
+
+  left: -24px;
+
+}
+
+
+.right-arrow {
+
+  right: -24px;
+
+}
+
+
+
+/* =========================
+   VIEW CREAMY DAY
+========================= */
+
+.view-product {
+
+  margin-top: 28px;
+
+  text-align: center;
+
+}
+
+
+.view-product a {
+
+  display: inline-block;
+
+  padding-bottom: 5px;
+
+  border-bottom:
+    1px solid #717269;
+
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: #66564d;
+
+}
+
+
+
+/* =========================
+   COLOR BREEZE
+   暫時簡單顯示
+========================= */
+
+.coming-filter {
+
+  padding:
+    70px 20px;
+
+  text-align: center;
+
+
+  border-top:
+    1px solid #e8e0da;
+
+  border-bottom:
+    1px solid #e8e0da;
+
+}
+
+
+.coming-filter h3 {
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 32px;
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
+
+}
+
+
+.coming-filter p {
+
+  margin-top: 10px;
+
+  font-size: 13px;
+
+  letter-spacing: 4px;
+
+  color: #88756a;
+
+}
+
+
+.coming-filter span {
+
+  display: inline-block;
+
+  margin-top: 25px;
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+
+  color: #aaa09a;
+
+}
+
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+
+  padding:
+    65px 20px;
+
+  text-align: center;
+
+  background: #f5efe9;
+
+}
+
+
+.footer-logo {
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 22px;
+
+  letter-spacing: 6px;
+
+}
+
+
+.footer > p:nth-child(2) {
+
+  margin-top: 8px;
+
+  font-size: 7px;
+
+  letter-spacing: 4px;
+
+  color: #8e8179;
+
+}
+
+
+.copyright {
+
+  margin-top: 35px;
+
+  font-size: 8px;
+
+  letter-spacing: 2px;
+
+  color: #a89d96;
+
+}
+
+
+
+/* =========================
+   平板
+========================= */
+
+@media (max-width: 900px) {
+
+
+  .nav-links {
+    display: none;
+  }
+
+
+  .carousel-card {
+
+    flex:
+      0 0
+      calc((100% - 18px) / 2);
+
+  }
+
+
+}
+
+
+
+/* =========================
+   手機版：一次顯示一則評價
+========================= */
+
+@media (max-width: 700px) {
+
+  .reviews-grid {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+  }
+
+   .cart-item-image {
+    width: 80px;
+    height: 100px;
+  }
+
+  .review-card {
+    display: none;
+    width: 100%;
+    min-width: 100%;
+    min-height: 190px;
+
+    padding: 25px 20px;
+  }
+
+  /* 第一張預設先顯示 */
+  .review-card:first-child {
+    display: flex;
+  }
+
+  /* JS 切換到的評價 */
+  .review-card.active-review {
+    display: flex;
+  }
+
+  /* 有 active 時，把其他張隱藏 */
+  .review-card:not(.active-review) {
+    display: none;
+  }
+
+}
+
+
+  .carousel-card {
+
+    flex:
+      0 0
+      calc((100% - 12px) / 2);
+
+  }
+
+
+  .carousel-card img {
+
+    aspect-ratio:
+      3 / 4;
+
+  }
+
+
+
+  /* 手機直接手指滑
+     不需要箭頭 */
+
+  .carousel-arrow {
+
+    display: none;
+
+  }
+
+
+
+  /* 查看商品 */
+
+  .view-product {
+
+    margin-top: 22px;
+
+  }
+
+
+
+  /* COLOR BREEZE */
+
+  .coming-filter {
+
+    padding:
+      55px 15px;
+
+  }
+
+
+  .coming-filter h3 {
+
+    font-size: 25px;
+
+    letter-spacing: 3px;
+
+  }
+
+
+
+  /* Footer */
+
+  .footer {
+
+    padding:
+      50px 20px;
+
+  }
+
+
+
+/* =========================
+   商品按鈕
+========================= */
+
+.product-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.buy-now-form {
+  margin: 0;
+}
+
+.buy-now-btn,
+.add-cart-btn,
+.try-btn {
+  height: 44px;
+  padding: 0 22px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 30px;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 立即購買 */
+.buy-now-btn {
+  border: 1px solid #735441;
+  background: #735441;
+  color: #fff;
+}
+
+/* 加入購物車 */
+.add-cart-btn {
+  border: 1px solid #735441;
+  background: #fffdf9;
+  color: #735441;
+}
+
+/* 試用濾鏡 */
+.try-btn {
+  border: 1px solid #b7a59a;
+  background: transparent;
+  color: #6e5d54;
+}
+
+/* 手機 */
+@media (max-width: 600px) {
+  .product-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buy-now-form,
+  .buy-now-btn,
+  .add-cart-btn,
+  .try-btn {
+    width: 100%;
+  }
+}
+/* =========================
+   手機版
+========================= */
+
+@media (max-width: 600px) {
+
+  /* 手機一次顯示 3 張 */
+  .carousel {
+    gap: 8px;
+  }
+
+  .carousel-card {
+    flex: 0 0 calc((100% - 16px) / 3);
+    min-width: calc((100% - 16px) / 3);
+  }
+
+  .carousel-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+}
+/* =========================
+   CREAMY DAY TOP1
+========================= */
+
+.title-with-rank {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.title-with-rank h3 {
+  margin: 0;
+}
+
+.top1-badge {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 15px;
+
+  background: #d9a17f;
+  color: white;
+
+  border-radius: 30px;
+
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  white-space: nowrap;
+}
+
+
+/* ✨ 小光芒 */
+
+.shine {
+  position: absolute;
+
+  width: 2px;
+  height: 9px;
+
+  background: #d9a17f;
+
+  border-radius: 10px;
+}
+
+.shine-1 {
+  top: -14px;
+  left: 8px;
+  transform: rotate(-25deg);
+}
+
+.shine-2 {
+  top: -18px;
+  left: 24px;
+}
+
+.shine-3 {
+  top: -14px;
+  right: 8px;
+  transform: rotate(25deg);
+}
+
+.shine-4 {
+  left: -11px;
+  top: 4px;
+  transform: rotate(-65deg);
+}
+
+.shine-5 {
+  right: -11px;
+  top: 4px;
+  transform: rotate(65deg);
+}
+
+
+/* 手機版 */
+
+@media (max-width: 700px) {
+
+  .title-with-rank {
+    gap: 10px;
+  }
+
+  .top1-badge {
+    padding: 5px 11px;
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  .shine {
+    height: 7px;
+  }
+
+}
+/* CREAMY DAY 標題置中 */
+
+.title-with-rank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+}
+
+.collection-title {
+  text-align: center;
+}
+/* =========================
+   右上角濾鏡分類選單
+========================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.filter-menu {
+  position: relative;
+}
+
+.filter-menu-btn {
+  padding: 10px 16px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: transparent;
+
+  color: #4f4038;
+
+  font-size: 13px;
+  letter-spacing: 2px;
+
+  cursor: pointer;
+}
+
+.filter-menu-btn:hover,
+.filter-menu-btn.active {
+  background: #f0dfd2;
+}
+
+
+/* =========================
+   風格選單
+========================= */
+
+.filter-menu {
+  position: relative;
+}
+
+
+/* 風格按鈕 */
+
+.filter-menu-btn {
+  background: none;
+  border: none;
+
+  padding: 8px 10px;
+
+  font-size: 13px;
+  letter-spacing: 2px;
+
+  color: #4f4038;
+
+  cursor: pointer;
+}
+
+/* =========================
+   風格下拉選單｜完整新版
+========================= */
+
+.filter-menu {
+  position: relative;
+}
+
+
+/* 風格按鈕 */
+
+.filter-menu-btn {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+
+  color: #4f4038;
+
+  cursor: pointer;
+}
+
+
+/* 滑鼠移到風格 */
+
+.filter-menu-btn:hover {
+  opacity: 0.6;
+}
+
+
+/* =========================
+   下拉選單
+========================= */
+
+.filter-dropdown {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: 230px;
+
+  padding: 20px;
+
+  background-color: #fffdf9;
+
+  /* 你原本的背景圖片 */
+  background-image: url("images/menu-bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border:
+    1px solid
+    rgba(115, 84, 65, 0.12);
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(80, 60, 50, 0.10);
+
+
+  /* =========================
+     關閉狀態
+  ========================= */
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(-35px);
+
+  pointer-events: none;
+
+
+  /* 滑動速度 */
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.4s ease,
+    visibility 0.6s;
+
+  z-index: 1000;
+}
+
+
+/* =========================
+   點風格 → 滑下來
+========================= */
+
+.filter-dropdown.show {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translateY(0);
+
+  pointer-events: auto;
+}
+
+
+/* =========================
+   分類小標題
+========================= */
+
+.filter-dropdown-title {
+  margin:
+    0 0 10px;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  color: #9b877b;
+}
+
+
+/* =========================
+   選單項目
+========================= */
+
+.filter-dropdown a {
+  display: block;
+
+  padding:
+    10px 4px;
+
+  font-size: 13px;
+
+  letter-spacing: 1px;
+
+  color: #4f4038;
+
+  text-decoration: none;
+
+  transition:
+    color 0.2s ease,
+    padding-left 0.2s ease;
+}
+
+
+/* 滑鼠移上去 */
+
+.filter-dropdown a:hover {
+  color: #a8765d;
+
+  padding-left: 8px;
+}
+
+
+/* =========================
+   中間分隔線
+========================= */
+
+.filter-divider {
+  width: 100%;
+  height: 1px;
+
+  margin:
+    12px 0 18px;
+
+  background:
+    rgba(115, 84, 65, 0.15);
+}
+
+
+/* =========================
+   手機版
+========================= */
+
+@media (max-width: 700px) {
+
+  .filter-menu-btn {
+    font-size: 11px;
+  }
+
+
+  .filter-dropdown {
+    width: 210px;
+
+    right: -10px;
+
+    padding: 18px;
+  }
+
+}
+
+.filter-dropdown a:hover {
+  color: #a8765d;
+
+  padding-left: 8px;
+}
+
+
+/* 分隔線 */
+
+.filter-divider {
+  height: 1px;
+
+  margin: 12px 0 18px;
+
+  background:
+    rgba(115, 84, 65, 0.12);
+}
+
+/* 小標題 */
+
+.filter-dropdown-title {
+
+  margin-bottom: 10px;
+
+  font-size: 11px;
+
+  letter-spacing: 2px;
+
+  color: #9b877b;
+}
+
+
+/* 選單文字 */
+
+.filter-dropdown a {
+
+  display: block;
+
+  padding: 10px 4px;
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+
+  color: #4f4038;
+
+  transition: 0.2s;
+}
+
+
+.filter-dropdown a:hover {
+
+  color: #a8765d;
+
+  padding-left: 8px;
+}
+
+
+/* 分隔線 */
+
+.filter-divider {
+
+  height: 1px;
+
+  margin: 12px 0 18px;
+
+  background:
+    rgba(115, 84, 65, 0.12);
+}
+/* 手機版 */
+
+@media (max-width: 700px) {
+
+  .nav-actions {
+    gap: 12px;
+  }
+
+  .filter-menu-btn {
+    padding: 8px 10px;
+    font-size: 11px;
+  }
+
+  .filter-dropdown {
+    width: 210px;
+    right: -10px;
+  }
+
+}
+/* =========================
+   手機版導覽列
+========================= */
+
+@media (max-width: 700px) {
+
+  .navbar {
+    height: auto;
+    padding: 14px 5%;
+
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    order: 3;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .nav-actions {
+    margin-left: auto;
+  }
+
+}
+.cart-link {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 400;
+}
+
+/* =========================
+   右上角選單統一字體
+========================= */
+
+.filter-menu-btn,
+.all-filter-link,
+.cart-link {
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1;
+
+  color: #4f4038;
+}
+
+/* 濾鏡按鈕不要因為 button 預設樣式跑掉 */
+.filter-menu-btn {
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* =========================
+   風格下拉選單｜滑下效果
+========================= */
+
+.filter-dropdown {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  right: 0;
+
+  width: 230px;
+  padding: 20px;
+
+  background: rgba(255, 253, 249, 0.98);
+
+  border: 1px solid rgba(115, 84, 65, 0.12);
+  border-radius: 12px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(80, 60, 50, 0.10);
+
+  /* 預設藏在上方 */
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-35px);
+
+  pointer-events: none;
+
+  transition:
+    transform 0.6s ease,
+    opacity 0.4s ease,
+    visibility 0.6s;
+
+  z-index: 1000;
+}
+
+
+/* 點風格後 */
+
+.filter-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+.filter-dropdown-title {
+  margin-bottom: 10px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  color: #9b877b;
+}
+
+
+.filter-dropdown a {
+  display: block;
+
+  padding: 10px 4px;
+
+  font-size: 14px;
+  letter-spacing: 1px;
+
+  color: #4f4038;
+
+  transition: 0.2s;
+}
+
+
+.filter-dropdown a:hover {
+  color: #a8765d;
+
+  padding-left: 8px;
+}
+
+
+.filter-divider {
+  height: 1px;
+
+  margin: 12px 0 18px;
+
+  background: rgba(115, 84, 65, 0.12);
+}
+/* 點「濾鏡」後顯示 */
+
+.filter-dropdown.show {
+  display: block;
+}
+
+
+/* 小標題 */
+
+.filter-dropdown-title {
+  margin-bottom: 8px;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  color: #9b877b;
+}
+
+
+/* 選項 */
+
+.filter-dropdown a {
+  display: block;
+
+  padding: 10px 4px;
+
+  font-size: 13px;
+  letter-spacing: 1px;
+
+  color: #4f4038;
+}
+
+
+/* 滑鼠移上去 */
+
+.filter-dropdown a:hover {
+  color: #a8765d;
+}
+
+
+/* 中間分隔線 */
+
+.filter-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 12px 0 18px;
+
+  background: rgba(115, 84, 65, 0.15);
+}
+/* =========================
+   關於下拉選單
+========================= */
+
+.about-menu {
+  position: relative;
+}
+
+.about-menu-btn {
+  padding: 0;
+
+  border: none;
+  background: transparent;
+
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+
+  color: #4f4038;
+
+  cursor: pointer;
+}
+
+
+/* 關於選單 */
+
+.about-dropdown {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: 180px;
+  padding: 16px 20px;
+
+  background: #fffdf9;
+
+  border: 1px solid rgba(115, 84, 65, 0.15);
+  border-radius: 12px;
+
+  box-shadow: 0 12px 30px rgba(80, 60, 50, 0.12);
+
+  display: none;
+
+  z-index: 999;
+}
+
+
+/* 點關於後顯示 */
+
+.about-dropdown.show {
+  display: block;
+}
+
+
+/* 選項 */
+
+.about-dropdown a {
+  display: block;
+
+  padding: 10px 4px;
+
+  font-size: 13px;
+  letter-spacing: 1px;
+
+  color: #4f4038;
+}
+
+.about-dropdown a:hover {
+  color: #a8765d;
+}
+/* =========================
+   下拉選單背景圖片
+========================= */
+
+.filter-dropdown,
+.about-dropdown {
+  background-image: url("images/menu-bg.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  border: 1px solid rgba(115, 84, 65, 0.12);
+
+  box-shadow: 0 12px 30px rgba(80, 60, 50, 0.10);
+}
+
+/* IG 跟其他導覽按鈕一樣 */
+
+.ig-link {
+  font-family: Arial, "Noto Sans TC", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: #4f4038;
+}
+
+/* =========================
+   CUSTOMER REVIEWS
+========================= */
+
+.reviews-section {
+  width: 100%;
+  max-width: 1100px;
+
+  /* 跟上面的 GOLDEN DAY 拉近 */
+  margin: 0 auto;
+
+  /* 上面 60px、左右 40px、下面 70px */
+  padding: 40px 14px 70px;
+
+  text-align: center;
+
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+
+/* 標題 */
+
+.reviews-heading {
+  margin-bottom: 45px;
+}
+
+.reviews-label {
+  margin-bottom: 10px;
+
+  font-size: 10px;
+  letter-spacing: 4px;
+
+  color: #a18d81;
+}
+
+.reviews-heading h2 {
+  margin-bottom: 12px;
+
+  font-family: Georgia, "Noto Serif TC", serif;
+  font-size: 28px;
+  font-weight: 400;
+
+  letter-spacing: 3px;
+
+  color: #4f4038;
+}
+
+.reviews-subtitle {
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  color: #9a8980;
+}
+
+
+/* =========================
+   三張評價卡片
+========================= */
+
+.reviews-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 22px;
+}
+
+
+/* 單張卡片 */
+
+.review-card {
+  min-height: 230px;
+
+  padding: 35px 28px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+ background-image:
+  linear-gradient(
+    rgba(255, 255, 255, 0.72),
+    rgba(255, 255, 255, 0.72)
+  ),
+  url("images/reviews-bg.png");
+
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+  border: 1px solid rgba(115, 84, 65, 0.10);
+  border-radius: 16px;
+
+  transition: 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-4px);
+
+  box-shadow:
+    0 12px 30px rgba(80, 60, 50, 0.08);
+}
+
+
+/* 星星 */
+
+.review-stars {
+  margin-bottom: 22px;
+
+  font-family: Georgia, serif;
+  font-size: 14px;
+
+  letter-spacing: 4px;
+
+  color: #b28a6d;
+}
+
+
+/* 評價內容 */
+
+.review-text {
+  margin-bottom: 25px;
+
+  font-size: 13px;
+  line-height: 2;
+
+  color: #5f524b;
+}
+
+
+/* 客人帳號 */
+
+.review-user {
+  margin-top: auto;
+
+  font-family: Georgia, serif;
+  font-size: 11px;
+
+  letter-spacing: 1px;
+
+  color: #a18d81;
+}
+
+
+/* =========================
+   手機版
+========================= */
+
+@media (max-width: 700px) {
+
+  .reviews-section {
+    margin: 70px auto;
+ border-radius: 24px;
+  overflow: hidden;
+    padding: 55px 20px;
+  }
+
+  .reviews-heading h2 {
+    font-size: 24px;
+  }
+
+  .reviews-grid {
+    display: flex;
+
+    overflow-x: auto;
+
+    gap: 14px;
+
+    padding-bottom: 10px;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+  }
+
+  .reviews-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .review-card {
+  min-width: calc(50% - 7px);
+  padding: 25px 14px;
+}
+
+}
+
+/* =========================
+   手機版評價：往下排列
+========================= */
+
+@media (max-width: 700px) {
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+
+    overflow: visible;
+    padding-bottom: 0;
+  }
+
+  .review-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 180px;
+
+    padding: 25px 20px;
+  }
+
+}
+
+/* =========================
+   手機版：評價自動輪播
+========================= */
+
+@media (max-width: 700px) {
+
+  .reviews-grid {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .review-card {
+    display: none;
+    width: 100%;
+    min-width: 100%;
+    min-height: 220px;
+
+    padding: 30px 22px;
+
+    animation: reviewFade 0.5s ease;
+  }
+
+  /* 目前顯示的評價 */
+  .review-card.active-review {
+    display: flex;
+  }
+
+}
+
+
+/* 切換時淡入 */
+
+@keyframes reviewFade {
+
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+/* =========================
+   所有裝置：一次只顯示一則評價
+========================= */
+
+.reviews-grid {
+  display: block;
+  width: 100%;
+}
+
+.review-card {
+  display: none;
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.review-card.active-review {
+  display: flex;
+  animation: reviewFade 0.6s ease;
+}
+
+@keyframes reviewFade {
+
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+/* =========================
+   評價自動輪播－電腦＋手機
+========================= */
+
+.reviews-grid {
+  display: block;
+  width: 100%;
+}
+
+.reviews-grid .review-card {
+  display: none;
+  width: 100%;
+  max-width: 650px;
+  min-height: 230px;
+
+  margin: 0 auto;
+}
+
+.reviews-grid .review-card.active-review {
+  display: flex;
+  animation: reviewFade 0.5s ease;
+}
+
+@keyframes reviewFade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   評價內容全部置中
+========================= */
+
+.review-card {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* 用戶名稱 */
+
+.review-user {
+  width: 100%;
+
+  margin: 0 0 12px 0;
+
+  text-align: center;
+
+  font-family: Georgia, "Noto Serif TC", serif;
+  font-size: 14px;
+  font-weight: 400;
+
+  letter-spacing: 1.5px;
+
+  color: #5f524b;
+}
+
+
+/* 星星 */
+
+.review-stars {
+  width: 100%;
+
+  margin: 0 0 20px 0;
+
+  text-align: center;
+}
+
+
+/* 評價文字 */
+
+.review-text {
+  width: 100%;
+
+  margin: 0;
+
+  text-align: center;
+  line-height: 2;
+}
+
+/* 風格選單預設隱藏 */
+
+.filter-dropdown {
+  display: none;
+}
+
+
+/* 點「風格」後顯示 */
+
+.filter-dropdown.show {
+  display: block;
+}
+
+/* =========================
+   購物車商品圖片
+========================= */
+
+.cart-item-image {
+  width: 100px;
+  height: 120px;
+
+  object-fit: cover;
+
+  border-radius: 12px;
+
+  display: block;
+  flex-shrink: 0;
+}
+/* =========================
+   加入購物車成功提示
+========================= */
+
+.cart-toast {
+  position: fixed;
+
+  top: 30px;
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    translateY(-20px);
+
+  padding: 14px 24px;
+
+  background: #fffdf9;
+  color: #4f4038;
+
+  border: 1px solid rgba(115, 84, 65, 0.15);
+  border-radius: 30px;
+
+  font-size: 13px;
+  letter-spacing: 1px;
+
+  box-shadow:
+    0 8px 25px rgba(80, 60, 50, 0.12);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: 0.3s;
+
+  z-index: 9999;
+}
+
+
+/* 顯示提示 */
+
+.cart-toast.show {
+  opacity: 1;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+/* =========================
+   FOOD FILTER 美食濾鏡頁
+========================= */
+
+.food-page {
+  background: #fffdf9;
+  min-height: 100vh;
+}
+
+
+/* 頁面標題 */
+
+.food-hero {
+  padding: 100px 6% 65px;
+  text-align: center;
+}
+
+.food-small-title {
+  margin-bottom: 14px;
+
+  font-size: 10px;
+  letter-spacing: 3px;
+
+  color: #a18f83;
+}
+
+.food-hero h1 {
+  margin: 0;
+
+  font-family: Georgia, serif;
+  font-size: 42px;
+  font-weight: 400;
+
+  letter-spacing: 5px;
+
+  color: #51463f;
+}
+
+.food-cn-title {
+  margin-top: 12px;
+
+  font-size: 14px;
+  letter-spacing: 4px;
+
+  color: #76675e;
+}
+
+.food-description {
+  margin: 25px auto 0;
+
+  max-width: 420px;
+
+  font-size: 13px;
+  line-height: 2;
+
+  color: #94847a;
+}
+
+
+/* =========================
+   商品區
+========================= */
+
+.food-products {
+  width: 88%;
+  max-width: 1200px;
+
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+
+.food-product-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 45px 28px;
+}
+
+
+/* 商品卡片 */
+
+.food-product-card {
+  display: block;
+
+  text-align: center;
+  text-decoration: none;
+
+  color: #51463f;
+}
+
+.food-image-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 22px;
+
+  background: #f5f0ea;
+
+  border-radius: 16px;
+
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+
+  color: #aa998d;
+}
+
+
+/* 商品名稱 */
+
+.food-product-card h2 {
+  margin: 0 0 7px;
+
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: 400;
+
+  letter-spacing: 2px;
+}
+
+.food-product-card p {
+  margin: 0 0 12px;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+
+  color: #8b7c72;
+}
+
+.food-product-card span {
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  color: #65574f;
+}
+
+
+/* 滑鼠移過商品 */
+
+.food-product-card {
+  transition: 0.3s;
+}
+
+.food-product-card:hover {
+  transform: translateY(-5px);
+}
+
+
+/* =========================
+   手機版
+========================= */
+
+@media (max-width: 700px) {
+
+  .food-hero {
+    padding:
+      70px 7%
+      45px;
+  }
+
+  .food-hero h1 {
+    font-size: 28px;
+    letter-spacing: 3px;
+  }
+
+  .food-products {
+    width: 90%;
+  }
+
+  .food-product-grid {
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap: 32px 14px;
+  }
+
+  .food-image-placeholder {
+    border-radius: 12px;
+    margin-bottom: 15px;
+  }
+
+  .food-product-card h2 {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .food-product-card p {
+    font-size: 11px;
+  }
+
+}
+/* =========================
+   FOOD FILTER PACK
+   美食濾鏡全包
+========================= */
+
+.food-pack-section {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto 100px;
+}
+
+
+/* 整張商品卡 */
+
+.food-pack-card {
+  overflow: hidden;
+
+  background: #faf6f1;
+
+  border: 1px solid rgba(115, 84, 65, 0.10);
+  border-radius: 22px;
+
+  box-shadow: 0 15px 45px rgba(80, 60, 50, 0.08);
+}
+
+
+/* =========================
+   15 張照片
+========================= */
+
+.food-photo-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 3px;
+
+  padding: 28px 28px 0;
+}
+
+
+.food-photo-grid img {
+  width: 100%;
+  aspect-ratio: 1 / 1.25;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+
+/* 第一張左上圓角 */
+
+.food-photo-grid img:first-child {
+  border-radius: 12px 0 0 0;
+}
+
+
+/* 第五張右上圓角 */
+
+.food-photo-grid img:nth-child(5) {
+  border-radius: 0 12px 0 0;
+}
+
+
+/* =========================
+   商品文字
+========================= */
+
+.food-pack-info {
+  padding: 55px 30px 50px;
+
+  text-align: center;
+}
+
+
+.food-pack-label {
+  margin: 0 0 14px;
+
+  font-size: 10px;
+  letter-spacing: 4px;
+
+  color: #9b897e;
+}
+
+
+.food-pack-info h1 {
+  margin: 0;
+
+  font-family: Georgia, serif;
+  font-size: 38px;
+  font-weight: 400;
+
+  letter-spacing: 4px;
+
+  color: #51463f;
+}
+
+
+.food-pack-cn {
+  margin: 12px 0 0;
+
+  font-size: 19px;
+  letter-spacing: 5px;
+
+  color: #675950;
+}
+
+
+.food-pack-description {
+  max-width: 420px;
+
+  margin: 25px auto 35px;
+
+  font-size: 13px;
+  line-height: 2;
+
+  color: #95857b;
+}
+
+
+/* =========================
+   三個特色
+========================= */
+
+.food-pack-features {
+  max-width: 520px;
+
+  margin: 0 auto 35px;
+
+  display: grid;
+  grid-template-columns:
+    repeat(3, 1fr);
+}
+
+
+.food-pack-features div {
+  padding: 0 15px;
+
+  border-right:
+    1px solid rgba(115, 84, 65, 0.15);
+}
+
+
+.food-pack-features div:last-child {
+  border-right: none;
+}
+
+
+.food-pack-features span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-family: Georgia, serif;
+  font-size: 25px;
+
+  color: #77665c;
+}
+
+
+.food-pack-features p {
+  margin: 0;
+
+  font-size: 11px;
+  letter-spacing: 2px;
+
+  color: #88776d;
+}
+
+
+/* =========================
+   價格
+========================= */
+
+.food-original-price {
+  margin: 0 0 4px;
+
+  font-size: 13px;
+
+  color: #a69890;
+
+  text-decoration: line-through;
+}
+
+
+.food-pack-price {
+  margin: 0 0 25px;
+
+  font-family: Georgia, serif;
+
+  font-size: 38px;
+
+  color: #51463f;
+}
+
+
+/* 加入購物車 */
+
+.food-pack-buy {
+  width: 100%;
+  max-width: 430px;
+
+  margin: 0 auto;
+}
+
+
+/* =========================
+   手機版
+========================= */
+
+@media (max-width: 700px) {
+
+  .food-pack-section {
+    width: 92%;
+
+    margin-bottom: 60px;
+  }
+
+
+  .food-pack-card {
+    border-radius: 16px;
+  }
+
+
+  /* 手機仍然保留 5 × 3 拼貼 */
+
+  .food-photo-grid {
+    grid-template-columns:
+      repeat(5, 1fr);
+
+    gap: 2px;
+
+    padding: 12px 12px 0;
+  }
+
+
+  .food-photo-grid img {
+    aspect-ratio: 1 / 1.3;
+  }
+
+
+  .food-pack-info {
+    padding:
+      38px 18px
+      35px;
+  }
+
+
+  .food-pack-info h1 {
+    font-size: 25px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .food-pack-cn {
+    font-size: 15px;
+
+    letter-spacing: 3px;
+  }
+
+
+  .food-pack-description {
+    margin:
+      20px auto
+      28px;
+
+    font-size: 12px;
+  }
+
+
+  .food-pack-features {
+    margin-bottom: 28px;
+  }
+
+
+  .food-pack-features span {
+    font-size: 21px;
+  }
+
+
+  .food-pack-features p {
+    font-size: 10px;
+
+    letter-spacing: 1px;
+  }
+
+
+  .food-pack-price {
+    font-size: 32px;
+  }
+
+}
+/* =========================
+   FOOD PACK 加入購物車按鈕
+========================= */
+
+.food-pack-buy {
+  display: block;
+
+  width: 100%;
+  max-width: 380px;
+  height: 54px;
+
+  margin: 8px auto 0;
+
+  border: none;
+  border-radius: 50px;
+
+  background: #8b7568;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: 3px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 22px rgba(92, 72, 61, 0.15);
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* 滑鼠移上去 */
+
+.food-pack-buy:hover {
+  background: #756156;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 28px rgba(92, 72, 61, 0.20);
+}
+
+
+/* 按下 */
+
+.food-pack-buy:active {
+  transform: translateY(0);
+}
+
+
+/* 手機 */
+
+@media (max-width: 700px) {
+
+  .food-pack-buy {
+    max-width: 290px;
+    height: 50px;
+
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+}
+/* =========================
+   手機版首頁 Hero
+========================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    width: 100%;
+
+    /* 手機打開就是完整一屏 */
+    min-height: 100svh;
+    height: 100svh;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    padding: 0 28px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+
+  /* 首頁文字 */
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 300px;
+
+    margin: 0;
+
+    padding-top: 40px;
+  }
+
+}
+/* =========================
+   HERO｜手機版
+========================= */
+
+@media (max-width: 700px) {
+
+  .hero {
+    width: 100%;
+
+    /* 手機實際螢幕高度 */
+    height: calc(100svh - 70px);
+    min-height: 0;
+
+    display: flex;
+    align-items: center;
+
+    background-image:
+      url("images/hero-new.png");
+
+    background-size: cover;
+
+    /* 讓右邊商品盒不要被切掉太多 */
+    background-position: 74% center;
+
+    background-repeat: no-repeat;
+  }
+
+
+  .hero-text {
+    margin-left: 0;
+
+    padding: 0 28px;
+
+    width: 100%;
+    max-width: 330px;
+
+    box-sizing: border-box;
+  }
+
+
+  .hero-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+
+    margin-bottom: 18px;
+  }
+
+
+  .hero h1 {
+    font-size: 34px;
+    line-height: 1.1;
+
+    margin-bottom: 18px;
+  }
+
+
+  .hero-description {
+    font-size: 13px;
+    line-height: 2;
+
+    margin-bottom: 28px;
+  }
+
+
+  .hero-btn {
+    padding: 13px 27px;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+  }
+
+}
+/* ==================================
+   風格選單｜每一格依序滑下
+================================== */
+
+
+/* 選單打開後，每個項目先準備動畫 */
+
+.filter-dropdown.show .filter-dropdown-title,
+.filter-dropdown.show a,
+.filter-dropdown.show .filter-divider {
+
+  opacity: 0;
+
+  transform: translateY(-18px);
+
+  animation: filterItemDown 0.45s ease forwards;
+}
+
+
+/* 第 1 個 */
+
+.filter-dropdown.show
+.filter-dropdown-title:nth-child(1) {
+  animation-delay: 0.08s;
+}
+
+
+/* 第 2 個 */
+
+.filter-dropdown.show
+a:nth-child(2) {
+  animation-delay: 0.14s;
+}
+
+
+/* 第 3 個 */
+
+.filter-dropdown.show
+a:nth-child(3) {
+  animation-delay: 0.20s;
+}
+
+
+/* 第 4 個 */
+
+.filter-dropdown.show
+a:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+
+/* 第 5 個 */
+
+.filter-dropdown.show
+a:nth-child(5) {
+  animation-delay: 0.32s;
+}
+
+
+/* 第 6 個 */
+
+.filter-dropdown.show
+a:nth-child(6) {
+  animation-delay: 0.38s;
+}
+
+
+/* 分隔線 */
+
+.filter-dropdown.show
+.filter-divider:nth-child(7) {
+  animation-delay: 0.44s;
+}
+
+
+/* 第二個標題 */
+
+.filter-dropdown.show
+.filter-dropdown-title:nth-child(8) {
+  animation-delay: 0.50s;
+}
+
+
+/* 熱門推薦 */
+
+.filter-dropdown.show
+a:nth-child(9) {
+  animation-delay: 0.56s;
+}
+
+
+/* 新品上架 */
+
+.filter-dropdown.show
+a:nth-child(10) {
+  animation-delay: 0.62s;
+}
+
+
+/* 全部濾鏡 */
+
+.filter-dropdown.show
+a:nth-child(11) {
+  animation-delay: 0.68s;
+}
+
+
+/* 客人評價 */
+
+.filter-dropdown.show
+a:nth-child(12) {
+  animation-delay: 0.74s;
+}
+
+
+/* =========================
+   一格一格往下動畫
+========================= */
+
+@keyframes filterItemDown {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(-18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+
+}
+/* =========================
+   關於下拉選單
+========================= */
+
+.about-menu {
+  position: relative;
+}
+
+.about-dropdown {
+  position: absolute;
+
+  top: calc(100% + 12px);
+  right: 0;
+
+  width: 180px;
+  padding: 16px 20px;
+
+  background: #fffdf9;
+
+  border: 1px solid rgba(115, 84, 65, 0.15);
+  border-radius: 12px;
+
+  box-shadow:
+    0 12px 30px
+    rgba(80, 60, 50, 0.12);
+
+  display: none;
+
+  z-index: 1000;
+}
+
+
+/* 點「關於」後顯示 */
+
+.about-dropdown.show {
+  display: block;
+}
+
+
+.about-dropdown a {
+  display: block;
+
+  padding: 10px 4px;
+
+  font-size: 13px;
+  letter-spacing: 1px;
+
+  color: #4f4038;
+
+  text-decoration: none;
+}
+
+/* =========================
+   GOLDEN DAY → 客人評價間距
+========================= */
+
+.filter-collection:last-of-type {
+  padding-bottom: 30px;
+}
+
+.reviews-section {
+  margin-top: 0;
+}
+/* =========================
+   SHOP 花朵按鈕
+========================= */
+
+.shop-button-wrap {
+  width: 100%;
+
+  margin: 10px 0 45px;
+
+  text-align: center;
+}
+
+.flower-shop-btn {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
+  padding: 13px 32px;
+
+  background: #fffdf8;
+
+  border: 1px solid #c8b9a6;
+  border-radius: 50px;
+
+  color: #756553;
+
+  font-size: 12px;
+  letter-spacing: 4px;
+
+  text-decoration: none;
+
+  box-shadow:
+    0 6px 18px rgba(117, 101, 83, 0.08);
+
+  transition: 0.3s ease;
+}
+
+.shop-flower {
+  font-size: 14px;
+  color: #b7a18b;
+}
+
+.flower-shop-btn:hover {
+  transform: translateY(-2px);
+
+  background: #f7f1e9;
+
+  box-shadow:
+    0 9px 22px rgba(117, 101, 83, 0.13);
+}
+.gallery-heading {
+  margin-bottom: 10px;
+}
+
+.shop-button-wrap {
+  margin-top: 0;
+}

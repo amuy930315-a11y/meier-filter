@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>購物車 | Meier Filter</title>
+
+
+  <style>
+
+    /* =========================
+       基本設定
+    ========================== */
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+
+      font-family: Arial, "Noto Sans TC", sans-serif;
+
+      color: #302824;
+
+      background: #fffdf9;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
+    }
+
+
+    /* =========================
+       導覽列
+    ========================== */
+
+    .navbar {
+      width: 100%;
+      height: 88px;
+
+      padding: 0 6%;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      background: rgba(255, 253, 249, 0.95);
+
+      border-bottom: 1px solid #eee6df;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: column;
+
+      line-height: 1;
+    }
+
+    .logo-main {
+      font-family: Georgia, "Times New Roman", serif;
+
+      font-size: 27px;
+      font-weight: 400;
+
+      letter-spacing: 6px;
+    }
+
+    .logo-sub {
+      margin-top: 7px;
+
+      font-size: 8px;
+
+      letter-spacing: 4px;
+
+      color: #81736b;
+    }
+
+    .home-link {
+      font-size: 11px;
+
+      letter-spacing: 2px;
+
+      color: #76675f;
+    }
+
+
+    /* =========================
+       購物車主區
+    ========================== */
+
+    .cart-page {
+      width: 100%;
+      max-width: 1000px;
+
+      margin: 0 auto;
+
+      padding: 70px 30px 120px;
+    }
+
+
+    /* =========================
+       標題
+    ========================== */
+
+    .cart-header {
+      margin-bottom: 55px;
+
+      text-align: center;
+    }
+
+    .cart-label {
+      margin-bottom: 12px;
+
+      font-size: 9px;
+
+      letter-spacing: 5px;
+
+      color: #99877c;
+    }
+
+    .cart-header h1 {
+      font-family: Georgia, "Noto Serif TC", serif;
+
+      font-size: 34px;
+      font-weight: 400;
+
+      letter-spacing: 4px;
+    }
+
+
+    /* =========================
+       商品列表
+    ========================== */
+
+    .cart-items {
+      width: 100%;
+
+      border-top: 1px solid rgba(115, 84, 65, 0.15);
+    }
+
+    .cart-item {
+      padding: 28px 0;
+
+      display: flex;
+      align-items: center;
+
+      gap: 25px;
+
+      border-bottom: 1px solid rgba(115, 84, 65, 0.15);
+    }
+
+    .cart-item-image {
+      width: 100px;
+      height: 100px;
+
+      flex-shrink: 0;
+
+      object-fit: cover;
+
+      border-radius: 4px;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item-name {
+      margin-bottom: 10px;
+
+      font-family: Georgia, "Noto Serif TC", serif;
+
+      font-size: 16px;
+
+      letter-spacing: 1px;
+    }
+
+    .cart-item-price {
+      font-size: 13px;
+
+      color: #76675f;
+    }
+
+    .remove-btn {
+      padding: 8px 5px;
+
+      border: none;
+
+      background: transparent;
+
+      color: #9a8880;
+
+      font-size: 11px;
+
+      cursor: pointer;
+    }
+
+    .remove-btn:hover {
+      color: #594034;
+    }
+
+
+    /* =========================
+       空購物車
+    ========================== */
+
+    .empty-cart {
+      padding: 80px 20px;
+
+      text-align: center;
+
+      color: #8a7b73;
+    }
+
+    .empty-cart p {
+      margin-bottom: 25px;
+
+      font-size: 14px;
+
+      letter-spacing: 2px;
+    }
+
+    .continue-shopping {
+      display: inline-block;
+
+      padding-bottom: 5px;
+
+      font-size: 12px;
+
+      letter-spacing: 2px;
+
+      border-bottom: 1px solid #8a7b73;
+    }
+
+
+    /* =========================
+       結帳區
+    ========================== */
+
+    .cart-summary {
+      width: 100%;
+      max-width: 400px;
+
+      margin: 40px 0 0 auto;
+
+      padding: 28px;
+
+      background: rgba(255, 255, 255, 0.72);
+
+      border: 1px solid rgba(115, 84, 65, 0.14);
+
+      border-radius: 14px;
+    }
+
+    .summary-row {
+      margin-bottom: 22px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .summary-row > span:first-child {
+      font-size: 12px;
+
+      letter-spacing: 1px;
+
+      color: #82736b;
+    }
+
+    .total-price {
+      font-family: Georgia, serif;
+
+      font-size: 22px;
+
+      letter-spacing: 1px;
+    }
+    /* =========================
+   優惠價格顯示
+========================= */
+
+.price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.original-price {
+  display: none;
+
+  margin-bottom: 4px;
+
+  font-family: Georgia, serif;
+  font-size: 13px;
+
+  color: #aaa09a;
+
+  text-decoration: line-through;
+}
+
+
+    /* =========================
+       前往結帳按鈕
+    ========================== */
+
+    #checkout-form {
+      width: 100%;
+    }
+
+    .checkout-btn {
+      width: 100%;
+
+      padding: 15px 25px;
+
+      background: #735441;
+
+      color: #ffffff;
+
+      border: none;
+
+      border-radius: 30px;
+
+      font-size: 14px;
+
+      letter-spacing: 2px;
+
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    .checkout-btn:hover {
+      background: #594034;
+    }
+
+
+    /* =========================
+       安全付款文字
+    ========================== */
+
+    .secure-note {
+      margin-top: 25px;
+
+      text-align: center;
+
+      font-size: 10px;
+
+      line-height: 1.8;
+
+      letter-spacing: 1px;
+
+      color: #a09189;
+    }
+
+
+    /* =========================
+       手機版
+    ========================== */
+
+    @media (max-width: 700px) {
+
+      .navbar {
+        height: 74px;
+
+        padding: 0 5%;
+      }
+
+      .logo-main {
+        font-size: 21px;
+      }
+
+      .logo-sub {
+        font-size: 7px;
+
+        letter-spacing: 3px;
+      }
+
+      .cart-page {
+        padding: 50px 20px 80px;
+      }
+
+      .cart-header {
+        margin-bottom: 40px;
+      }
+
+      .cart-header h1 {
+        font-size: 29px;
+      }
+
+      .cart-item {
+        gap: 16px;
+      }
+
+      .cart-item-image {
+        width: 78px;
+        height: 78px;
+      }
+
+      .cart-item-name {
+        font-size: 14px;
+      }
+
+      .cart-summary {
+        max-width: 100%;
+
+        margin-top: 35px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       導覽列
+  ========================== -->
+
+  <header class="navbar">
+
+    <a
+      href="index.html"
+      class="logo"
+    >
+
+      <span class="logo-main">
+        MEIER
+      </span>
+
+      <span class="logo-sub">
+        FILTER & PRESET
+      </span>
+
+    </a>
+
+
+    <a
+      href="index.html"
+      class="home-link"
+    >
+      回到首頁
+    </a>
+
+  </header>
+
+
+
+  <!-- =========================
+       購物車主頁
+  ========================== -->
+
+  <main class="cart-page">
+
+
+    <!-- 標題 -->
+
+    <div class="cart-header">
+
+      <p class="cart-label">
+        SHOPPING CART
+      </p>
+
+      <h1>
+        購物車
+      </h1>
+
+    </div>
+
+
+
+    <!-- =========================
+         商品列表
+    ========================== -->
+
+    <div
+      class="cart-items"
+      id="cart-items"
+    >
+    </div>
+
+
+
+    <!-- =========================
+         結帳區
+    ========================== -->
+
+    <div
+      class="cart-summary"
+      id="cart-summary"
+    >
+
+      <div class="summary-row">
+
+  <span>
+    總金額
+  </span>
+
+  <div class="price-box">
+
+    <!-- 原價 -->
+    <span
+      class="original-price"
+      id="original-price"
+    ></span>
+
+    <!-- 優惠後價格 -->
+    <span
+      class="total-price"
+      id="total-price"
+    >
+      NT$0
+    </span>
+
+  </div>
+
+</div>
+
+
+
+      <!-- 綠界結帳 -->
+
+      <form
+        action="/.netlify/functions/create-payment"
+        method="POST"
+        id="checkout-form"
+      >
+
+        <input
+          type="hidden"
+          name="cart"
+          id="checkout-cart"
+        >
+
+        <button
+          type="submit"
+          class="checkout-btn"
+        >
+          前往結帳
+        </button>
+
+      </form>
+
+
+      <p class="secure-note">
+        將前往綠界安全付款頁面完成信用卡付款。
+      </p>
+
+    </div>
+
+
+  </main>
+
+
+
+  <!-- =========================
+       購物車 JavaScript
+  ========================== -->
+
+  <script>
+
+
+    /* =========================
+       商品資料
+    ========================== */
+
+  const PRODUCTS = {
+
+  "creamy-day": {
+    id: "creamy-day",
+    name: "CREAMY DAY 奶油日光",
+    price: 199,
+    image: "images/creamy-day-thumb.jpg"
+  },
+
+  "color-breeze": {
+    id: "color-breeze",
+    name: "COLOR BREEZE 晴彩微風",
+    price: 199,
+   image: "images/color-breeze.jpg"
+  },
+
+  "golden-day": {
+    id: "golden-day",
+    name: "GOLDEN DAY 金色日光",
+    price: 199,
+    image: "images/golden-day-product.png"
+  },
+};
+
+
+
+    /* =========================
+       取得購物車
+    ========================== */
+
+    function getCart() {
+
+      try {
+
+        const savedCart =
+          localStorage.getItem("meier-cart");
+
+
+        if (!savedCart) {
+
+          return [];
+
+        }
+
+
+        const parsedCart =
+          JSON.parse(savedCart);
+
+
+        if (!Array.isArray(parsedCart)) {
+
+          return [];
+
+        }
+
+
+        return parsedCart;
+
+
+      } catch (error) {
+
+        console.error(
+          "讀取購物車失敗：",
+          error
+        );
+
+        return [];
+
+      }
+
+    }
+
+
+
+    /* =========================
+       儲存購物車
+    ========================== */
+
+    function saveCart(cart) {
+
+      localStorage.setItem(
+        "meier-cart",
+        JSON.stringify(cart)
+      );
+
+    }
+
+
+
+    /* =========================
+       從網址加入商品
+       cart.html?add=creamy-day
+    ========================== */
+
+    function addProductFromUrl() {
+
+      const urlParams =
+        new URLSearchParams(
+          window.location.search
+        );
+
+
+      const productId =
+        urlParams.get("add");
+
+
+      if (!productId) {
+
+        return;
+
+      }
+
+
+      const product =
+        PRODUCTS[productId];
+
+
+      if (!product) {
+
+        console.error(
+          "找不到商品：",
+          productId
+        );
+
+        return;
+
+      }
+
+
+      let cart =
+        getCart();
+
+
+      const alreadyExists =
+        cart.some(function (item) {
+
+          return item.id === product.id;
+
+        });
+
+
+      if (!alreadyExists) {
+
+        cart.push(product);
+
+        saveCart(cart);
+
+      }
+
+
+/* 如果是商品頁加入購物車
+   加入完成後回首頁濾鏡區 */
+
+const returnTo =
+  urlParams.get("return");
+
+if (returnTo === "filters") {
+
+  window.location.href =
+    "index.html#filters";
+
+  return;
+
+}
+
+
+/* 清除網址上的 ?add= */
+
+window.history.replaceState(
+  {},
+  "",
+  window.location.pathname
+);
+
+      /* 清除網址上的 ?add= */
+
+      window.history.replaceState(
+        {},
+        "",
+        window.location.pathname
+      );
+
+    }
+
+
+
+    /* =========================
+       移除商品
+    ========================== */
+
+    function removeFromCart(productId) {
+
+      let cart =
+        getCart();
+
+
+      cart =
+        cart.filter(function (item) {
+
+          return item.id !== productId;
+
+        });
+
+
+      saveCart(cart);
+
+
+      renderCart();
+
+    }
+
+
+
+    /* =========================
+       顯示購物車
+    ========================== */
+
+    function renderCart() {
+
+      const cart =
+        getCart();
+
+
+      const cartItems =
+      document.getElementById(
+
+          "cart-items"
+
+        );
+
+      const cartSummary =
+
+        document.getElementById(
+
+          "cart-summary"
+
+        );
+
+      const totalPrice =
+
+        document.getElementById(
+
+          "total-price"
+
+        );
+
+      cartItems.innerHTML = "";
+
+      /* =========================
+
+         空購物車
+
+      ========================== */
+
+      if (cart.length === 0) {
+
+        cartItems.innerHTML = `
+
+          <div class="empty-cart">
+
+            <p>
+
+              購物車目前是空的 ♡
+
+            </p>
+
+            <a
+
+              href="index.html#filters"
+
+              class="continue-shopping"
+
+            >
+
+              繼續逛逛
+
+            </a>
+
+          </div>
+
+        `;
+
+        cartSummary.style.display =
+
+          "none";
+
+        return;
+
+      }
+
+      /* =========================
+
+         有商品
+
+      ========================== */
+
+      cartSummary.style.display =
+
+        "block";
+
+      let total = 0;
+
+      cart.forEach(function (item) {
+
+  /* 取得最新商品資料 */
+  const latestProduct =
+    PRODUCTS[item.id] || item;
+
+  const itemPrice =
+    Number(latestProduct.price) || 0;
+
+  total += itemPrice;
+
+  const cartItem =
+    document.createElement("div");
+
+  cartItem.className =
+    "cart-item";
+
+  cartItem.innerHTML = `
+
+    <img
+      src="${latestProduct.image}"
+      alt="${latestProduct.name}"
+      class="cart-item-image"
+    >
+
+    <div class="cart-item-info">
+
+      <p class="cart-item-name">
+        ${latestProduct.name}
+      </p>
+
+      <p class="cart-item-price">
+        NT$${itemPrice}
+      </p>
+
+    </div>
+
+    <button
+      type="button"
+      class="remove-btn"
+      data-product-id="${latestProduct.id}"
+    >
+      移除
+    </button>
+
+  `;
+
+  const removeButton =
+    cartItem.querySelector(".remove-btn");
+
+  removeButton.addEventListener(
+    "click",
+    function () {
+
+      removeFromCart(
+        latestProduct.id
+      );
+
+    }
+  );
+
+  cartItems.appendChild(cartItem);
+
+});
+
+ /* =========================
+   優惠價格計算
+   單款 199
+   任選 3 款 500
+========================= */
+
+const originalPrice =
+  document.getElementById(
+    "original-price"
+  );
+
+const quantity = cart.length;
+
+/* 原價 */
+const originalTotal =
+  quantity * 199;
+
+/* 幾組三款 */
+const bundleCount =
+  Math.floor(quantity / 3);
+
+/* 剩下幾款 */
+const remainingCount =
+  quantity % 3;
+
+/* 優惠後價格 */
+const finalTotal =
+  (bundleCount * 500) +
+  (remainingCount * 199);
+
+
+/* 滿三款顯示原價刪除線 */
+if (quantity >= 3) {
+
+  originalPrice.textContent =
+    "NT$" + originalTotal;
+
+  originalPrice.style.display =
+    "block";
+
+} else {
+
+  originalPrice.style.display =
+    "none";
+
+}
+
+
+/* 顯示優惠後總價 */
+totalPrice.textContent =
+  "NT$" + finalTotal;
+
+}
+
+    
+    /* =========================
+
+       結帳
+
+    ========================== */
+
+    const checkoutForm =
+
+      document.getElementById(
+
+        "checkout-form"
+
+      );
+
+    checkoutForm.addEventListener(
+
+      "submit",
+
+      function (event) {
+
+        const cart =
+
+          getCart();
+
+        /* 防止空購物車結帳 */
+
+        if (cart.length === 0) {
+
+          event.preventDefault();
+
+          alert(
+
+            "購物車目前是空的 ♡"
+
+          );
+
+          return;
+
+        }
+
+        /* 只把商品 ID 傳給後端 */
+
+        const cartIds =
+
+          cart.map(function (item) {
+
+            return item.id;
+
+          });
+
+        document.getElementById(
+
+          "checkout-cart"
+
+        ).value =
+
+          JSON.stringify(
+
+            cartIds
+
+          );
+
+      }
+
+    );
+
+    /* =========================
+
+       啟動購物車
+
+    ========================== */
+
+    /* 先檢查網址有沒有商品 */
+
+    addProductFromUrl();
+
+    /* 再顯示購物車 */
+
+    renderCart();
+
+  </script>
+
+</body>
+
+</html>
+ 

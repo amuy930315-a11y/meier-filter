@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>美食濾鏡｜MEIER</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =========================
+       導覽列
+  ========================== -->
+
+  <header class="navbar">
+
+    <a
+      href="index.html"
+      class="logo"
+    >
+
+      <span class="logo-main">
+        MEIER
+      </span>
+
+      <span class="logo-sub">
+        FILTER & PRESET
+      </span>
+
+    </a>
+
+
+    <div class="nav-actions">
+
+      <a href="index.html#filters">
+        濾鏡
+      </a>
+
+      <a
+        href="cart.html"
+        class="cart-link"
+      >
+        購物車（<span id="cart-count">0</span>）
+      </a>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- =========================
+       美食濾鏡首頁
+  ========================== -->
+
+  <main class="food-page">
+
+
+    <section class="food-hero">
+
+      <p class="food-small-title">
+        MEIER COLLECTION
+      </p>
+
+      <h1>
+        FOOD FILTER
+      </h1>
+
+      <p class="food-cn-title">
+        美食濾鏡
+      </p>
+
+      <p class="food-description">
+        為日常餐桌與咖啡時光，
+        留下更有質感的色彩。
+      </p>
+
+    </section>
+
+    <!-- =========================
+     美食濾鏡全包商品
+========================== -->
+
+<section class="food-pack-section">
+
+  <div class="food-pack-card">
+
+
+    <!-- 15 張實拍照片 -->
+    <div class="food-photo-grid">
+
+      <img src="images/food-01.jpg" alt="美食濾鏡 01">
+      <img src="images/food-02.jpg" alt="美食濾鏡 02">
+      <img src="images/food-03.jpg" alt="美食濾鏡 03">
+      <img src="images/food-04.jpg" alt="美食濾鏡 04">
+      <img src="images/food-05.jpg" alt="美食濾鏡 05">
+
+      <img src="images/food-06.jpg" alt="美食濾鏡 06">
+      <img src="images/food-07.jpg" alt="美食濾鏡 07">
+      <img src="images/food-08.jpg" alt="美食濾鏡 08">
+      <img src="images/food-09.jpg" alt="美食濾鏡 09">
+      <img src="images/food-10.jpg" alt="美食濾鏡 10">
+
+      <img src="images/food-11.jpg" alt="美食濾鏡 11">
+      <img src="images/food-12.jpg" alt="美食濾鏡 12">
+      <img src="images/food-13.jpg" alt="美食濾鏡 13">
+      <img src="images/food-14.jpg" alt="美食濾鏡 14">
+      <img src="images/food-15.jpg" alt="美食濾鏡 15">
+
+    </div>
+
+
+    <!-- 商品資訊 -->
+
+    <div class="food-pack-info">
+
+      <p class="food-pack-label">
+        MEIER COLLECTION
+      </p>
+
+      <h1>
+        FOOD FILTER PACK
+      </h1>
+
+      <p class="food-pack-cn">
+        美食濾鏡全包
+      </p>
+
+
+      <p class="food-pack-description">
+        為日常餐桌與咖啡時光，
+        留下更有質感的色彩。
+      </p>
+
+
+      <!-- 特色 -->
+
+      <div class="food-pack-features">
+
+        <div>
+          <span>15</span>
+          <p>款濾鏡</p>
+        </div>
+
+        <div>
+          <span>∞</span>
+          <p>永久使用</p>
+        </div>
+
+        <div>
+          <span>♡</span>
+          <p>一次收藏</p>
+        </div>
+
+      </div>
+
+
+      <!-- 價格 -->
+
+      <p class="food-original-price">
+        NT$1,800
+      </p>
+
+      <p class="food-pack-price">
+        NT$190
+      </p>
+
+
+      <!-- 加入購物車 -->
+
+      <button
+        type="button"
+        class="buy-btn food-pack-buy"
+        onclick="addToCartAndReturn('food-filter-pack', 'FOOD FILTER PACK')"
+      >
+        加入購物車
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+  </main>
+
+
+
+  <!-- 購物車數量 -->
+
+  <script>
+
+    let cart = [];
+
+    try {
+
+      cart =
+        JSON.parse(
+          localStorage.getItem("meier-cart")
+        ) || [];
+
+    } catch (error) {
+
+      cart = [];
+
+    }
+
+
+    const uniqueCart =
+      cart.filter(function (item, index, array) {
+
+        return index ===
+          array.findIndex(function (product) {
+
+            return product.id === item.id;
+
+          });
+
+      });
+
+
+    const cartCount =
+      document.getElementById("cart-count");
+
+
+    if (cartCount) {
+
+      cartCount.textContent =
+        uniqueCart.length;
+
+    }
+
+  </script>
+
+
+</body>
+
+</html>
