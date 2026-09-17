@@ -158,36 +158,112 @@
       letter-spacing: 2px;
     }
 
-    .before-after-grid {
-      display: grid;
+    .image-compare {
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
 
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
+  cursor: ew-resize;
+  user-select: none;
+  touch-action: none;
+}
 
-      max-width: 850px;
+/* AFTER 底圖 */
+.compare-after {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
 
-      margin: 0 auto;
-    }
+/* BEFORE 疊在上面 */
+.compare-before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
 
-    .compare-item img {
-      width: 100%;
-      height: 420px;
+.compare-before img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 850px;
+  height: 500px;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+}
 
-      object-fit: cover;
+/* 中間白線 */
+.compare-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 2px;
+  height: 100%;
+  background: white;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+}
 
-      display: block;
-    }
+/* 中間圓形箭頭 */
+.compare-handle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
 
-    .compare-item p {
-      margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      text-align: center;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
 
-      font-size: 11px;
-      letter-spacing: 3px;
+  background: white;
+  color: #735441;
 
-      color: #6f625b;
-    }
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.18);
+
+  z-index: 4;
+  pointer-events: none;
+}
+
+.compare-label {
+  position: absolute;
+  bottom: 18px;
+  padding: 7px 12px;
+
+  background: rgba(255, 255, 255, 0.85);
+
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  z-index: 5;
+  pointer-events: none;
+}
+
+.before-label {
+  left: 18px;
+}
+
+.after-label {
+  right: 18px;
+}
 
 
     /* =========================
@@ -501,15 +577,20 @@
         margin-bottom: 75px;
       }
 
-      .before-after-grid {
-        grid-template-columns: 1fr;
+      .image-compare {
+  height: 320px;
+}
 
-        max-width: 400px;
-      }
+.compare-before img {
+  width: calc(100vw - 40px);
+  height: 320px;
+}
 
-      .compare-item img {
-        height: auto;
-      }
+.compare-handle {
+  width: 46px;
+  height: 46px;
+  font-size: 18px;
+}
 
 
       /* 商品 */
@@ -644,44 +725,40 @@
 
 
 
-      <div class="before-after-grid">
+      <div class="image-compare">
 
+  <!-- AFTER 底圖 -->
+  <img
+    src="images/golden-day-after.jpg"
+    class="compare-after"
+    alt="GOLDEN DAY After"
+  >
 
-        <!-- BEFORE：PNG -->
+  <!-- BEFORE 上層 -->
+  <div class="compare-before">
+    <img
+      src="images/golden-day-before.jpg"
+      alt="GOLDEN DAY Before"
+    >
+  </div>
 
-        <div class="compare-item">
+  <!-- 中間白線 -->
+  <div class="compare-line"></div>
 
-          <img
-            src="images/golden-day-before.jpg"
-            alt="GOLDEN DAY Before"
-          >
+  <!-- 拖曳圓鈕 -->
+  <div class="compare-handle">
+    ← →
+  </div>
 
-          <p>
-            BEFORE
-          </p>
+  <span class="compare-label before-label">
+    BEFORE
+  </span>
 
-        </div>
+  <span class="compare-label after-label">
+    AFTER
+  </span>
 
-
-
-        <!-- AFTER：JPG -->
-
-        <div class="compare-item">
-
-          <img
-            src="images/golden-day-after.jpg"
-            alt="GOLDEN DAY After"
-          >
-
-          <p>
-            AFTER
-          </p>
-
-        </div>
-
-
-      </div>
-
+</div>
     </section>
 
 
@@ -900,7 +977,92 @@
   </main>
 <div id="cart-toast" class="cart-toast"></div>
 <script>
+/* =========================
+   BEFORE / AFTER 拖曳
+========================= */
 
+const imageCompare =
+  document.querySelector(".image-compare");
+
+const compareBefore =
+  document.querySelector(".compare-before");
+
+const compareLine =
+  document.querySelector(".compare-line");
+
+const compareHandle =
+  document.querySelector(".compare-handle");
+
+let dragging = false;
+
+function moveCompare(event) {
+
+  const rect =
+    imageCompare.getBoundingClientRect();
+
+  let x =
+    event.clientX - rect.left;
+
+  if (x < 0) {
+    x = 0;
+  }
+
+  if (x > rect.width) {
+    x = rect.width;
+  }
+
+  const percent =
+    (x / rect.width) * 100;
+
+  compareBefore.style.width =
+    percent + "%";
+
+  compareLine.style.left =
+    percent + "%";
+
+  compareHandle.style.left =
+    percent + "%";
+}
+
+imageCompare.addEventListener(
+  "pointerdown",
+  function (event) {
+
+    dragging = true;
+
+    imageCompare.setPointerCapture(
+      event.pointerId
+    );
+
+    moveCompare(event);
+  }
+);
+
+imageCompare.addEventListener(
+  "pointermove",
+  function (event) {
+
+    if (!dragging) return;
+
+    moveCompare(event);
+  }
+);
+
+imageCompare.addEventListener(
+  "pointerup",
+  function () {
+    dragging = false;
+  }
+);
+
+imageCompare.addEventListener(
+  "pointercancel",
+  function () {
+    dragging = false;
+  }
+);
+
+</script>
 function addToCartAndReturn(productId, productName) {
 
   const toast =
