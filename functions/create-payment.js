@@ -141,8 +141,8 @@ exports.handler = async function (event) {
   // 讀取購物車
   // =========================
 
-  let cartIds = [];
-
+let cartIds = [];
+let customerEmail = "";
   try {
     const body =
       new URLSearchParams(
@@ -150,10 +150,13 @@ exports.handler = async function (event) {
       );
 
     const cartJson =
-      body.get("cart");
+  body.get("cart");
 
-    cartIds =
-      JSON.parse(cartJson || "[]");
+customerEmail =
+  body.get("email") || "";
+
+cartIds =
+  JSON.parse(cartJson || "[]");
 
   } catch (error) {
 
@@ -163,7 +166,21 @@ exports.handler = async function (event) {
     };
 
   }
+// =========================
+// 檢查 Email
+// =========================
 
+const emailPattern =
+  /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+if (!emailPattern.test(customerEmail)) {
+
+  return {
+    statusCode: 400,
+    body: "請輸入正確的 Email"
+  };
+
+}
 
   // =========================
   // 檢查商品

@@ -312,11 +312,56 @@
   text-decoration: line-through;
 }
 
+/* =========================
+   Email 收件欄位
+========================= */
 
-    /* =========================
-       前往結帳按鈕
-    ========================== */
+.email-field {
+  margin-bottom: 22px;
+}
 
+.email-field label {
+  display: block;
+  margin-bottom: 10px;
+
+  font-size: 12px;
+  letter-spacing: 1px;
+
+  color: #6f625b;
+}
+
+.email-field input {
+  width: 100%;
+  height: 46px;
+
+  padding: 0 16px;
+
+  border: 1px solid rgba(115, 84, 65, 0.22);
+  border-radius: 8px;
+
+  background: #fffdf9;
+  color: #302824;
+
+  font-size: 13px;
+
+  outline: none;
+}
+
+.email-field input:focus {
+  border-color: #735441;
+}
+
+.email-field p {
+  margin-top: 8px;
+
+  font-size: 10px;
+  line-height: 1.6;
+
+  color: #a09189;
+}
+/* =========================
+   前往結帳按鈕
+========================= */
     #checkout-form {
       width: 100%;
     }
@@ -542,12 +587,33 @@
         method="POST"
         id="checkout-form"
       >
+ <!-- 收件 Email -->
+<div class="email-field">
 
-        <input
-          type="hidden"
-          name="cart"
-          id="checkout-cart"
-        >
+  <label for="customer-email">
+    接收濾鏡的 Email
+  </label>
+
+  <input
+    type="email"
+    id="customer-email"
+    name="email"
+    placeholder="example@gmail.com"
+    required
+  >
+
+  <p>
+    付款完成後，下載連結將寄送至此 Email ♡
+  </p>
+
+</div>
+
+<!-- 購物車商品資料 -->
+<input
+  type="hidden"
+  name="cart"
+  id="checkout-cart"
+>
 
         <button
           type="submit"

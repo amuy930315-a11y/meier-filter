@@ -11,11 +11,21 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
   margin: 0;
+  min-height: 100vh;
 
-  background: #faf8f4;
+  background:
+    linear-gradient(
+      rgba(250, 248, 244, 0.28),
+      rgba(250, 248, 244, 0.28)
+    ),
+    url("images/snow-bg.png");
+
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 
   color: #756553;
 
@@ -88,8 +98,8 @@ body {
 
   padding: 50px 25px 100px;
 
-  /* 商品區整體背景 */
-  background: #f3eee7;
+   /* 讓雪景背景透出來 */
+  background: transparent;
 }
 
 
@@ -443,6 +453,77 @@ body {
 
   .product-info h2 {
     font-size: 10px;
+  }
+
+}
+/* =========================
+   MEIER 手作說明
+========================= */
+
+.handmade-note {
+  width: 70%;
+  max-width: 300px;
+
+  margin: 25px auto 40px;
+  padding: 14px 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  border: 1px solid #e7e3e0;
+  border-radius: 12px;
+
+  box-shadow: 0 8px 25px rgba(80, 65, 55, 0.05);
+}
+
+.handmade-note p {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 14px;
+  line-height: 1.8;
+  letter-spacing: 2px;
+
+  color: #716965;
+}
+
+.handmade-note .snowflake {
+  font-size: 13px;
+  color: #c7c9cc;
+  opacity: 0.8;
+}
+/* =========================
+   手機版手作說明
+========================= */
+
+@media (max-width: 700px) {
+
+  .handmade-note {
+    width: 94%;
+
+    margin: 25px auto 35px;
+    padding: 16px 10px;
+
+    gap: 6px;
+
+    border-radius: 12px;
+  }
+
+  .handmade-note p {
+    font-size: 10px;
+    letter-spacing: 0.5px;
+
+    white-space: nowrap;
+  }
+
+  .handmade-note .snowflake {
+    font-size: 11px;
+    flex-shrink: 0;
   }
 
 }
