@@ -3097,3 +3097,28 @@ a:nth-child(12) {
 .shop-button-wrap {
   margin-top: 0;
 }
+/* =========================
+   手機版雪景背景
+========================= */
+@media (max-width: 700px) {
+
+  body {
+    background-color: #f3eee7;
+    background-image: url("images/snow-bg.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+
+    /* 手機不要 fixed */
+    background-attachment: scroll;
+  }
+
+  .navbar {
+    background: transparent;
+  }
+
+  .filter-gallery {
+    background: transparent;
+  }
+
+}
