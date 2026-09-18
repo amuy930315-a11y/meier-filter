@@ -30,8 +30,11 @@ const PRODUCTS = {
   "golden-day": {
     name: "GOLDEN DAY 金色日光",
     price: 199
+  },
+  "disney-day": {
+    name: "DISNEY DAY 迪士尼日光",
+    price: 199
   }
-
 };
 
 
