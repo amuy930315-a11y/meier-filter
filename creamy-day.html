@@ -1000,7 +1000,8 @@ imageCompare.addEventListener(
 
 function addToCartAndReturn(productId, productName) {
 
-  const toast = document.getElementById("cart-toast");
+  const toast =
+    document.getElementById("cart-toast");
 
   toast.textContent =
     "已將 " + productName + " 加入購物車囉！";
@@ -1010,9 +1011,9 @@ function addToCartAndReturn(productId, productName) {
   setTimeout(function () {
 
     window.location.href =
-      "shop.html?add=" +
+      "cart.html?add=" +
       productId +
-      "&return=filters";
+      "&return=shop";
 
   }, 1000);
 

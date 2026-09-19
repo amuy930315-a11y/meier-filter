@@ -1057,20 +1057,17 @@ function addToCartAndReturn(productId, productName) {
   const toast =
     document.getElementById("cart-toast");
 
-  /* 顯示成功提示 */
   toast.textContent =
     "已將 " + productName + " 加入購物車囉！";
 
   toast.classList.add("show");
 
-
-  /* 1 秒後加入購物車 */
   setTimeout(function () {
 
     window.location.href =
-      "shop.html?add=" +
+      "cart.html?add=" +
       productId +
-      "&return=filters";
+      "&return=shop";
 
   }, 1000);
 

@@ -833,6 +833,15 @@
 const returnTo =
   urlParams.get("return");
 
+if (returnTo === "shop") {
+
+  window.location.href =
+    "shop.html";
+
+  return;
+
+}
+
 if (returnTo === "filters") {
 
   window.location.href =
@@ -841,7 +850,6 @@ if (returnTo === "filters") {
   return;
 
 }
-
 
 /* 清除網址上的 ?add= */
 

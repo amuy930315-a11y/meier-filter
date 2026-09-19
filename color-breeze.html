@@ -1075,12 +1075,15 @@ function addToCartAndReturn(productId, productName) {
   setTimeout(function () {
 
     window.location.href =
-  "shop.html?add=" +
-  productId;
+      "cart.html?add=" +
+      productId +
+      "&return=shop";
 
   }, 1000);
 
 }
+
+
 </script>
 </body>
 
