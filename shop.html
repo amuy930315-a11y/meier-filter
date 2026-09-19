@@ -9,9 +9,7 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-
-  <title>SHOP｜MEIER FILTER</title>
-
+<title>SHOP｜MEIER FILTER</title>
   <link
     rel="stylesheet"
     href="shop.css"
@@ -29,22 +27,22 @@
 
   <header class="shop-header">
 
-    <a
-      href="index.html"
-      class="shop-logo"
-    >
-      Meier Filter
-    </a>
+  <!-- 左邊 -->
+  <a
+    href="index.html"
+    class="back-home"
+  >
+    HOME
+  </a>
 
-
-    <a
-      href="index.html"
-      class="back-home"
-    >
-      HOME
-    </a>
-
-  </header>
+  <!-- 右邊 -->
+ <a
+  href="cart.html"
+  class="cart-link"
+>
+  購物車（<span id="cart-count">0</span>）
+</a>
+</header>
 
 
 
@@ -58,10 +56,6 @@
     <!-- 標題 -->
 
     <div class="shop-heading">
-
-      <p class="shop-small-title">
-        MEIER FILTER
-      </p>
 
       <h1>
         SHOP
@@ -420,7 +414,42 @@
 
   </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
+  let cart = [];
+
+  try {
+    cart =
+      JSON.parse(
+        localStorage.getItem("meier-cart")
+      ) || [];
+  } catch (error) {
+    cart = [];
+  }
+
+  /* 同一款商品只計算一次 */
+  const uniqueCart =
+    cart.filter(function (item, index, array) {
+
+      return index ===
+        array.findIndex(function (product) {
+          return product.id === item.id;
+        });
+
+    });
+
+  /* 更新購物車數量 */
+  const cartCount =
+    document.getElementById("cart-count");
+
+  if (cartCount) {
+    cartCount.textContent =
+      uniqueCart.length;
+  }
+
+});
+</script>
 </body>
 
 </html>
