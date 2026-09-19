@@ -2,7 +2,6 @@
 <html lang="zh-Hant">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -10,14 +9,9 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <title>GOLDEN DAY | Meier Filter</title>
-
+  <title>CREAMY DAY | Meier Filter</title>
 
   <style>
-
-    /* =========================
-       基本設定
-    ========================== */
 
     * {
       margin: 0;
@@ -39,6 +33,7 @@
       background-repeat: no-repeat;
       background-attachment: fixed;
     }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -49,9 +44,7 @@
     }
 
 
-    /* =========================
-       導覽列
-    ========================== */
+    /* 導覽列 */
 
     .navbar {
       width: 100%;
@@ -63,47 +56,44 @@
       align-items: center;
       justify-content: space-between;
 
-      background: rgba(255, 253, 249, 0.95);
+      background: rgba(255, 253, 249, 0.88);
 
-      border-bottom: 1px solid #eee6df;
+      border-bottom: 1px solid rgba(238, 232, 227, 0.8);
+
+      backdrop-filter: blur(8px);
+
+      position: relative;
+      z-index: 10;
     }
 
     .logo {
       display: flex;
       flex-direction: column;
-
       line-height: 1.1;
     }
 
     .logo-main {
       font-family: Georgia, "Times New Roman", serif;
-
       font-size: 27px;
       font-weight: 400;
-
       letter-spacing: 6px;
     }
 
     .logo-sub {
       margin-top: 5px;
-
       font-size: 8px;
       letter-spacing: 4px;
-
       color: #81736b;
     }
 
     .back-home {
       font-size: 12px;
       letter-spacing: 2px;
-
       color: #65554c;
     }
 
 
-    /* =========================
-       商品頁
-    ========================== */
+    /* 商品頁外框 */
 
     .product-page {
       width: 100%;
@@ -126,9 +116,7 @@
     }
 
 
-    /* =========================
-       BEFORE / AFTER
-    ========================== */
+    /* BEFORE / AFTER */
 
     .before-after-section {
       margin-bottom: 100px;
@@ -136,7 +124,6 @@
 
     .before-after-title {
       margin-bottom: 35px;
-
       text-align: center;
     }
 
@@ -196,31 +183,38 @@
   position: absolute;
   top: 0;
   left: 0;
+
   width: 850px;
   height: 500px;
   max-width: none;
+
   object-fit: cover;
   display: block;
 }
 
-/* 中間白線 */
+/* 中間線 */
 .compare-line {
   position: absolute;
   top: 0;
   left: 50%;
+
   width: 2px;
   height: 100%;
+
   background: white;
+
   transform: translateX(-50%);
   z-index: 3;
+
   pointer-events: none;
 }
 
-/* 中間圓形箭頭 */
+/* 圓形箭頭 */
 .compare-handle {
   position: absolute;
   top: 50%;
   left: 50%;
+
   width: 52px;
   height: 52px;
 
@@ -229,6 +223,7 @@
   justify-content: center;
 
   transform: translate(-50%, -50%);
+
   border-radius: 50%;
 
   background: white;
@@ -240,12 +235,17 @@
   box-shadow: 0 3px 15px rgba(0, 0, 0, 0.18);
 
   z-index: 4;
+
   pointer-events: none;
 }
+
+/* 隱形滑動區 */
+
 
 .compare-label {
   position: absolute;
   bottom: 18px;
+
   padding: 7px 12px;
 
   background: rgba(255, 255, 255, 0.85);
@@ -254,6 +254,7 @@
   letter-spacing: 2px;
 
   z-index: 5;
+
   pointer-events: none;
 }
 
@@ -265,10 +266,7 @@
   right: 18px;
 }
 
-
-    /* =========================
-       商品主區
-    ========================== */
+    /* 商品主區 */
 
     .product-main {
       display: flex;
@@ -280,10 +278,6 @@
     }
 
 
-    /* =========================
-       商品圖片
-    ========================== */
-
     .product-image {
       width: 320px;
 
@@ -291,16 +285,16 @@
     }
 
     .product-image img {
-      width: 100%;
+      width: 320px;
+      max-width: 100%;
+
       height: auto;
 
       display: block;
     }
 
 
-    /* =========================
-       商品資訊
-    ========================== */
+    /* 商品資訊 */
 
     .product-info {
       width: 400px;
@@ -345,10 +339,6 @@
     }
 
 
-    /* =========================
-       商品詳細
-    ========================== */
-
     .product-details {
       padding: 18px 0;
 
@@ -364,10 +354,6 @@
     }
 
 
-    /* =========================
-       價格
-    ========================== */
-
     .product-price {
       margin: 25px 0;
 
@@ -379,9 +365,7 @@
     }
 
 
-    /* =========================
-       三個按鈕
-    ========================== */
+    /* 三個按鈕 */
 
     .product-buttons {
       display: flex;
@@ -396,6 +380,7 @@
 
     .buy-now-form {
       margin: 0;
+      padding: 0;
     }
 
     .buy-btn,
@@ -434,36 +419,35 @@
     .try-btn {
       border: 1px solid #735441;
 
-      background: #fffdf9;
+      background: rgba(255, 255, 255, 0.45);
 
       color: #735441;
     }
 
     .try-btn:hover {
-      background: #ffffff;
+      background: rgba(255, 255, 255, 0.9);
     }
 
 
-    /* =========================
-       購買說明
-    ========================== */
+    /* 購買說明 */
 
     .purchase-info {
       margin-top: 35px;
 
       padding: 24px 26px;
 
-      background: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.55);
 
       border: 1px solid rgba(115, 84, 65, 0.12);
-
       border-radius: 12px;
+
+      backdrop-filter: blur(5px);
     }
 
     .purchase-info-title {
       margin-bottom: 12px;
 
-      font-family: Georgia, serif;
+      font-family: Georgia, "DFKai-SB", serif;
 
       font-size: 16px;
       letter-spacing: 2px;
@@ -473,16 +457,13 @@
 
     .purchase-info p {
       font-size: 13px;
-
       line-height: 2;
 
       color: #6f625b;
     }
 
 
-    /* =========================
-       WHAT'S INCLUDED
-    ========================== */
+    /* WHAT'S INCLUDED */
 
     .included-section {
       max-width: 750px;
@@ -493,9 +474,11 @@
 
       text-align: center;
 
-      background: rgba(255, 255, 255, 0.75);
+      background: rgba(255, 255, 255, 0.55);
 
-      border: 1px solid rgba(115, 84, 65, 0.10);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+
+      backdrop-filter: blur(4px);
     }
 
     .included-label {
@@ -540,15 +523,12 @@
     }
 
 
-    /* =========================
-       手機版
-    ========================== */
+    /* 手機版 */
 
     @media (max-width: 700px) {
 
       .navbar {
         height: 74px;
-
         padding: 0 5%;
       }
 
@@ -558,7 +538,6 @@
 
       .logo-sub {
         font-size: 7px;
-
         letter-spacing: 3px;
       }
 
@@ -570,14 +549,11 @@
         margin-bottom: 40px;
       }
 
-
-      /* BEFORE / AFTER */
-
       .before-after-section {
         margin-bottom: 75px;
       }
 
-      .image-compare {
+    .image-compare {
   height: 320px;
 }
 
@@ -592,24 +568,22 @@
   font-size: 18px;
 }
 
-
-      /* 商品 */
-
       .product-main {
         flex-direction: column;
-
         gap: 40px;
       }
 
       .product-image {
         width: 280px;
-
         flex-basis: auto;
+      }
+
+      .product-image img {
+        width: 280px;
       }
 
       .product-info {
         width: 100%;
-
         max-width: 400px;
       }
 
@@ -617,12 +591,8 @@
         font-size: 34px;
       }
 
-
-      /* 按鈕 */
-
       .product-buttons {
         flex-direction: column;
-
         align-items: stretch;
       }
 
@@ -632,12 +602,8 @@
         width: 100%;
       }
 
-
-      /* 購買內容 */
-
       .included-section {
         margin-top: 80px;
-
         padding: 45px 25px;
       }
 
@@ -655,16 +621,9 @@
 <body>
 
 
-  <!-- =========================
-       導覽列
-  ========================== -->
-
   <header class="navbar">
 
-    <a
-      href="index.html"
-      class="logo"
-    >
+    <a href="index.html" class="logo">
 
       <span class="logo-main">
         MEIER
@@ -677,20 +636,13 @@
     </a>
 
 
-    <a
-      href="index.html"
-      class="back-home"
-    >
+    <a href="index.html" class="back-home">
       HOME
     </a>
 
   </header>
 
 
-
-  <!-- =========================
-       GOLDEN DAY 商品頁
-  ========================== -->
 
   <main class="product-page">
 
@@ -704,51 +656,42 @@
 
 
 
-    <!-- =========================
-         BEFORE / AFTER
-    ========================== -->
-
     <section class="before-after-section">
-
 
       <div class="before-after-title">
 
         <p class="before-after-label">
-          FILTER EFFECT
+          丁香日光
         </p>
 
         <h2>
-          BEFORE / AFTER
+            lilac day
         </h2>
 
       </div>
 
 
-
       <div class="image-compare">
 
-  <!-- AFTER 底圖 -->
   <img
-    src="images/golden-day-after.jpg"
+    src="images/lilac-day-after.jpg"
     class="compare-after"
-    alt="GOLDEN DAY After"
+    alt="Lilac Day After"
   >
 
-  <!-- BEFORE 上層 -->
   <div class="compare-before">
     <img
-      src="images/golden-day-before.jpg"
-      alt="GOLDEN DAY Before"
+      src="images/lilac-day-before.jpg"
+      alt="Lilac Day Before"
     >
   </div>
 
-  <!-- 中間白線 -->
   <div class="compare-line"></div>
 
-  <!-- 拖曳圓鈕 -->
   <div class="compare-handle">
     ← →
   </div>
+
 
   <span class="compare-label before-label">
     BEFORE
@@ -763,58 +706,44 @@
 
 
 
-    <!-- =========================
-         商品資訊
-    ========================== -->
-
     <section class="product-main">
 
-
-      <!-- 商品主圖 -->
 
       <div class="product-image">
 
         <img
-          src="images/golden-day-product.png"
-          alt="GOLDEN DAY 金色日光"
+          src="images/lilac-day-product.jpg"
+          alt="LILAC DAY 丁香日光"
         >
 
       </div>
 
 
 
-      <!-- 商品資訊 -->
-
       <div class="product-info">
-
 
         <p class="product-label">
           MEIER PRESET
         </p>
 
-
         <h1>
-          GOLDEN DAY
+          lilac day    
         </h1>
 
-
         <p class="product-cn">
-          金色日光
+          丁香日光
         </p>
-
 
         <p class="product-description">
-          溫暖明亮的金色日光色調，
-          為照片增加柔和的暖黃色與陽光感，
-          保留自然清透的明亮氛圍。
+          柔和奶油色調與清透日光感，
+          保留照片自然的明亮與乾淨氛圍。
         </p>
-
 
 
         <div class="product-details">
 
           <p>
-            適合｜人像・旅行・戶外・日常
+            適合｜人像・旅行・咖啡廳・日常
           </p>
 
           <p>
@@ -832,140 +761,142 @@
         </div>
 
 
-
         <p class="product-price">
           NT$ 199
         </p>
 
-    
-        <!-- =========================
-             三個按鈕
-        ========================== -->
 
         <div class="product-buttons">
-
-
-          <!-- 立即購買 -->
 
           <form
             action="/.netlify/functions/create-payment"
             method="POST"
             class="buy-now-form"
           >
+               <input
 
-            <input
               type="hidden"
+
               name="cart"
-              value='["golden-day"]'
+
+              value='["disney-day"]'
+
             >
 
             <button
+
               type="submit"
+
               class="buy-btn"
+
             >
+
               立即購買
+
             </button>
 
           </form>
 
-
-
-          <!-- 加入購物車 -->
-
           <button
   type="button"
   class="buy-btn"
-  onclick="addToCartAndReturn('golden-day', 'GOLDEN DAY')"
+  onclick="addToCartAndReturn('lilac-day', 'LILAC DAY')"
 >
   加入購物車
 </button>
 
-
-
-        
+          
         </div>
-
-
-
-        <!-- =========================
-             購買說明
-        ========================== -->
 
         <div class="purchase-info">
 
           <h3 class="purchase-info-title">
+
             PURCHASE INFO｜購買說明
+
           </h3>
 
           <p>
+
             可直接透過網站安全付款購買。
+
           </p>
 
           <p>
+
             完成付款後，請透過 LINE 聯絡並提供 Gmail。
+
           </p>
 
           <p>
+
             為保障交易安全，網站不會公開您的付款資訊。
+
           </p>
 
           <p>
+
             確認付款後，即提供濾鏡檔案 ♡
+
           </p>
 
         </div>
 
-
       </div>
 
     </section>
 
-
-
-    <!-- =========================
-         WHAT'S INCLUDED
-    ========================== -->
-
     <section class="included-section">
 
-
       <p class="included-label">
+
         WHAT'S INCLUDED
+
       </p>
 
-
       <h2>
-        購買內容
-      </h2>
 
+        購買內容
+
+      </h2>
 
       <div class="included-list">
 
         <p>
-          GOLDEN DAY｜金色日光 預設集
+
+          Lilac Day |丁香日光預設集
+
         </p>
 
         <p>
+
           Lightroom 安裝教學
+
         </p>
 
         <p>
+
           購買後永久使用
+
         </p>
 
         <p>
+
           如有安裝問題，可透過 LINE 詢問
+
         </p>
 
       </div>
 
-
     </section>
-
 
   </main>
 <div id="cart-toast" class="cart-toast"></div>
 <script>
+
+/* =========================
+   BEFORE / AFTER 滑動
+========================= */
 /* =========================
    BEFORE / AFTER 拖曳
 ========================= */
@@ -984,6 +915,8 @@ const compareHandle =
 
 let dragging = false;
 
+
+/* 控制照片位置 */
 function moveCompare(event) {
 
   const rect =
@@ -992,6 +925,7 @@ function moveCompare(event) {
   let x =
     event.clientX - rect.left;
 
+  /* 不讓它超出照片 */
   if (x < 0) {
     x = 0;
   }
@@ -1003,16 +937,21 @@ function moveCompare(event) {
   const percent =
     (x / rect.width) * 100;
 
+  /* BEFORE 照片 */
   compareBefore.style.width =
     percent + "%";
 
+  /* 白線 */
   compareLine.style.left =
     percent + "%";
 
+  /* 圓形箭頭 */
   compareHandle.style.left =
     percent + "%";
 }
 
+
+/* 按下滑鼠 / 手指 */
 imageCompare.addEventListener(
   "pointerdown",
   function (event) {
@@ -1027,6 +966,8 @@ imageCompare.addEventListener(
   }
 );
 
+
+/* 左右拖 */
 imageCompare.addEventListener(
   "pointermove",
   function (event) {
@@ -1037,34 +978,35 @@ imageCompare.addEventListener(
   }
 );
 
+
+/* 放開 */
 imageCompare.addEventListener(
   "pointerup",
   function () {
+
     dragging = false;
   }
 );
 
+
+/* 手機取消觸碰 */
 imageCompare.addEventListener(
   "pointercancel",
   function () {
+
     dragging = false;
   }
 );
 
-
 function addToCartAndReturn(productId, productName) {
 
-  const toast =
-    document.getElementById("cart-toast");
+  const toast = document.getElementById("cart-toast");
 
-  /* 顯示成功提示 */
   toast.textContent =
     "已將 " + productName + " 加入購物車囉！";
 
   toast.classList.add("show");
 
-
-  /* 1 秒後加入購物車 */
   setTimeout(function () {
 
     window.location.href =
@@ -1075,8 +1017,9 @@ function addToCartAndReturn(productId, productName) {
   }, 1000);
 
 }
-
 </script>
 </body>
 
 </html>
+
+         

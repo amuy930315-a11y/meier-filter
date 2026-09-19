@@ -34,6 +34,22 @@ const PRODUCTS = {
   "disney-day": {
     name: "DISNEY DAY 迪士尼日光",
     price: 199
+  },
+  "cream-haze": {
+    name: "CREAM HAZE 奶油薄霧",
+    price: 199
+  },
+  "GREY-HAZE": {
+    name: "GREY HAZE 灰色冷調",
+    price: 199
+  },
+  "lilac-day": {
+    name: "LILAC DAY 丁香日光",
+    price: 199
+  },
+  "maple-day": {
+    name: "MAPLE DAY 楓糖日光",
+    price: 199
   }
 };
 
