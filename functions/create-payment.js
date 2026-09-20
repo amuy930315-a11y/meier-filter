@@ -50,6 +50,10 @@ const PRODUCTS = {
   "maple-day": {
     name: "MAPLE DAY 楓糖日光",
     price: 199
+  },
+  "Milky-Sage": {
+    name: "MILKY SAGE 青乳奶蓋",
+    price: 199
   }
 };
 

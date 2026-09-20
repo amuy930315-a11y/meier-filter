@@ -948,7 +948,7 @@ button {
 
 }
 /* =========================
-   CREAMY DAY TOP1
+   milky sage TOP1
 ========================= */
 
 .title-with-rank {
@@ -962,6 +962,75 @@ button {
 }
 
 .top1-badge {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 15px;
+
+  background: #d9a17f;
+  color: white;
+
+  border-radius: 30px;
+
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  white-space: nowrap;
+}
+/* =========================
+   cream haze TOP2
+========================= */
+
+.title-with-rank {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.title-with-rank h3 {
+  margin: 0;
+}
+
+.top1-badge {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 7px 15px;
+
+  background: #d9a17f;
+  color: white;
+
+  border-radius: 30px;
+
+  font-family: Georgia, serif;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+
+  white-space: nowrap;
+}
+/* =========================
+   golden day TOP3
+========================= */
+
+.title-with-rank {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.title-with-rank h3 {
+  margin: 0;
+}
+
+.top1-badge,
+.top3-badge {
   position: relative;
 
   display: inline-flex;
@@ -1034,7 +1103,8 @@ button {
     gap: 10px;
   }
 
-  .top1-badge {
+  .top1-badge,
+.top3-badge {
     padding: 5px 11px;
     font-size: 9px;
     letter-spacing: 1px;
@@ -3172,6 +3242,114 @@ a:nth-child(12) {
     background-position: 65% center !important;
 
     background-repeat: no-repeat !important;
+  }
+
+}
+/* =========================
+   手機版｜風格選單縮小
+========================= */
+
+@media (max-width: 768px) {
+
+  .filter-dropdown {
+    width: 210px !important;
+    padding: 14px 16px !important;
+  }
+
+  .filter-dropdown-title {
+    font-size: 10px !important;
+    margin-bottom: 7px !important;
+  }
+
+  .filter-dropdown a {
+    font-size: 11px !important;
+    padding: 6px 0 !important;
+    line-height: 1.3 !important;
+  }
+
+  .filter-divider {
+    margin: 8px 0 !important;
+  }
+
+}
+/* ==================================
+   關於選單｜滑下＋每一格依序出現
+================================== */
+
+/* 關於選單關閉狀態 */
+.about-dropdown {
+  display: block !important;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform: translateY(-25px);
+
+  pointer-events: none;
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.35s ease,
+    visibility 0.5s;
+}
+
+
+/* 點「關於」後 */
+.about-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+
+  transform: translateY(0);
+
+  pointer-events: auto;
+}
+
+
+/* 每個選項依序出現 */
+.about-dropdown.show a {
+  opacity: 0;
+
+  transform: translateY(-15px);
+
+  animation: aboutItemDown 0.4s ease forwards;
+}
+
+
+/* 第一個 */
+.about-dropdown.show a:nth-child(1) {
+  animation-delay: 0.10s;
+}
+
+
+/* 第二個 */
+.about-dropdown.show a:nth-child(2) {
+  animation-delay: 0.18s;
+}
+
+
+/* 第三個 */
+.about-dropdown.show a:nth-child(3) {
+  animation-delay: 0.26s;
+}
+
+
+/* 第四個 */
+.about-dropdown.show a:nth-child(4) {
+  animation-delay: 0.34s;
+}
+
+
+/* 動畫 */
+@keyframes aboutItemDown {
+
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 
 }
