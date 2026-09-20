@@ -661,11 +661,11 @@
       <div class="before-after-title">
 
         <p class="before-after-label">
-          奶油日光
+          grey haze
         </p>
 
         <h2>
-          creamy day
+            grey haze
         </h2>
 
       </div>
@@ -674,15 +674,15 @@
       <div class="image-compare">
 
   <img
-    src="images/creamy-after.jpg"
+    src="images/grey-haze-after.jpg"
     class="compare-after"
-    alt="Creamy Day After"
+    alt="Grey Haze After"
   >
 
   <div class="compare-before">
     <img
-      src="images/creamy-before.jpg"
-      alt="Creamy Day Before"
+      src="images/grey-haze-before.jpg"
+      alt="Grey Haze Before"
     >
   </div>
 
@@ -712,8 +712,8 @@
       <div class="product-image">
 
         <img
-          src="images/creamy-day.jpg"
-          alt="CREAMY DAY 奶油日光"
+          src="images/grey-haze-product.jpg"
+          alt="GREY HAZE 灰色冷調"
         >
 
       </div>
@@ -727,11 +727,11 @@
         </p>
 
         <h1>
-          CREAMY DAY
+          GREY HAZE    
         </h1>
 
         <p class="product-cn">
-          奶油日光
+          灰色冷調
         </p>
 
         <p class="product-description">
@@ -779,7 +779,7 @@
 
               name="cart"
 
-              value='["creamy-day"]'
+              value='["disney-day"]'
 
             >
 
@@ -800,7 +800,7 @@
           <button
   type="button"
   class="buy-btn"
-  onclick="addToCartAndReturn('creamy-day', 'CREAMY DAY')"
+  onclick="addToCartAndReturn('grey-haze', 'GREY HAZE')"
 >
   加入購物車
 </button>
@@ -864,7 +864,7 @@
 
         <p>
 
-          CREAMY DAY｜奶油日光 預設集
+          grey haze |灰色冷調預設集
 
         </p>
 
@@ -1019,6 +1019,168 @@ function addToCartAndReturn(productId, productName) {
 
 }
 </script>
+<!-- =========================
+     商品自動資料
+========================= -->
+
+<script src="products.js"></script>
+
+<script>
+
+const PRODUCT_ID = "milky-sage";
+
+const currentProduct =
+  PRODUCTS.find(product => product.id === PRODUCT_ID);
+
+if (currentProduct) {
+
+  /* 網頁標題 */
+  document.title =
+    `${currentProduct.name} | Meier Filter`;
+
+
+  /* BEFORE / AFTER 標題 */
+  const beforeAfterLabel =
+    document.querySelector(".before-after-label");
+
+  const beforeAfterTitle =
+    document.querySelector(".before-after-title h2");
+
+  if (beforeAfterLabel) {
+    beforeAfterLabel.textContent =
+      currentProduct.chineseName;
+  }
+
+  if (beforeAfterTitle) {
+    beforeAfterTitle.textContent =
+      currentProduct.name;
+  }
+
+
+  /* BEFORE / AFTER 照片 */
+  const afterImage =
+    document.querySelector(".compare-after");
+
+  const beforeImage =
+    document.querySelector(".compare-before img");
+
+  if (afterImage) {
+    afterImage.src = currentProduct.after;
+    afterImage.alt = `${currentProduct.name} After`;
+  }
+
+  if (beforeImage) {
+    beforeImage.src = currentProduct.before;
+    beforeImage.alt = `${currentProduct.name} Before`;
+  }
+
+
+  /* 商品封面 */
+  const coverImage =
+    document.querySelector(".product-image img");
+
+  if (coverImage) {
+    coverImage.src = currentProduct.cover;
+    coverImage.alt =
+      `${currentProduct.name} ${currentProduct.chineseName}`;
+  }
+
+
+  /* 商品名稱 */
+  const productName =
+    document.querySelector(".product-info h1");
+
+  const productChineseName =
+    document.querySelector(".product-cn");
+
+  if (productName) {
+    productName.textContent =
+      currentProduct.name;
+  }
+
+  if (productChineseName) {
+    productChineseName.textContent =
+      currentProduct.chineseName;
+  }
+
+
+  /* 商品描述 */
+  const description =
+    document.querySelector(".product-description");
+
+  if (description && currentProduct.description) {
+    description.textContent =
+      currentProduct.description;
+  }
+
+
+  /* 適合類型 */
+  const detailList =
+    document.querySelectorAll(".product-details p");
+
+  if (detailList[0] && currentProduct.suitable) {
+    detailList[0].textContent =
+      `適合｜${currentProduct.suitable}`;
+  }
+
+
+  /* 商品價格 */
+  const price =
+    document.querySelector(".product-price");
+
+  if (price) {
+    price.textContent =
+      `NT$ ${currentProduct.price}`;
+  }
+
+
+  /* 立即購買 */
+  const buyNowInput =
+    document.querySelector(
+      '.buy-now-form input[name="cart"]'
+    );
+
+  if (buyNowInput) {
+    buyNowInput.value =
+      JSON.stringify([currentProduct.id]);
+  }
+
+
+  /* 加入購物車 */
+  const addCartButton =
+    document.querySelector(
+      ".product-buttons > button.buy-btn"
+    );
+
+  if (addCartButton) {
+
+    addCartButton.onclick = function () {
+
+      addToCartAndReturn(
+        currentProduct.id,
+        currentProduct.name
+      );
+
+    };
+
+  }
+
+
+  /* 購買內容 */
+  const includedProduct =
+    document.querySelector(".included-list p");
+
+  if (includedProduct) {
+    includedProduct.textContent =
+      `${currentProduct.name}｜${currentProduct.chineseName} 預設集`;
+  }
+
+}
+
+</script>
+
+</body>
+</html>
 </body>
 
 </html>

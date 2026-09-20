@@ -9,7 +9,9 @@
     name="viewport"
     content="width=device-width, initial-scale=1.0"
   >
-<title>SHOP｜MEIER FILTER</title>
+
+  <title>SHOP｜MEIER FILTER</title>
+
   <link
     rel="stylesheet"
     href="shop.css"
@@ -27,22 +29,24 @@
 
   <header class="shop-header">
 
-  <!-- 左邊 -->
-  <a
-    href="index.html"
-    class="back-home"
-  >
-    HOME
-  </a>
+    <!-- 左邊 -->
+    <a
+      href="index.html"
+      class="back-home"
+    >
+      HOME
+    </a>
 
-  <!-- 右邊 -->
- <a
-  href="cart.html"
-  class="cart-link"
->
-  購物車（<span id="cart-count">0</span>）
-</a>
-</header>
+
+    <!-- 右邊 -->
+    <a
+      href="cart.html"
+      class="cart-link"
+    >
+      購物車（<span id="cart-count">0</span>）
+    </a>
+
+  </header>
 
 
 
@@ -53,7 +57,9 @@
   <main class="shop-page">
 
 
-    <!-- 標題 -->
+    <!-- =========================
+         標題
+    ========================== -->
 
     <div class="shop-heading">
 
@@ -64,20 +70,25 @@
       <p class="shop-subtitle">
         FIND YOUR FAVORITE MOOD ♡
       </p>
-      
-<!-- 品牌手作說明 -->
-<div class="handmade-note">
 
-  <span class="snowflake">❄</span>
 
-  <p>
-    每一款，都是 Meier 一張一張調出來的，非批次套色
-  </p>
+      <!-- 品牌手作說明 -->
 
-  <span class="snowflake">❄</span>
+      <div class="handmade-note">
 
-</div>
-</div>
+        <span class="snowflake">
+          ❄
+        </span>
+
+        <p>
+          每一款，都是 Meier 一張一張調出來的，非批次套色
+        </p>
+
+        <span class="snowflake">
+          ❄
+        </span>
+
+      </div>
 
     </div>
 
@@ -102,7 +113,7 @@
         <div class="product-image">
 
           <img
-            src="images/creamy-day-thumb.jpg"
+            src="images/creamy-day.jpg"
             alt="CREAMY DAY 奶油日光"
           >
 
@@ -204,8 +215,11 @@
         </div>
 
       </a>
+
+
+
       <!-- =====================
-            DISNEY DAY
+           DISNEY DAY
       ====================== -->
 
       <a
@@ -240,7 +254,10 @@
         </div>
 
       </a>
-       <!-- =====================
+
+
+
+      <!-- =====================
            CREAM HAZE
       ====================== -->
 
@@ -253,7 +270,7 @@
 
           <img
             src="images/cream-haze-product.jpg"
-            alt="CREAM HAZE 奶油薄霧"
+            alt="CREAM HAZE 奶霜薄霧"
           >
 
         </div>
@@ -276,8 +293,11 @@
         </div>
 
       </a>
+
+
+
       <!-- =====================
-           grey haze
+           GREY HAZE
       ====================== -->
 
       <a
@@ -312,8 +332,11 @@
         </div>
 
       </a>
+
+
+
       <!-- =====================
-           lilac day
+           LILAC DAY
       ====================== -->
 
       <a
@@ -348,8 +371,11 @@
         </div>
 
       </a>
-<!-- =====================
-           Maple day
+
+
+
+      <!-- =====================
+           MAPLE DAY
       ====================== -->
 
       <a
@@ -361,7 +387,7 @@
 
           <img
             src="images/maple-day-product.jpg"
-            alt="MAPLE DAY 楓葉日光"
+            alt="MAPLE DAY 楓糖日光"
           >
 
         </div>
@@ -385,10 +411,83 @@
 
       </a>
 
+
+
       <!-- =====================
-           之後新增第 4 個商品
-           就複製 product-card
+           LISHUAN SKY
+           這張由 products.js 自動產生
       ====================== -->
+
+      <a
+        href="lishuan-sky.html"
+        class="product-card"
+        id="lishuan-sky-card"
+        style="display: none;"
+      >
+
+        <div class="product-image">
+
+          <img
+            id="lishuan-sky-image"
+            src=""
+            alt=""
+          >
+
+        </div>
+
+
+        <div class="product-info">
+
+          <h2 id="lishuan-sky-name">
+          </h2>
+
+          <p id="lishuan-sky-cn">
+          </p>
+
+          <span
+            class="price"
+            id="lishuan-sky-price"
+          >
+          </span>
+
+        </div>
+
+      </a>
+      <!-- =====================
+     ZZ DAY
+====================== -->
+
+<a
+  href="milky-sage.html".html"
+  class="product-card"
+>
+
+  <div class="product-image">
+
+    <img
+      src="images/milky-sage/cover.jpg"
+      alt="MILKY SAGE MILKY SAGE"
+    >
+
+  </div>
+
+  <div class="product-info">
+
+    <h2>
+      MILKY SAGE
+    </h2>
+
+    <p>
+      青乳奶蓋
+    </p>
+
+    <span class="price">
+      NT$199
+    </span>
+
+  </div>
+
+</a>
 
 
     </div>
@@ -414,42 +513,187 @@
 
   </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", function () {
 
-  let cart = [];
 
-  try {
-    cart =
-      JSON.parse(
-        localStorage.getItem("meier-cart")
-      ) || [];
-  } catch (error) {
-    cart = [];
-  }
+  <!-- =========================
+       購物車數量
+  ========================== -->
 
-  /* 同一款商品只計算一次 */
-  const uniqueCart =
-    cart.filter(function (item, index, array) {
+  <script>
 
-      return index ===
-        array.findIndex(function (product) {
-          return product.id === item.id;
-        });
+    document.addEventListener(
+      "DOMContentLoaded",
+      function () {
 
-    });
+        let cart = [];
 
-  /* 更新購物車數量 */
-  const cartCount =
-    document.getElementById("cart-count");
+        try {
 
-  if (cartCount) {
-    cartCount.textContent =
-      uniqueCart.length;
-  }
+          cart =
+            JSON.parse(
+              localStorage.getItem("meier-cart")
+            ) || [];
 
-});
-</script>
+        } catch (error) {
+
+          cart = [];
+
+        }
+
+
+        /* 同一款商品只計算一次 */
+
+        const uniqueCart =
+          cart.filter(
+            function (item, index, array) {
+
+              return index ===
+                array.findIndex(
+                  function (product) {
+
+                    return product.id === item.id;
+
+                  }
+                );
+
+            }
+          );
+
+
+        /* 更新購物車數量 */
+
+        const cartCount =
+          document.getElementById(
+            "cart-count"
+          );
+
+        if (cartCount) {
+
+          cartCount.textContent =
+            uniqueCart.length;
+
+        }
+
+      }
+    );
+
+  </script>
+
+
+
+  <!-- =========================
+       商品資料
+  ========================== -->
+
+  <script src="products.js"></script>
+
+
+
+  <!-- =========================
+       LISHUAN SKY 自動商品卡
+  ========================== -->
+
+  <script>
+
+    const lishuanSky =
+      PRODUCTS.find(
+        product =>
+          product.id === "lishuan-sky"
+      );
+
+
+    if (lishuanSky) {
+
+
+      /* 找到商品卡 */
+
+      const card =
+        document.getElementById(
+          "lishuan-sky-card"
+        );
+
+
+      /* 商品圖片 */
+
+      const image =
+        document.getElementById(
+          "lishuan-sky-image"
+        );
+
+
+      /* 英文名稱 */
+
+      const name =
+        document.getElementById(
+          "lishuan-sky-name"
+        );
+
+
+      /* 中文名稱 */
+
+      const chineseName =
+        document.getElementById(
+          "lishuan-sky-cn"
+        );
+
+
+      /* 價格 */
+
+      const price =
+        document.getElementById(
+          "lishuan-sky-price"
+        );
+
+
+      if (card) {
+
+        card.href =
+          `${lishuanSky.id}.html`;
+
+        card.style.display = "";
+
+      }
+
+
+      if (image) {
+
+        image.src =
+          lishuanSky.cover;
+
+        image.alt =
+          `${lishuanSky.name} ${lishuanSky.chineseName}`;
+
+      }
+
+
+      if (name) {
+
+        name.textContent =
+          lishuanSky.name;
+
+      }
+
+
+      if (chineseName) {
+
+        chineseName.textContent =
+          lishuanSky.chineseName;
+
+      }
+
+
+      if (price) {
+
+        price.textContent =
+          `NT$${lishuanSky.price}`;
+
+      }
+
+    }
+
+  </script>
+
+
 </body>
 
 </html>
