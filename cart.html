@@ -1059,10 +1059,8 @@ window.history.replaceState(
 
 });
 
- /* =========================
-   優惠價格計算
-   單款 150
-   任選 1 款 150
+/* =========================
+   總價：每款依 PRODUCTS 的價格累加
 ========================= */
 
 const originalPrice =
@@ -1070,46 +1068,12 @@ const originalPrice =
     "original-price"
   );
 
-const quantity = cart.length;
+/* 目前沒有組合優惠，不顯示刪除線原價 */
+originalPrice.style.display = "none";
 
-/* 原價 */
-const originalTotal =
-  quantity * 150;
-
-/* 幾組三款 */
-const bundleCount =
-  Math.floor(quantity / 3);
-
-/* 剩下幾款 */
-const remainingCount =
-  quantity % 3;
-
-/* 優惠後價格 */
-const finalTotal =
-  (bundleCount * 500) +
-  (remainingCount * 150);
-
-
-/* 滿三款顯示原價刪除線 */
-if (quantity >= 3) {
-
-  originalPrice.textContent =
-    "NT$" + originalTotal;
-
-  originalPrice.style.display =
-    "block";
-
-} else {
-
-  originalPrice.style.display =
-    "none";
-
-}
-
-
-/* 顯示優惠後總價 */
+/* 顯示正確總價：5 款 × 150 = 750 */
 totalPrice.textContent =
-  "NT$" + finalTotal;
+  "NT$" + total;
 
 }
 
