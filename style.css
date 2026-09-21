@@ -153,29 +153,33 @@ button {
 ========================= */
 
 .hero {
-
   width: 100%;
-
-  height:
-    calc(100vh - 88px);
-
-  min-height: 560px;
-
+  min-height: 620px;
 
   display: flex;
-
+  justify-content: center;
   align-items: center;
 
+  padding: 80px 30px;
 
-  background-image:
-    url("images/hero-new.jpg");
+  /* 跟整頁共用同一個背景 */
+  background: transparent;
+  background-image: none;
 
-  background-size: cover;
+  overflow: hidden;
+}
 
-  background-position: center;
+/* 透明背景商品盒 */
+.hero-product {
+  display: block;
 
-  background-repeat: no-repeat;
+  width: min(78%, 430px);
+  height: auto;
 
+  /* 商品盒下方的自然陰影 */
+  filter: drop-shadow(
+    0 20px 18px rgba(73, 58, 45, 0.17)
+  );
 }
 
 
@@ -3208,13 +3212,7 @@ a:nth-child(12) {
     display: flex;
     align-items: center;
 
-    background-image: url("images/hero-new.jpg") !important;
-
-    background-size: cover;
-
-    background-position: 300 center;
-
-    background-repeat: no-repeat;
+    
 
   }
 
@@ -3234,14 +3232,18 @@ a:nth-child(12) {
 @media screen and (max-width: 768px) {
 
   body .hero {
-    background-image: url("images/hero-new.jpg") !important;
+    min-height: 540px;
+    padding: 55px 10px;
 
-    background-size: cover !important;
+    background: transparent !important;
+    background-image: none !important;
+  }
+  }
 
-    /* 往右移 */
-    background-position: 65% center !important;
-
-    background-repeat: no-repeat !important;
+  .hero-product {
+    width: 88%;
+    max-width: 340px;
+    height: auto;
   }
 
 }
@@ -3352,4 +3354,123 @@ a:nth-child(12) {
     transform: translateY(0);
   }
 
+}
+@media (max-width: 600px) {
+  .hero {
+    min-height: 420px;
+    padding: 45px 18px 35px;
+  }
+
+  .hero-product {
+    width: 88%;
+    max-width: 340px;
+  }
+}
+@media screen and (max-width: 768px) {
+
+  .hero {
+    min-height: 520px;
+    padding: 30px 0;
+    overflow: hidden;
+  }
+
+  .hero-product {
+    width: 115%;
+    max-width: none;
+    height: auto;
+  }
+
+}
+/* HERO 商品盒置中 */
+
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-product {
+  display: block;
+  margin: 0 auto;
+}
+/* 縮短整個盒子區域 */
+
+.hero {
+  height: auto;
+  min-height: 420px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+
+  body .hero {
+    height: 200px;
+    min-height: 200px;
+    padding: 10px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* 盒子保持原本大小 */
+  .hero-product {
+    width: 88%;
+    max-width: 340px;
+  }
+
+}
+/* 電腦版：區域縮短、盒子放大 */
+
+.hero {
+  height: 100px;
+  min-height: 100px;
+  padding: 15px 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-product {
+  display: block;
+  width: 520px;
+  max-width: 85%;
+  height: auto;
+  margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+
+  body .hero {
+    height: 350px;
+    min-height: 350px;
+    padding: 5px 0 0;
+  }
+
+  .hero-product {
+    width: 105%;
+    max-width: 410px;
+    margin: 0 auto;
+  }
+
+}
+/* =========================
+   首頁與商品總覽共用雪景背景
+========================= */
+
+body {
+  background-color: #f3eee7;
+  background-image: url("images/snow-bg.png");
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* 導覽列、盒子區、商品總覽全部透明 */
+.navbar,
+.hero,
+.filter-gallery {
+  background-color: transparent !important;
+  background-image: none !important;
 }

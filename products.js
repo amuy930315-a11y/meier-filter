@@ -14,17 +14,17 @@ const PRODUCTS = [
     price: 199
   },
 {
-  id: "lishuan-sky",
-  name: "LISHUAN SKY",
-  chineseName: "李萱日光",
+  id: "milky-sage",
+  name: "MILKY SAGE",
+  chineseName: "Milky Sage",
   price: 199,
   description: "清透明亮的藍天色調，保留自然光感與乾淨氛圍。",
   suitable: "風景・旅行・日常"
 },
 {
-  id: "milky-sage",
-  name: "MILKY SAGE",
-  chineseName: "Milky Sage",
+  id: "cocoa-caramel",
+  name: "COFFEE CARAMEL",
+  chineseName: "咖啡焦糖",
   price: 199,
   description: "清透明亮的藍天色調，保留自然光感與乾淨氛圍。",
   suitable: "風景・旅行・日常"
