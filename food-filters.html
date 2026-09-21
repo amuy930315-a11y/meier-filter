@@ -1,253 +1,276 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美食濾鏡｜MEIER FILTER</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+    html { scroll-behavior: smooth; }
 
-  <title>美食濾鏡｜MEIER</title>
+    body {
+  min-height: 100vh;
 
-  <link
-    rel="stylesheet"
-    href="style.css"
-  >
+  font-family:
+    Arial,
+    "Noto Sans TC",
+    sans-serif;
 
+  color: #493d37;
+
+  /* 無雪景的柔和玻璃背景 */
+  background:
+    radial-gradient(
+      circle at 15% 10%,
+      rgba(255, 255, 255, 0.95),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(224, 207, 194, 0.55),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #f8f4ef,
+      #e8dcd2,
+      #f5eee7
+    );
+
+  background-attachment: fixed;
+}
+
+    a { color: inherit; text-decoration: none; }
+
+    .navbar {
+      width: 100%;
+      min-height: 88px;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.32);
+
+backdrop-filter: blur(18px);
+-webkit-backdrop-filter: blur(18px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(115, 84, 65, 0.08);
+    }
+
+    .logo { display: flex; flex-direction: column; line-height: 1; }
+    .logo-main { font-family: Georgia, serif; font-size: 27px; letter-spacing: 6px; }
+    .logo-sub { margin-top: 7px; font-size: 7px; letter-spacing: 4px; color: #81736b; }
+
+    .nav-actions { display: flex; align-items: center; gap: 24px; }
+    .nav-actions a { font-size: 13px; letter-spacing: 1px; }
+    .cart-link { white-space: nowrap; }
+
+    .category-hero {
+      padding: 90px 20px 65px;
+      text-align: center;
+    }
+
+    .eyebrow { margin-bottom: 14px; font-size: 9px; letter-spacing: 5px; color: #a08e83; }
+    .category-hero h1 { font-family: Georgia, "Noto Serif TC", serif; font-size: clamp(34px, 6vw, 56px); font-weight: 400; letter-spacing: 5px; }
+    .category-cn { margin-top: 12px; font-size: 14px; letter-spacing: 6px; color: #796960; }
+    .category-description { max-width: 520px; margin: 26px auto 0; font-size: 13px; line-height: 2; color: #97877d; }
+
+    .product-list {
+      width: min(90%, 920px);
+      margin: 0 auto;
+      padding-bottom: 110px;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 55px;
+    }
+
+    .product-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.18fr) minmax(260px, 0.82fr);
+      min-height: 470px;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.35);
+
+border:
+  1px solid
+  rgba(255, 255, 255, 0.72);
+
+backdrop-filter: blur(22px);
+-webkit-backdrop-filter: blur(22px);
+      border-radius: 24px;
+      box-shadow: 0 18px 55px rgba(80, 60, 50, 0.08);
+      transition: transform .35s ease, box-shadow .35s ease;
+    }
+
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 24px 65px rgba(80, 60, 50, 0.12); }
+
+    .product-image { width: 100%; height: 100%; min-height: 470px; object-fit: cover; display: block; }
+
+    .product-info {
+      padding: 54px 42px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .product-number { margin-bottom: 22px; font-family: Georgia, serif; font-size: 11px; letter-spacing: 3px; color: #b19b8e; }
+    .product-info h2 { font-family: Georgia, serif; font-size: 31px; font-weight: 400; line-height: 1.15; letter-spacing: 3px; }
+    .product-name-cn { margin-top: 11px; font-size: 13px; letter-spacing: 4px; color: #806e64; }
+    .product-copy { margin-top: 25px; font-size: 12px; line-height: 2; color: #9a8980; }
+    .product-price { margin-top: 26px; font-family: Georgia, serif; font-size: 22px; color: #594a43; }
+
+    .view-button {
+      margin-top: 26px;
+      padding: 12px 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #8e7769;
+      border-radius: 50px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      transition: .25s ease;
+    }
+
+    .view-button:hover { background: #80695c; color: #fff; }
+
+    .footer { padding: 65px 20px; text-align: center; background: rgba(245, 239, 233, .82); }
+    .footer-logo { font-family: Georgia, serif; font-size: 22px; letter-spacing: 6px; }
+    .footer-sub { margin-top: 8px; font-size: 7px; letter-spacing: 4px; color: #8e8179; }
+    .copyright { margin-top: 35px; font-size: 8px; letter-spacing: 2px; color: #a89d96; }
+
+    @media (max-width: 768px) {
+      body {
+  background-attachment: scroll;
+}
+      .navbar { min-height: 72px; padding: 14px 5%; }
+      .logo-main { font-size: 23px; }
+      .nav-actions { gap: 14px; }
+      .nav-actions a { font-size: 11px; }
+      .category-hero { padding: 70px 22px 48px; }
+      .category-hero h1 { font-size: 34px; letter-spacing: 3px; }
+      .category-description { font-size: 12px; }
+      .product-list { width: 91%; gap: 42px; padding-bottom: 75px; }
+
+      /* 手機版也維持與電腦相同：左圖、右文字，一行一款 */
+      .product-card {
+        display: grid;
+        grid-template-columns: 45% 55%;
+        min-height: 250px;
+        border-radius: 18px;
+      }
+
+      .product-image {
+        width: 100%;
+        height: 100%;
+        min-height: 250px;
+        aspect-ratio: auto;
+        object-fit: cover;
+      }
+
+      .product-info {
+        padding: 24px 16px;
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .product-number {
+        margin-bottom: 12px;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+      }
+
+      .product-info h2 {
+        font-size: 20px;
+        letter-spacing: 1px;
+      }
+
+      .product-name-cn {
+        margin-top: 7px;
+        font-size: 11px;
+        letter-spacing: 2px;
+      }
+
+      .product-copy {
+        margin-top: 15px;
+        font-size: 10px;
+        line-height: 1.75;
+      }
+
+      .product-price {
+        margin-top: 15px;
+        font-size: 18px;
+      }
+
+      .view-button {
+        width: auto;
+        margin-top: 15px;
+        padding: 9px 13px;
+        font-size: 8px;
+        letter-spacing: 1.5px;
+      }
+    }
+  </style>
 </head>
-
-
 <body>
-
-
-  <!-- =========================
-       導覽列
-  ========================== -->
-
   <header class="navbar">
-
-    <a
-      href="index.html"
-      class="logo"
-    >
-
-      <span class="logo-main">
-        MEIER
-      </span>
-
-      <span class="logo-sub">
-        FILTER & PRESET
-      </span>
-
+    <a class="logo" href="index.html">
+      <span class="logo-main">MEIER</span>
+      <span class="logo-sub">FILTER &amp; PRESET</span>
     </a>
 
-
-    <div class="nav-actions">
-
-      <a href="index.html#filters">
-        濾鏡
-      </a>
-
-      <a
-        href="cart.html"
-        class="cart-link"
-      >
-        購物車（<span id="cart-count">0</span>）
-      </a>
-
-    </div>
-
+    <nav class="nav-actions" aria-label="主要選單">
+      <a href="index.html">首頁</a>
+      <a href="shop.html">全部濾鏡</a>
+      <a class="cart-link" href="cart.html">購物車（<span id="cart-count">0</span>）</a>
+    </nav>
   </header>
 
-
-
-  <!-- =========================
-       美食濾鏡首頁
-  ========================== -->
-
-  <main class="food-page">
-
-
-    <section class="food-hero">
-
-      <p class="food-small-title">
-        MEIER COLLECTION
-      </p>
-
-      <h1>
-        FOOD FILTER
-      </h1>
-
-      <p class="food-cn-title">
-        美食濾鏡
-      </p>
-
-      <p class="food-description">
-        為日常餐桌與咖啡時光，
-        留下更有質感的色彩。
-      </p>
-
+  <main>
+    <section class="category-hero">
+      <p class="eyebrow">MEIER FILTER COLLECTION</p>
+      <p class="category-cn">美 食 濾 鏡</p>
+      <p class="category-description">為甜點、咖啡與日常餐桌設計的柔和色調、更有質感。</p>
     </section>
 
-    <!-- =========================
-     美食濾鏡全包商品
-========================== -->
-
-<section class="food-pack-section">
-
-  <div class="food-pack-card">
-
-
-    <!-- 15 張實拍照片 -->
-    <div class="food-photo-grid">
-
-      <img src="images/food-01.jpg" alt="美食濾鏡 01">
-      <img src="images/food-02.jpg" alt="美食濾鏡 02">
-      <img src="images/food-03.jpg" alt="美食濾鏡 03">
-      <img src="images/food-04.jpg" alt="美食濾鏡 04">
-      <img src="images/food-05.jpg" alt="美食濾鏡 05">
-
-      <img src="images/food-06.jpg" alt="美食濾鏡 06">
-      <img src="images/food-07.jpg" alt="美食濾鏡 07">
-      <img src="images/food-08.jpg" alt="美食濾鏡 08">
-      <img src="images/food-09.jpg" alt="美食濾鏡 09">
-      <img src="images/food-10.jpg" alt="美食濾鏡 10">
-
-      <img src="images/food-11.jpg" alt="美食濾鏡 11">
-      <img src="images/food-12.jpg" alt="美食濾鏡 12">
-      <img src="images/food-13.jpg" alt="美食濾鏡 13">
-      <img src="images/food-14.jpg" alt="美食濾鏡 14">
-      <img src="images/food-15.jpg" alt="美食濾鏡 15">
-
-    </div>
-
-
-    <!-- 商品資訊 -->
-
-    <div class="food-pack-info">
-
-      <p class="food-pack-label">
-        MEIER COLLECTION
-      </p>
-
-      <h1>
-        FOOD FILTER PACK
-      </h1>
-
-      <p class="food-pack-cn">
-        美食濾鏡全包
-      </p>
-
-
-      <p class="food-pack-description">
-        為日常餐桌與咖啡時光，
-        留下更有質感的色彩。
-      </p>
-
-
-      <!-- 特色 -->
-
-      <div class="food-pack-features">
-
-        <div>
-          <span>15</span>
-          <p>款濾鏡</p>
+    <section class="product-list" aria-label="美食濾鏡商品">
+      <article class="product-card">
+        <img class="product-image" src="images/milky-sage/cover.jpg" alt="MILKY SAGE 青乳奶蓋濾鏡">
+        <div class="product-info">
+          <h2>MILKY SAGE</h2>
+          <p class="product-name-cn">青乳奶蓋</p>
+          <p class="product-copy">柔和綠意與奶白光感，適合甜點、咖啡與明亮餐桌，呈現清新乾淨的食物色澤。</p>
+          <p class="product-price">NT$150</p>
+          <a class="view-button" href="milky-sage.html">VIEW FILTER →</a>
         </div>
+      </article>
 
-        <div>
-          <span>∞</span>
-          <p>永久使用</p>
+      <article class="product-card">
+        <img class="product-image" src="images/cocoa-caramel/cover.jpg" alt="COCOA CARAMEL 可可焦糖濾鏡">
+        <div class="product-info">
+          <h2>COCOA CARAMEL</h2>
+          <p class="product-name-cn">可可焦糖</p>
+          <p class="product-copy">濃郁可可與焦糖暖色，適合咖啡、烘焙甜點與木質餐桌，營造溫暖誘人的氛圍。</p>
+          <p class="product-price">NT$150</p>
+          <a class="view-button" href="cocoa-caramel.html">VIEW FILTER →</a>
         </div>
-
-        <div>
-          <span>♡</span>
-          <p>一次收藏</p>
-        </div>
-
-      </div>
-
-
-      <!-- 價格 -->
-
-      <p class="food-original-price">
-        NT$1,800
-      </p>
-
-      <p class="food-pack-price">
-        NT$190
-      </p>
-
-
-      <!-- 加入購物車 -->
-
-      <button
-        type="button"
-        class="buy-btn food-pack-buy"
-        onclick="addToCartAndReturn('food-filter-pack', 'FOOD FILTER PACK')"
-      >
-        加入購物車
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
+      </article>
+    </section>
   </main>
 
-
-
-  <!-- 購物車數量 -->
+  <footer class="footer">
+    <p class="footer-logo">MEIER</p>
+    <p class="footer-sub">FILTER &amp; PRESET</p>
+    <p class="copyright">© 2026 MEIER FILTER 慕依</p>
+  </footer>
 
   <script>
-
-    let cart = [];
-
-    try {
-
-      cart =
-        JSON.parse(
-          localStorage.getItem("meier-cart")
-        ) || [];
-
-    } catch (error) {
-
-      cart = [];
-
-    }
-
-
-    const uniqueCart =
-      cart.filter(function (item, index, array) {
-
-        return index ===
-          array.findIndex(function (product) {
-
-            return product.id === item.id;
-
-          });
-
-      });
-
-
-    const cartCount =
-      document.getElementById("cart-count");
-
-
-    if (cartCount) {
-
-      cartCount.textContent =
-        uniqueCart.length;
-
-    }
-
+    const cart = JSON.parse(localStorage.getItem("meier-cart") || "[]");
+    document.getElementById("cart-count").textContent = cart.length;
   </script>
-
-
 </body>
-
 </html>
