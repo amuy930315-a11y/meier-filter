@@ -468,7 +468,32 @@
     }
 
   </style>
+<style>
+  .price-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
 
+  .cart-count-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 8px;
+    padding: 5px 11px;
+
+    background: #efe3da;
+    color: #795f50;
+
+    border: 1px solid rgba(115, 84, 65, 0.12);
+    border-radius: 30px;
+
+    font-size: 10px;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+</style>
 </head>
 
 
@@ -554,12 +579,19 @@
 
       <div class="summary-row">
 
+
+
   <span>
     總金額
   </span>
 
   <div class="price-box">
-
+<span
+  class="cart-count-pill"
+  id="cart-count-value"
+>
+  已選 0 款
+</span>
     <!-- 原價 -->
     <span
       class="original-price"
@@ -693,6 +725,12 @@
     price: 150,
     image: "images/lilac-day-product.jpg"
   },
+  "maple-day": {
+  id: "maple-day",
+  name: "MAPLE DAY 楓糖日光",
+  price: 150,
+  image: "images/maple-day-product.jpg"
+},
 
 "milky-sage": {
   id: "milky-sage",
@@ -1071,7 +1109,20 @@ const originalPrice =
 /* 目前沒有組合優惠，不顯示刪除線原價 */
 originalPrice.style.display = "none";
 
-/* 顯示正確總價：5 款 × 150 = 750 */
+
+/* 顯示購買數量 */
+
+const cartCountValue =
+  document.getElementById(
+    "cart-count-value"
+  );
+
+cartCountValue.textContent =
+  "已選 " + cart.length + " 款";
+
+
+/* 顯示總金額 */
+
 totalPrice.textContent =
   "NT$" + total;
 

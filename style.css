@@ -3474,3 +3474,26 @@ body {
   background-color: transparent !important;
   background-image: none !important;
 }
+/* 手機版雪景背景修正 */
+
+@media screen and (max-width: 768px) {
+
+  html,
+  body {
+    background-color: #f3eee7 !important;
+    background-image: url("images/snow-bg.png") !important;
+
+    background-size: 100% auto !important;
+    background-position: center top !important;
+    background-repeat: repeat-y !important;
+    background-attachment: scroll !important;
+  }
+
+  .navbar,
+  .hero,
+  .filter-gallery,
+  .reviews-section {
+    background-color: transparent !important;
+  }
+
+}
