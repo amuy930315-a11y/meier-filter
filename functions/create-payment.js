@@ -19,43 +19,47 @@ const PRODUCTS = {
 
   "creamy-day": {
     name: "CREAMY DAY 奶油日光",
-    price: 199
+    price: 150
   },
 
   "color-breeze": {
     name: "COLOR BREEZE 晴彩微風",
-    price: 199
+    price: 150
   },
 
   "golden-day": {
     name: "GOLDEN DAY 金色日光",
-    price: 199
+    price: 150
   },
   "disney-day": {
     name: "DISNEY DAY 迪士尼日光",
-    price: 199
+    price: 150
   },
   "cream-haze": {
     name: "CREAM HAZE 奶油薄霧",
-    price: 199
+    price: 150
   },
   "GREY-HAZE": {
     name: "GREY HAZE 灰色冷調",
-    price: 199
+    price: 150
   },
   "lilac-day": {
     name: "LILAC DAY 丁香日光",
-    price: 199
+    price: 150
   },
   "maple-day": {
     name: "MAPLE DAY 楓糖日光",
-    price: 199
+    price: 150
   },
   "Milky-Sage": {
     name: "MILKY SAGE 青乳奶蓋",
-    price: 199
+    price: 150
+  },
+  "cocoa-caramel": {
+    name: "COFFEE CARAMEL 咖啡焦糖",
+    price: 150
   }
-};
+  };
 
 
 // =========================
@@ -249,28 +253,15 @@ if (!emailPattern.test(customerEmail)) {
 
   // =========================
 // 後端自己計算總價
-// 單款 199
-// 每滿 3 款 500
+// 單款 150
+// 每滿 3 款 450
 // =========================
 
-const quantity =
-  products.length;
-
-/* 有幾組三款 */
-
-const bundleCount =
-  Math.floor(quantity / 3);
-
-/* 剩下幾款 */
-
-const remainingCount =
-  quantity % 3;
-
-/* 最終付款金額 */
-
-const totalAmount =
-  (bundleCount * 500) +
-  (remainingCount * 199);
+// 後端依照商品資料計算總價
+const totalAmount = products.reduce(
+  (total, product) => total + product.price,
+  0
+);
 
   // 綠界 ItemName 多商品用 # 分隔
   const itemName =

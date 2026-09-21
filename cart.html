@@ -652,58 +652,58 @@
   "creamy-day": {
     id: "creamy-day",
     name: "CREAMY DAY 奶油日光",
-    price: 199,
-    image: "images/creamy-day-thumb.jpg"
+    price: 150,
+    image: "images/creamy-day.jpg"
   },
 
   "color-breeze": {
     id: "color-breeze",
     name: "COLOR BREEZE 晴彩微風",
-    price: 199,
+    price: 150,
    image: "images/color-breeze.jpg"
   },
 
   "golden-day": {
     id: "golden-day",
     name: "GOLDEN DAY 金色日光",
-    price: 199,
+    price: 150,
     image: "images/golden-day-product.png"
   },
   "disney-day": {
     id: "disney-day",
     name: "DISNEY DAY 迪士尼日光",
-    price: 199,
+    price: 150,
     image: "images/disney-day-product.jpg"
   },
   "cream-haze": {
     id: "cream-haze",
     name: "CREAM HAZE 奶霜薄霧",
-    price: 199,
+    price: 150,
     image: "images/cream-haze-product.jpg"
   },
    "grey-haze": {
     id: "grey-haze",
     name: "GREY HAZE 灰色冷調",
-    price: 199,
+    price: 150,
     image: "images/grey-haze-product.jpg"
   },
    "lilac-day": {
     id: "lilac-day",
     name: "LILAC DAY 丁香日光",
-    price: 199,
+    price: 150,
     image: "images/lilac-day-product.jpg"
   },
 
 "milky-sage": {
   id: "milky-sage",
   name: "MILKY SAGE 青乳奶蓋",
-  price: 199,
+  price: 150,
   image: "images/milky-sage/cover.jpg"
 },
 "cocoa-caramel": {
   id: "cocoa-caramel",
   name: "COFFEE CARAMEL 咖啡焦糖",
-  price: 199,
+  price: 150,
   image: "images/cocoa-caramel/cover.jpg"
 }
 };
@@ -1061,8 +1061,8 @@ window.history.replaceState(
 
  /* =========================
    優惠價格計算
-   單款 199
-   任選 3 款 500
+   單款 150
+   任選 1 款 150
 ========================= */
 
 const originalPrice =
@@ -1074,7 +1074,7 @@ const quantity = cart.length;
 
 /* 原價 */
 const originalTotal =
-  quantity * 199;
+  quantity * 150;
 
 /* 幾組三款 */
 const bundleCount =
@@ -1087,7 +1087,7 @@ const remainingCount =
 /* 優惠後價格 */
 const finalTotal =
   (bundleCount * 500) +
-  (remainingCount * 199);
+  (remainingCount * 150);
 
 
 /* 滿三款顯示原價刪除線 */
