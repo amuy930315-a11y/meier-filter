@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lightroom 預設集教學｜MEIER FILTER</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      min-height: 100vh;
+      color: #493d37;
+      font-family: Arial, "Noto Sans TC", sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(255,255,255,.95), transparent 27%),
+        radial-gradient(circle at 87% 32%, rgba(231,218,207,.54), transparent 31%),
+        linear-gradient(145deg, #f8f4ef 0%, #eee5dd 48%, #f7f2ed 100%);
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .navbar {
+      min-height: 88px;
+      padding: 17px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(255, 253, 250, .64);
+      border-bottom: 1px solid rgba(111, 86, 72, .10);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .logo { display: flex; flex-direction: column; line-height: 1; }
+    .logo-main { font-family: Georgia, serif; font-size: 27px; letter-spacing: 6px; }
+    .logo-sub { margin-top: 7px; font-size: 7px; letter-spacing: 4px; color: #85766e; }
+    .nav-actions { display: flex; align-items: center; gap: 28px; }
+    .nav-actions a { font-size: 12px; letter-spacing: 1px; }
+
+    .hero {
+      padding: 110px 22px 82px;
+      text-align: center;
+    }
+
+    .eyebrow { font-size: 9px; letter-spacing: 5px; color: #a08e83; }
+    .hero h1 {
+      margin-top: 18px;
+      font-family: Georgia, "Noto Serif TC", serif;
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: 5px;
+    }
+    .hero-subtitle { margin-top: 14px; font-size: 14px; letter-spacing: 6px; color: #806f65; }
+    .hero-description { max-width: 570px; margin: 28px auto 0; font-size: 13px; line-height: 2; color: #95847a; }
+
+    .guide-tabs {
+      margin-top: 38px;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .guide-tabs a {
+      padding: 12px 22px;
+      border: 1px solid rgba(112, 87, 73, .22);
+      border-radius: 999px;
+      background: rgba(255,255,255,.38);
+      backdrop-filter: blur(10px);
+      font-size: 11px;
+      letter-spacing: 2px;
+      transition: .25s ease;
+    }
+    .guide-tabs a:hover { color: #fff; background: #80695c; }
+
+    .guide-section { width: min(90%, 980px); margin: 0 auto; padding: 70px 0 95px; }
+    .section-heading { margin-bottom: 62px; text-align: center; }
+    .section-number { font-family: Georgia, serif; font-size: 11px; letter-spacing: 4px; color: #b19a8d; }
+    .section-heading h2 { margin-top: 13px; font-family: Georgia, "Noto Serif TC", serif; font-size: clamp(28px, 4vw, 42px); font-weight: 400; letter-spacing: 4px; }
+    .section-heading p { margin-top: 14px; font-size: 12px; letter-spacing: 3px; color: #96867d; }
+
+    .steps { display: grid; gap: 55px; }
+    .step-card {
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: minmax(270px, 360px) 1fr;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.70);
+      border-radius: 25px;
+      background: rgba(255,255,255,.34);
+      box-shadow: 0 22px 60px rgba(83, 61, 50, .08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+    .step-card:nth-child(even) .step-photo { order: 2; }
+    .step-card:nth-child(even) .step-copy { order: 1; }
+
+    .step-photo {
+      width: min(82%, 310px);
+      aspect-ratio: 9 / 19.5;
+      min-height: 0;
+      margin: 28px auto;
+      position: relative;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: linear-gradient(145deg, rgba(255,255,255,.70), rgba(222,208,197,.55));
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 22px;
+      box-shadow: 0 18px 38px rgba(72,55,47,.12);
+    }
+    .step-photo img { width: 100%; height: 100%; display: block; object-fit: contain; border-radius: inherit; }
+    .photo-placeholder { padding: 20px; text-align: center; color: #aa978b; }
+    .photo-placeholder span { display: block; font-family: Georgia, serif; font-size: 34px; }
+    .photo-placeholder small { display: block; margin-top: 10px; font-size: 10px; letter-spacing: 3px; }
+
+    .step-copy { padding: 50px 45px; display: flex; flex-direction: column; justify-content: center; }
+    .step-label { font-family: Georgia, serif; font-size: 10px; letter-spacing: 3px; color: #b2998a; }
+    .step-copy h3 { margin-top: 16px; font-size: 23px; font-weight: 400; letter-spacing: 2px; }
+    .step-copy p { margin-top: 20px; font-size: 13px; line-height: 2; color: #8e7e75; }
+    .step-note { margin-top: 22px; padding: 13px 16px; border-left: 2px solid #b99d8b; background: rgba(255,255,255,.34); font-size: 11px; line-height: 1.8; color: #8b786d; }
+
+    .divider { width: min(84%, 760px); height: 1px; margin: 0 auto; background: linear-gradient(90deg, transparent, rgba(112,87,73,.25), transparent); }
+
+    .help-box {
+      width: min(88%, 760px);
+      margin: 0 auto 110px;
+      padding: 50px 28px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 24px;
+      background: rgba(255,255,255,.36);
+      box-shadow: 0 18px 50px rgba(80,60,50,.07);
+      backdrop-filter: blur(16px);
+    }
+    .help-box h2 { font-family: Georgia, "Noto Serif TC", serif; font-size: 25px; font-weight: 400; letter-spacing: 3px; }
+    .help-box p { margin-top: 16px; font-size: 12px; line-height: 2; color: #927f74; }
+    .help-button { margin-top: 25px; padding: 12px 25px; display: inline-flex; border-radius: 99px; background: #80695c; color: #fff; font-size: 10px; letter-spacing: 2px; }
+
+    .footer { padding: 65px 20px; text-align: center; background: rgba(244,237,231,.72); }
+    .footer-logo { font-family: Georgia, serif; font-size: 22px; letter-spacing: 6px; }
+    .footer-sub { margin-top: 8px; font-size: 7px; letter-spacing: 4px; color: #8e8179; }
+    .copyright { margin-top: 34px; font-size: 8px; letter-spacing: 2px; color: #a89d96; }
+
+    @media (max-width: 768px) {
+      .navbar { min-height: 72px; padding: 14px 5%; }
+      .logo-main { font-size: 22px; }
+      .nav-actions { gap: 13px; }
+      .nav-actions a { font-size: 10px; }
+      .hero { padding: 75px 22px 58px; }
+      .hero h1 { font-size: 34px; letter-spacing: 3px; }
+      .hero-subtitle { font-size: 12px; letter-spacing: 4px; }
+      .guide-section { width: 91%; padding: 55px 0 75px; }
+      .section-heading { margin-bottom: 40px; }
+      .steps { gap: 36px; }
+      .step-card { display: flex; flex-direction: column; min-height: 0; border-radius: 19px; }
+      .step-card:nth-child(even) .step-photo,
+      .step-card:nth-child(even) .step-copy { order: initial; }
+      .step-photo {
+        width: min(72%, 280px);
+        min-height: 0;
+        margin: 28px auto 5px;
+        aspect-ratio: 9 / 19.5;
+      }
+      .step-copy { padding: 30px 25px 34px; }
+      .step-copy h3 { font-size: 20px; }
+      .step-copy p { font-size: 12px; }
+      .help-box { margin-bottom: 75px; padding: 40px 23px; }
+    }
+  </style>
+</head>
+<body>
+  
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">MEIER FILTER GUIDE</p>
+      <p class="hero-subtitle">預 設 集 安 裝 教 學</p>
+      <p class="hero-description">跟著畫面一步一步操作，即可將 MEIER 濾鏡保存至 Lightroom。建議先完成檔案下載，再開始下方教學。</p>
+      <div class="guide-tabs">
+        <a href="#create-preset">建立預設集</a>
+        <a href="#import-lightroom">匯入 Lightroom</a>
+      </div>
+    </section>
+
+    <section class="guide-section" id="create-preset">
+      <div class="section-heading">
+        <span class="section-number">PART 01</span>
+        <h2>建立預設集</h2>
+        <p>CREATE A PRESET</p>
+      </div>
+      <div class="steps">
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>01</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 01</span><h3>開啟濾鏡照片</h3><p>在 Lightroom 中開啟下載完成的濾鏡示範照片。</p><div class="step-note">照片之後可替換為 images/guide-01.jpg</div></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>02</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 02</span><h3>打開右上角選單</h3><p>點擊畫面右上角的選單圖示，開啟更多編輯選項。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>03</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 03</span><h3>選擇建立預設集</h3><p>在選單中找到「建立預設集」，點擊進入設定畫面。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>04</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 04</span><h3>輸入濾鏡名稱</h3><p>輸入商品名稱，方便日後快速找到這款 MEIER 濾鏡。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>05</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 05</span><h3>確認儲存設定</h3><p>保留需要的調色設定，確認後點擊右上角的勾勾。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>06</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 06</span><h3>完成建立</h3><p>預設集已保存，之後調色時即可直接點選套用。</p></div></article>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="guide-section" id="import-lightroom">
+      <div class="section-heading">
+        <span class="section-number">PART 02</span>
+        <h2>匯入 Lightroom</h2>
+        <p>IMPORT TO LIGHTROOM</p>
+      </div>
+      <div class="steps">
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>07</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 01</span><h3>下載濾鏡檔案</h3><p>從收到的下載連結，將 MEIER 濾鏡檔案保存到手機。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>08</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 02</span><h3>開啟 Lightroom</h3><p>進入 Lightroom App，點擊新增照片或匯入按鈕。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>09</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 03</span><h3>選擇檔案位置</h3><p>找到手機的「檔案」或「下載項目」，選取剛才保存的檔案。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>10</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 04</span><h3>匯入示範照片</h3><p>等待檔案加入 Lightroom，完成後點擊照片開啟。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>11</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 05</span><h3>複製編輯設定</h3><p>開啟右上角選單，點擊「複製編輯設定」。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>12</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 06</span><h3>貼到自己的照片</h3><p>開啟想調色的照片，在選單中點擊「貼上編輯設定」。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>13</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 07</span><h3>完成套用</h3><p>依照照片光線微調曝光與色溫，就完成專屬於你的 MEIER 色調。</p><div class="step-note">不同照片的光線不同，套用後稍微調整曝光屬於正常情況。</div></div></article>
+      </div>
+    </section>
+
+    <section class="help-box">
+      <h2>安裝時遇到問題？</h2>
+      <p>請截圖目前的操作畫面並傳送給我們，我們會協助你完成安裝。</p>
+      <a class="help-button" href="https://www.instagram.com/meier.share/" target="_blank" rel="noopener noreferrer">CONTACT MEIER</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer-logo">MEIER</p>
+    <p class="footer-sub">FILTER &amp; PRESET</p>
+    <p class="copyright">© 2026 MEIER FILTER 慕依</p>
+  </footer>
+</body>
+</html>
