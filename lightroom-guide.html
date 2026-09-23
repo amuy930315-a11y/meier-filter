@@ -171,6 +171,123 @@
       .step-copy p { font-size: 12px; }
       .help-box { margin-bottom: 75px; padding: 40px 23px; }
     }
+    /* =========================
+   透明玻璃背景
+========================= */
+
+body {
+  background:
+    radial-gradient(
+      circle at 15% 15%,
+      rgba(255, 255, 255, 0.75),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 85% 45%,
+      rgba(210, 181, 158, 0.28),
+      transparent 35%
+    ),
+    linear-gradient(
+      145deg,
+      #f1e5db,
+      #e6d3c3,
+      #f4e9e0
+    );
+
+  background-attachment: fixed;
+}
+
+/* 頂部選單玻璃效果 */
+.navbar {
+  background: rgba(255, 255, 255, 0.38);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.65);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* 每個教學區域不要背景框 */
+.step-card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+
+/* 上方兩個教學按鈕 */
+.guide-tabs a {
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* 最下方聯絡區 */
+.help-box {
+  background: rgba(255, 255, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* 頁尾 */
+.footer {
+  background: rgba(255, 255, 255, 0.22);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+/* 教學區域無背景，但保留排版 */
+.step-card {
+  min-height: 620px;
+  display: grid;
+  grid-template-columns: minmax(270px, 360px) 1fr;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+}
+
+/* 保留手機截圖尺寸 */
+.step-photo {
+  width: min(82%, 310px);
+  aspect-ratio: 9 / 19.5;
+  min-height: 0;
+  margin: 28px auto;
+  overflow: hidden;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* 照片完整顯示 */
+.step-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 手機版 */
+@media screen and (max-width: 768px) {
+  .step-card {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .step-photo {
+    width: min(72%, 280px);
+    aspect-ratio: 9 / 19.5;
+    margin: 28px auto 5px;
+  }
+}
   </style>
 </head>
 <body>
@@ -182,52 +299,158 @@
     <section class="hero">
       <p class="eyebrow">MEIER FILTER GUIDE</p>
       <p class="hero-subtitle">預 設 集 安 裝 教 學</p>
-      <p class="hero-description">跟著畫面一步一步操作，即可將 MEIER 濾鏡保存至 Lightroom。建議先完成檔案下載，再開始下方教學。</p>
+    
       <div class="guide-tabs">
-        <a href="#create-preset">建立預設集</a>
         <a href="#import-lightroom">匯入 Lightroom</a>
+        <a href="#create-preset">建立預設集</a>
       </div>
     </section>
 
-    <section class="guide-section" id="create-preset">
+    <section class="guide-section" id="import-lightroom">
       <div class="section-heading">
         <span class="section-number">PART 01</span>
-        <h2>建立預設集</h2>
-        <p>CREATE A PRESET</p>
+        <h2>匯入 Lightroom</h2>
+        <p>IMPORT TO LIGHTROOM</p>
       </div>
       <div class="steps">
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>01</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 01</span><h3>開啟濾鏡照片</h3><p>在 Lightroom 中開啟下載完成的濾鏡示範照片。</p><div class="step-note">照片之後可替換為 images/guide-01.jpg</div></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>02</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 02</span><h3>打開右上角選單</h3><p>點擊畫面右上角的選單圖示，開啟更多編輯選項。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>03</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 03</span><h3>選擇建立預設集</h3><p>在選單中找到「建立預設集」，點擊進入設定畫面。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>04</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 04</span><h3>輸入濾鏡名稱</h3><p>輸入商品名稱，方便日後快速找到這款 MEIER 濾鏡。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>05</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 05</span><h3>確認儲存設定</h3><p>保留需要的調色設定，確認後點擊右上角的勾勾。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>06</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 06</span><h3>完成建立</h3><p>預設集已保存，之後調色時即可直接點選套用。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>01</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 01</span><h3>下載濾鏡檔案</h3><p>從收到的下載連結，將 MEIER 濾鏡檔案保存到手機。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>02</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 02</span><h3>開啟 Lightroom</h3><p>進入 Lightroom App，點擊新增照片或匯入按鈕。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>03</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 03</span><h3>選擇檔案位置</h3><p>找到手機的「檔案」或「下載項目」，選取剛才保存的檔案。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>04</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 04</span><h3>匯入示範照片</h3><p>等待檔案加入 Lightroom，完成後點擊照片開啟。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>05</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 05</span><h3>複製編輯設定</h3><p>開啟右上角選單，點擊「複製編輯設定」。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>06</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 06</span><h3>貼到自己的照片</h3><p>開啟想調色的照片，在選單中點擊「貼上編輯設定」。</p></div></article>
+        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>07</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 07</span><h3>完成套用</h3><p>依照照片光線微調曝光與色溫，就完成專屬於你的 MEIER 色調。</p><div class="step-note">不同照片的光線不同，套用後稍微調整曝光屬於正常情況。</div></div></article>
       </div>
     </section>
 
     <div class="divider"></div>
 
-    <section class="guide-section" id="import-lightroom">
+    <section class="guide-section" id="create-preset">
       <div class="section-heading">
         <span class="section-number">PART 02</span>
-        <h2>匯入 Lightroom</h2>
-        <p>IMPORT TO LIGHTROOM</p>
+        <h2>建立預設集</h2>
+        <p>CREATE A PRESET</p>
       </div>
       <div class="steps">
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>07</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 01</span><h3>下載濾鏡檔案</h3><p>從收到的下載連結，將 MEIER 濾鏡檔案保存到手機。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>08</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 02</span><h3>開啟 Lightroom</h3><p>進入 Lightroom App，點擊新增照片或匯入按鈕。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>09</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 03</span><h3>選擇檔案位置</h3><p>找到手機的「檔案」或「下載項目」，選取剛才保存的檔案。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>10</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 04</span><h3>匯入示範照片</h3><p>等待檔案加入 Lightroom，完成後點擊照片開啟。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>11</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 05</span><h3>複製編輯設定</h3><p>開啟右上角選單，點擊「複製編輯設定」。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>12</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 06</span><h3>貼到自己的照片</h3><p>開啟想調色的照片，在選單中點擊「貼上編輯設定」。</p></div></article>
-        <article class="step-card"><div class="step-photo"><div class="photo-placeholder"><span>13</span><small>放入教學照片</small></div></div><div class="step-copy"><span class="step-label">STEP 07</span><h3>完成套用</h3><p>依照照片光線微調曝光與色溫，就完成專屬於你的 MEIER 色調。</p><div class="step-note">不同照片的光線不同，套用後稍微調整曝光屬於正常情況。</div></div></article>
+        <section class="guide-section" id="create-preset">
+
+  <div class="steps">
+
+    <!-- 第 8 張 -->
+    <article class="step-card">
+      <div class="step-photo">
+        <img
+          src="images/step.card/guide-08.jpg"
+          alt="開啟濾鏡照片"
+        >
       </div>
-    </section>
+
+      <div class="step-copy">
+        <span class="step-label">STEP 01</span>
+        <h3>開啟濾鏡照片</h3>
+        <p>
+          在 Lightroom 中開啟下載完成的濾鏡示範照片。
+        </p>
+      </div>
+    </article>
+
+
+    <!-- 第 9 張 -->
+    <article class="step-card">
+      <div class="step-photo">
+        <img
+          src="images/step.card/guide-09.jpg"
+          alt="打開右上角選單"
+        >
+      </div>
+
+      <div class="step-copy">
+        <span class="step-label">STEP 02</span>
+        <h3>打開右上角選單</h3>
+        <p>
+          點擊畫面右上角的選單圖示，開啟更多編輯選項。
+        </p>
+      </div>
+    </article>
+
+    <!-- 第 9 張 -->
+    <article class="step-card">
+      <div class="step-photo">
+        <img
+          src="images/step.card/guide-10.jpg"
+          alt="打開右上角選單"
+        >
+      </div>
+
+      <div class="step-copy">
+        <span class="step-label">STEP 02</span>
+        <h3>建立預設集</h3>
+        <p>
+          點擊畫面的選單圖示，開啟建立預設集選項。
+        </p>
+      </div>
+    </article>
+
+<!-- 第 10 張 -->
+    <article class="step-card">
+      <div class="step-photo">
+        <img
+          src="images/step.card/guide-11.jpg"
+          alt="選擇建立預設集"
+        >
+      </div>
+
+      <div class="step-copy">
+        <span class="step-label">STEP 02</span>
+        <h3></h3>預設集名稱</h3>
+        <p>
+          點擊畫面的選單圖示，輸入預設集名稱。
+        </p>
+      </div>
+    </article>
+
+<!-- 第 11 張 -->
+    <article class="step-card">
+      <div class="step-photo">
+        <img
+          src="images/step.card/guide-12.jpg"
+          alt="套用預設集"
+        >
+      </div>
+
+      <div class="step-copy">
+        <span class="step-label">STEP 02</span>
+        <h3>套用預設集</h3>
+        <p>
+          點擊畫面的選單圖示，選擇要套用的預設集。
+        </p>
+      </div>
+    </article>
+
+    <!-- 第 12 張 -->
+    <article class="step-card">
+      <div class="step-photo">
+        <img
+          src="images/step.card/guide-13.jpg"
+          alt="套用預設集"
+        >
+      </div>
+
+      <div class="step-copy">
+        <span class="step-label">STEP 02</span>
+        <h3>套用預設集</h3>
+        <p>
+          點擊畫面中加入的DNG圖示，開啟套用選項。
+        </p>
+      </div>
+    </article>
+
+       
 
     <section class="help-box">
       <h2>安裝時遇到問題？</h2>
       <p>請截圖目前的操作畫面並傳送給我們，我們會協助你完成安裝。</p>
-      <a class="help-button" href="https://www.instagram.com/meier.share/" target="_blank" rel="noopener noreferrer">CONTACT MEIER</a>
+      <a class="help-button" href="https://lin.ee/rSLaWw7" target="_blank" rel="noopener noreferrer">CONTACT MEIER</a>
     </section>
   </main>
 

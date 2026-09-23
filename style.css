@@ -3497,3 +3497,28 @@ body {
   }
 
 }
+/* =========================
+   電腦版首頁 HERO 放大
+========================= */
+
+@media screen and (min-width: 769px) {
+
+  .hero {
+    width: 100%;
+    height: 680px;
+    min-height: 680px;
+    padding: 40px 20px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-product {
+    width: 600px;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+}
