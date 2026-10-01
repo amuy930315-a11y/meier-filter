@@ -1,0 +1,984 @@
+/* =========================
+   BASIC
+========================= */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #fbfaf8;
+  color: #3f3a36;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    "Noto Sans TC",
+    sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 78px;
+  padding: 0 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 1000;
+
+  background: rgba(255,255,255,.96);
+
+  border-bottom: 1px solid #eee9e4;
+}
+
+.logo img {
+  width: 92px;
+  height: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  font-size: 9px;
+  letter-spacing: 2.5px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.compare-stage {
+  height: calc(100vh - 78px);
+  min-height: 620px;
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: #ddd;
+}
+
+
+/* BEFORE */
+
+.compare-before {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+
+  z-index: 1;
+}
+
+
+/* AFTER */
+
+.compare-after-wrap {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  z-index: 2;
+
+  clip-path: inset(0 100% 0 0);
+
+  animation:
+    afterReveal
+    14s
+    ease-in-out
+    infinite;
+}
+
+.compare-after {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+}
+
+
+/* =========================
+   HERO SLIDE LINE
+========================= */
+
+.compare-line {
+  position: absolute;
+
+  top: 0;
+  left: 0%;
+
+  width: 1px;
+  height: 100%;
+
+  background: rgba(255,255,255,.8);
+
+  z-index: 4;
+
+  animation:
+    lineMove
+    14s
+    ease-in-out
+    infinite;
+}
+
+.compare-line::after {
+  content: "↔";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.92);
+
+  color: #665f59;
+
+  font-size: 14px;
+
+  box-shadow:
+    0 6px 20px
+    rgba(0,0,0,.12);
+}
+
+
+/* =========================
+   HERO ANIMATION
+========================= */
+
+@keyframes afterReveal {
+
+  0%,
+  18% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  45%,
+  68% {
+    clip-path: inset(0 0 0 0);
+  }
+
+  95%,
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+
+}
+
+
+@keyframes lineMove {
+
+  0%,
+  18% {
+    left: 0%;
+  }
+
+  45%,
+  68% {
+    left: 100%;
+  }
+
+  95%,
+  100% {
+    left: 0%;
+  }
+
+}
+
+
+/* =========================
+   HERO TEXT
+========================= */
+
+.hero-copy {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+
+  width: min(90%, 720px);
+
+  text-align: center;
+
+  color: #fff;
+
+  text-shadow:
+    0 2px 18px
+    rgba(0,0,0,.25);
+
+  pointer-events: none;
+}
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  padding: 10px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  color: #fff;
+
+  font-size: 9px;
+  font-weight: 400;
+
+  letter-spacing: 4px;
+
+  line-height: 1;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+.hero-copy h1 {
+  font-size: clamp(38px, 6vw, 74px);
+
+  font-weight: 400;
+
+  letter-spacing: 8px;
+}
+
+.tagline {
+  margin-top: 24px;
+
+  font-family:
+    "Noto Sans TC",
+    sans-serif;
+
+  font-size: 13px;
+
+  letter-spacing: 4px;
+}
+
+.scroll-note {
+  position: absolute;
+
+  left: 50%;
+  bottom: 25px;
+
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  color: #fff;
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================
+   COMMON SECTION TITLE
+========================= */
+
+.section-title {
+  text-align: center;
+
+  margin-bottom: 90px;
+}
+
+.section-title > p {
+  margin-bottom: 18px;
+
+  color: #aaa19a;
+
+  font-size: 8px;
+
+  letter-spacing: 5px;
+}
+
+.section-title h2 {
+  font-size: clamp(30px, 4vw, 46px);
+
+  font-weight: 400;
+
+  letter-spacing: 5px;
+}
+
+.section-title span {
+  display: block;
+
+  margin-top: 22px;
+
+  font-family:
+    "Noto Sans TC",
+    sans-serif;
+
+  color: #948c86;
+
+  font-size: 10px;
+
+  letter-spacing: 2px;
+}
+
+
+/* =========================
+   BEFORE / AFTER SECTION
+========================= */
+
+.before-after-section {
+  padding: 120px 5% 150px;
+
+  background: #fff;
+}
+
+
+/* 每一款 Before / After */
+
+.before-after-item {
+  max-width: 850px;
+
+  margin: 0 auto 140px;
+
+  text-align: center;
+}
+
+
+/* 最後一張不要多餘空間 */
+
+.before-after-item:last-child {
+  margin-bottom: 0;
+}
+
+
+/* 編號 */
+
+.before-after-number {
+  margin-bottom: 12px;
+
+  color: #aaa19a;
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+}
+
+
+/* 英文濾鏡名稱 */
+
+.before-after-item h3 {
+  margin-bottom: 8px;
+
+  font-size: 18px;
+
+  font-weight: 400;
+
+  letter-spacing: 4px;
+}
+
+
+/* 中文濾鏡名稱 */
+
+.before-after-cn {
+  margin-bottom: 30px;
+
+  font-family:
+    "Noto Sans TC",
+    sans-serif;
+
+  color: #918984;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+}
+
+
+/* =========================
+   BEFORE / AFTER IMAGE
+   一款只放一張完整對比圖
+========================= */
+
+.before-after-image {
+  width: 100%;
+  max-width: 850px;
+
+  margin: auto;
+
+  overflow: hidden;
+
+  background: #f2efec;
+}
+
+.before-after-image img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+}
+
+
+/* =========================
+   PRODUCTS SECTION
+   所有商品放最下面
+========================= */
+
+.products-section {
+  padding: 120px 5% 150px;
+
+  background: #f8f6f3;
+}
+
+
+/* =========================
+   PRODUCTS LIST
+========================= */
+
+.products-list {
+  max-width: 1050px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 1fr);
+
+  gap: 25px;
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card {
+  display: block;
+
+  text-align: center;
+}
+
+
+/* 商品圖片 */
+
+.product-image {
+  width: 100%;
+
+  overflow: hidden;
+
+  background: #eeeae6;
+}
+
+.product-image img {
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  object-fit: cover;
+
+  transition:
+    transform .6s ease;
+}
+
+.product-card:hover
+.product-image img {
+  transform: scale(1.02);
+}
+
+
+/* =========================
+   PRODUCT INFO
+========================= */
+
+.product-info {
+  padding-top: 24px;
+}
+
+.product-number {
+  margin-bottom: 12px;
+
+  color: #aaa19a;
+
+  font-size: 7px;
+
+  letter-spacing: 2px;
+}
+
+.product-info h3 {
+  margin-bottom: 9px;
+
+  font-size: 14px;
+
+  font-weight: 400;
+
+  letter-spacing: 2px;
+}
+
+.product-cn {
+  font-family:
+    "Noto Sans TC",
+    sans-serif;
+
+  color: #8d857f;
+
+  font-size: 9px;
+
+  letter-spacing: 2px;
+}
+
+.product-price {
+  margin-top: 17px;
+
+  font-size: 11px;
+
+  letter-spacing: 1px;
+}
+
+.product-button {
+  display: inline-block;
+
+  margin-top: 20px;
+  padding: 12px 24px;
+
+  background: #090909;
+  color: #fffefd;
+
+  border: 1px solid #d5d0cc;
+
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+
+  transition: all 0.3s ease;
+}
+
+
+/* 滑鼠移上去 */
+
+.product-button:hover {
+  background: #f5f4f4;
+  color: #2f2b28;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 65px 20px;
+
+  text-align: center;
+
+  background: #302d2a;
+
+  color: #fff;
+}
+
+footer img {
+  width: 82px;
+
+  margin: 0 auto 20px;
+
+  filter:
+    brightness(0)
+    invert(1);
+}
+
+footer p {
+  font-size: 8px;
+
+  letter-spacing: 3px;
+
+  line-height: 2;
+
+  opacity: .65;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 900px) {
+
+  .products-list {
+    max-width: 650px;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap:
+      60px 18px;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+
+  /* NAVBAR */
+
+  .navbar {
+    height: 65px;
+
+    padding: 0 20px;
+
+    justify-content: center;
+  }
+
+  .logo img {
+    width: 80px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+
+  /* =========================
+     HERO
+  ========================= */
+
+  .compare-stage {
+    height: 72vh;
+
+    min-height: 520px;
+  }
+
+  .eyebrow {
+    margin-bottom: 16px;
+
+    font-size: 8px;
+
+    letter-spacing: 4px;
+  }
+
+  .hero-copy h1 {
+    font-size: 38px;
+
+    letter-spacing: 5px;
+  }
+
+  .tagline {
+    margin-top: 18px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+  }
+
+  .compare-line::after {
+    width: 36px;
+    height: 36px;
+
+    font-size: 12px;
+  }
+
+  .scroll-note {
+    bottom: 18px;
+
+    font-size: 7px;
+
+    letter-spacing: 3px;
+  }
+
+
+  /* =========================
+     SECTION TITLE
+  ========================= */
+
+  .section-title {
+    margin-bottom: 65px;
+  }
+
+  .section-title > p {
+    font-size: 7px;
+
+    letter-spacing: 3px;
+  }
+
+  .section-title h2 {
+    font-size: 25px;
+
+    letter-spacing: 2px;
+  }
+
+  .section-title span {
+    margin-top: 18px;
+
+    font-size: 9px;
+
+    letter-spacing: 1px;
+  }
+
+
+  /* =========================
+     BEFORE / AFTER
+  ========================= */
+
+  .before-after-section {
+    padding:
+      80px 12px
+      100px;
+  }
+
+  .before-after-item {
+    margin-bottom: 90px;
+  }
+
+  .before-after-number {
+    margin-bottom: 9px;
+
+    font-size: 7px;
+  }
+
+  .before-after-item h3 {
+    margin-bottom: 7px;
+
+    font-size: 15px;
+
+    letter-spacing: 2px;
+  }
+
+  .before-after-cn {
+    margin-bottom: 20px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+  .before-after-image {
+    width: 100%;
+  }
+
+
+  /* =========================
+     PRODUCTS
+  ========================= */
+
+  .products-section {
+    padding:
+      80px 15px
+      100px;
+  }
+
+  .products-list {
+    max-width: 520px;
+
+    grid-template-columns:
+      repeat(2, 1fr);
+
+    gap:
+      55px 12px;
+  }
+
+
+  /* 商品圖片 */
+
+  .product-image img {
+    aspect-ratio: 3 / 4;
+  }
+
+
+  /* 商品文字 */
+
+  .product-info {
+    padding-top: 17px;
+  }
+
+  .product-number {
+    margin-bottom: 9px;
+
+    font-size: 6px;
+
+    letter-spacing: 1px;
+  }
+
+  .product-info h3 {
+    margin-bottom: 7px;
+
+    font-size: 11px;
+
+    letter-spacing: 1px;
+  }
+
+  .product-cn {
+    font-size: 8px;
+
+    letter-spacing: 1px;
+  }
+
+  .product-price {
+    margin-top: 13px;
+
+    font-size: 10px;
+  }
+
+  .product-button {
+    margin-top: 13px;
+
+    font-size: 6px;
+
+    letter-spacing: 1.5px;
+  }
+
+}
+
+
+/* =========================
+   VERY SMALL MOBILE
+========================= */
+
+@media (max-width: 380px) {
+
+  .products-list {
+    gap:
+      45px 8px;
+  }
+
+  .product-info h3 {
+    font-size: 10px;
+  }
+
+}
+/* HERO 白線框商品按鈕 */
+
+.hero-shop-btn {
+  display: inline-block;
+
+  margin-bottom: 22px;
+  padding: 11px 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+
+  color: #fff;
+
+  font-size: 1px;
+  font-weight: 400;
+
+  letter-spacing: 4px;
+
+  line-height: 1;
+
+  background: transparent;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+
+/* 滑鼠移上去 */
+
+.hero-shop-btn:hover {
+  background: #fff;
+  color: #3f3a36;
+}
+/* =========================
+   PRODUCT RATING
+========================= */
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 6px;
+
+  margin: 9px 0 12px;
+}
+
+.stars {
+  color: #9b928b;
+
+  font-size: 12px;
+
+  letter-spacing: 2px;
+}
+
+.rating-score {
+  color: #625c57;
+
+  font-size: 9px;
+}
+
+.review-count {
+  color: #aaa29c;
+
+  font-family: "Noto Sans TC", sans-serif;
+
+  font-size: 8px;
+}
+/* 強制放大加入購物車 */
+
+.product-button {
+  font-size: 9px !important;
+  font-weight: 500 !important;
+
+  padding: 14px 28px !important;
+
+  letter-spacing: 2px !important;
+
+  background: #77716d !important;
+  color: #ffffff !important;
+
+  border: 1px solid #77716d !important;
+
+  display: inline-block !important;
+}

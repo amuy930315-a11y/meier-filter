@@ -19,20 +19,64 @@
 
 
 <body>
-
-
-  <!-- =========================
-       導覽列
-  ========================== -->
-
-  
-
     <!-- =========================
      導覽列
 ========================== -->
 
 <header class="navbar">
 
+  <!-- 手機版左側漢堡選單 -->
+  <div class="mobile-menu">
+
+    <button
+      class="mobile-menu-btn"
+      type="button"
+      onclick="toggleMobileMenu()"
+      aria-label="開啟選單"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <div class="mobile-menu-panel" id="mobile-menu-panel">
+
+      <a href="index.html">首頁</a>
+      <a href="shop.html">全部濾鏡</a>
+      <a href="wedding.html">婚紗</a>
+      <a href="food-filters.html">美食濾鏡</a>
+      <a href="#reviews">客人評價</a>
+
+      <div class="mobile-menu-divider"></div>
+
+      <a href="import-guide.html">匯入檔案</a>
+      <a href="preset-guide.html">預設集教學</a>
+
+    </div>
+
+  </div>
+
+
+  <!-- 手機版中央 LOGO -->
+  <a href="index.html" class="mobile-center-logo">
+    <img src="images/logo.png" alt="MEIER FILTER">
+  </a>
+  <!-- 手機版右上角購物袋 -->
+<a href="cart.html" class="mobile-cart-icon" aria-label="購物車">
+
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M6 8H18L19 21H5L6 8Z"></path>
+    <path d="M9 8V6C9 4.3 10.3 3 12 3C13.7 3 15 4.3 15 6V8"></path>
+  </svg>
+
+  <span class="mobile-cart-count" id="mobile-cart-count">0</span>
+
+</a>
+
+
+  <!-- 這下面繼續放你原本 navbar 其他內容 -->
+
+</div>
   <!-- LOGO -->
   <a
     href="index.html"
@@ -48,7 +92,6 @@
     </span>
 
   </a>
-
 
   <!-- 右側選單 -->
 <div class="nav-actions">
@@ -147,11 +190,13 @@
   ========================== -->
   <section class="hero">
 
+  <!-- 首頁盒子 -->
   <img
     src="images/meier-box-transparent.png"
     alt="Meier Filter 濾鏡商品盒"
     class="hero-product"
   >
+
 
 </section>
 
@@ -180,21 +225,6 @@
 
 </div>
 
-      <!-- SHOP 花朵按鈕 -->
-
-<div class="shop-button-wrap">
-
-  <a href="shop.html" class="flower-shop-btn">
-
-    <span class="shop-flower">✿</span>
-
-    <span>SHOP</span>
-
-    <span class="shop-flower">✿</span>
-
-  </a>
-
-</div
 
 
     <!-- =========================
@@ -1047,29 +1077,37 @@ function toggleAboutMenu() {
    風格選單
 ========================= */
 
-function toggleFilterMenu() {
+function toggleMobileMenu() {
+  const menu = document.getElementById("mobile-menu-panel");
 
-  const filterMenu =
-    document.getElementById("filter-dropdown");
+  if (!menu) return;
 
-  const aboutMenu =
-    document.getElementById("about-dropdown");
-
-  if (!filterMenu) return;
-
-
-  /* 點風格 → 關掉關於 */
-
-  if (aboutMenu) {
-    aboutMenu.classList.remove("show");
-  }
-
-
-  /* 開啟 / 關閉風格 */
-
-  filterMenu.classList.toggle("show");
+  menu.classList.toggle("show");
 }
 
+
+/* 點選單外面 → 自動關閉 */
+document.addEventListener("click", function(event) {
+
+  const menu = document.getElementById("mobile-menu-panel");
+  const button = document.querySelector(".mobile-menu-btn");
+
+  if (!menu || !button) return;
+
+  /* 選單沒有開就不用處理 */
+  if (!menu.classList.contains("show")) return;
+
+  /* 點的是選單裡面或 ☰ 按鈕，不關閉 */
+  if (
+    menu.contains(event.target) ||
+    button.contains(event.target)
+  ) {
+    return;
+  }
+
+  /* 點旁邊 → 關閉 */
+  menu.classList.remove("show");
+});
 </script>
 
 <script src="products.js"></script>
