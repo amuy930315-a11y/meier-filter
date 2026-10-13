@@ -558,3 +558,168 @@ body {
   }
 
 }
+/* =========================
+   NAVBAR 最終設定
+========================= */
+
+.shop-header {
+  width: 100%;
+  max-width: none;
+  height: 78px;
+  margin: 0;
+  padding: 0 5%;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+
+  background: rgba(255, 255, 255, 0.97);
+  border-bottom: 1px solid #eee9e4;
+}
+
+.back-home {
+  justify-self: start;
+}
+
+.shop-logo {
+  justify-self: center;
+}
+
+.shop-logo img {
+  display: block;
+  width: 92px;
+  height: auto;
+}
+
+.cart-link {
+  justify-self: end;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  position: relative;
+  z-index: 100000;
+
+  min-width: 44px;
+  min-height: 44px;
+
+  padding: 0;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.cart-link svg,
+.cart-link span {
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .shop-header {
+    height: 65px;
+    padding: 0 18px;
+  }
+
+  .shop-logo img {
+    width: 80px;
+  }
+}
+/* 修正購物車圖示過大 */
+
+.shop-header .cart-link svg,
+.shop-header .back-home svg {
+  width: 22px !important;
+  height: 22px !important;
+  min-width: 22px;
+  min-height: 22px;
+  max-width: 22px;
+  max-height: 22px;
+  flex-shrink: 0;
+}
+
+.shop-header .cart-link {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  width: auto;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.shop-header #cart-count {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.shop-header {
+  grid-template-columns: 1fr auto 1fr;
+}
+
+/* =========================
+   商品購物車按鈕
+   保持原本兩欄排版
+========================= */
+
+.product-grid > .product-wrapper {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 原本商品卡片 */
+.product-wrapper > .product-card {
+  display: block;
+  width: 100%;
+  min-width: 0;
+}
+
+/* 加入購物車按鈕 */
+.product-wrapper > .add-cart-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 4px;
+
+  background: rgba(255, 255, 255, 0.65);
+  border: 1px solid #e7e0d8;
+  border-radius: 8px;
+
+  color: #756553;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-align: center;
+
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.product-wrapper > .add-cart-btn:hover {
+  background: #f3eee7;
+  border-color: #c9b9a8;
+}
+
+/* 手機版 */
+@media (max-width: 600px) {
+  .product-wrapper > .add-cart-btn {
+    font-size: 10px;
+    padding: 9px 2px;
+    margin-top: 8px;
+  }
+}

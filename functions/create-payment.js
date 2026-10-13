@@ -9,13 +9,11 @@ const MERCHANT_ID = "3002607";
 const HASH_KEY = "pwFHCqoQZGmho4w6";
 const HASH_IV = "EkRm7iFT261dpevs";
 
-
-// =========================
-// MEIER 商品資料
-// 價格只由後端決定
-// =========================
-
 const PRODUCTS = {
+
+  // =========================
+  // 攝影濾鏡｜NT$150
+  // =========================
 
   "creamy-day": {
     name: "CREAMY DAY 奶油日光",
@@ -31,35 +29,48 @@ const PRODUCTS = {
     name: "GOLDEN DAY 金色日光",
     price: 150
   },
+
   "disney-day": {
     name: "DISNEY DAY 迪士尼日光",
     price: 150
   },
+
   "cream-haze": {
-    name: "CREAM HAZE 奶油薄霧",
+    name: "CREAM HAZE 奶霜薄霧",
     price: 150
   },
-  "GREY-HAZE": {
+
+  "grey-haze": {
     name: "GREY HAZE 灰色冷調",
     price: 150
   },
+
   "lilac-day": {
     name: "LILAC DAY 丁香日光",
     price: 150
   },
+
   "maple-day": {
     name: "MAPLE DAY 楓糖日光",
     price: 150
   },
-  "Milky-Sage": {
+
+  // =========================
+  // 美食濾鏡｜NT$150
+  // =========================
+
+  "milky-sage": {
     name: "MILKY SAGE 青乳奶蓋",
     price: 150
   },
+
   "cocoa-caramel": {
-    name: "COFFEE CARAMEL 咖啡焦糖",
+    name: "COFFEE CARAMEL 可可焦糖",
     price: 150
-  }
-  };
+  },
+
+};
+
 
 
 // =========================

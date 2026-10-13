@@ -1,53 +1,168 @@
+
 <!DOCTYPE html>
 <html lang="zh-Hant">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>SHOP｜MEIER FILTER</title>
 
-  <link
-    rel="stylesheet"
-    href="shop.css"
-  >
+  <link rel="stylesheet" href="shop.css">
+
+  <!-- 導覽列樣式 -->
+  <style>
+    .shop-header {
+      height: 78px;
+      padding: 0 5%;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.97);
+      border-bottom: 1px solid #eee9e4;
+    }
+
+    .back-home {
+      justify-self: start;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      color: #4f4a46;
+      text-decoration: none;
+    }
+
+    .shop-logo {
+      justify-self: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .shop-logo img {
+      display: block;
+      width: 92px;
+      height: auto;
+    }
+
+    .cart-link {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: #4f4a46;
+      text-decoration: none;
+      font-size: 11px;
+    }
+
+    .back-home svg,
+    .cart-link svg {
+      width: 23px;
+      height: 23px;
+      stroke: currentColor;
+    }
+
+    .back-home:hover svg {
+      transform: translateX(-3px);
+    }
+
+    .cart-link:hover svg {
+      transform: scale(1.08);
+    }
+
+    .back-home svg,
+    .cart-link svg {
+      transition: transform 0.3s ease;
+    }
+
+    #cart-count {
+      font-size: 11px;
+    }
+
+    @media (max-width: 768px) {
+      .shop-header {
+        height: 65px;
+        padding: 0 18px;
+      }
+
+      .shop-logo img {
+        width: 80px;
+      }
+
+      .back-home svg,
+      .cart-link svg {
+        width: 22px;
+        height: 22px;
+      }
+    }
+  </style>
 
 </head>
 
-
 <body>
 
-
   <!-- =========================
-       頂部導覽
+       NAVBAR
   ========================== -->
 
   <header class="shop-header">
 
-    <!-- 左邊 -->
-    <a
-      href="index.html"
-      class="back-home"
-    >
-      HOME
+    <!-- 左邊：返回首頁 -->
+    <a href="index.html"
+       class="back-home"
+       aria-label="返回首頁">
+
+      <svg viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="1.5"
+           stroke-linecap="round"
+           stroke-linejoin="round">
+
+        <path d="M19 12H5"></path>
+        <path d="M12 19l-7-7 7-7"></path>
+
+      </svg>
+
     </a>
 
 
-    <!-- 右邊 -->
-    <a
-      href="cart.html"
-      class="cart-link"
-    >
-      購物車（<span id="cart-count">0</span>）
+    <!-- 中間：LOGO -->
+    <a href="index.html" class="shop-logo">
+
+      <img
+        src="images/logo.png"
+        alt="MEIER FILTER"
+      >
+
+    </a>
+
+
+    <!-- 右邊：購物車 -->
+   <a href="./cart.html" class="cart-link" aria-label="查看購物車">
+
+      <svg viewBox="0 0 24 24"
+           fill="none"
+           stroke="currentColor"
+           stroke-width="1.5"
+           stroke-linecap="round"
+           stroke-linejoin="round">
+
+        <circle cx="9" cy="21" r="1"></circle>
+        <circle cx="20" cy="21" r="1"></circle>
+        <path d="M1 1h4l2.5 13h12l2.5-9H6"></path>
+
+      </svg>
+
+      <span id="cart-count">0</span>
+
     </a>
 
   </header>
-
 
 
   <!-- =========================
@@ -56,42 +171,28 @@
 
   <main class="shop-page">
 
-
-    <!-- =========================
-         標題
-    ========================== -->
-
+    <!-- SHOP 標題 -->
     <div class="shop-heading">
 
-      <h1>
-        SHOP
-      </h1>
+      <h1>SHOP</h1>
 
       <p class="shop-subtitle">
         FIND YOUR FAVORITE MOOD ♡
       </p>
 
-
-      <!-- 品牌手作說明 -->
-
       <div class="handmade-note">
 
-        <span class="snowflake">
-          ❄
-        </span>
+        <span class="snowflake">❄</span>
 
         <p>
           每一款，都是 Meier 一張一張調出來的，非批次套色
         </p>
 
-        <span class="snowflake">
-          ❄
-        </span>
+        <span class="snowflake">❄</span>
 
       </div>
 
     </div>
-
 
 
     <!-- =========================
@@ -101,392 +202,198 @@
     <div class="product-grid">
 
 
-      <!-- =====================
-           CREAMY DAY
-      ====================== -->
-
-      <a
-        href="creamy-day.html"
-        class="product-card"
-      >
+      <!-- PRODUCT 01 -->
+      <a href="creamy-day.html" class="product-card">
 
         <div class="product-image">
-
           <img
             src="images/creamy-day.jpg"
             alt="CREAMY DAY 奶油日光"
           >
-
         </div>
 
-
         <div class="product-info">
-
-          <h2>
-            CREAMY DAY
-          </h2>
-
-          <p>
-            奶油日光
-          </p>
-
-          <span class="price">
-            NT$150
-          </span>
-
+          <h2>CREAMY DAY</h2>
+          <p>奶油日光</p>
+          <span class="price">NT$150</span>
         </div>
 
       </a>
 
 
-
-      <!-- =====================
-           COLOR BREEZE
-      ====================== -->
-
-      <a
-        href="color-breeze.html"
-        class="product-card"
-      >
+      <!-- PRODUCT 02 -->
+      <a href="color-breeze.html" class="product-card">
 
         <div class="product-image">
-
           <img
             src="images/color-breeze.jpg"
             alt="COLOR BREEZE 晴彩微風"
           >
-
         </div>
 
-
         <div class="product-info">
-
-          <h2>
-            COLOR BREEZE
-          </h2>
-
-          <p>
-            晴彩微風
-          </p>
-
-          <span class="price">
-            NT$150
-          </span>
-
+          <h2>COLOR BREEZE</h2>
+          <p>晴彩微風</p>
+          <span class="price">NT$150</span>
         </div>
 
       </a>
 
 
-
-      <!-- =====================
-           GOLDEN DAY
-      ====================== -->
-
-      <a
-        href="golden-day.html"
-        class="product-card"
-      >
+      <!-- PRODUCT 03 -->
+      <a href="golden-day.html" class="product-card">
 
         <div class="product-image">
-
           <img
             src="images/golden-day-product.png"
             alt="GOLDEN DAY 金色日光"
           >
-
         </div>
 
-
         <div class="product-info">
-
-          <h2>
-            GOLDEN DAY
-          </h2>
-
-          <p>
-            金色日光
-          </p>
-
-          <span class="price">
-            NT$150
-          </span>
-
+          <h2>GOLDEN DAY</h2>
+          <p>金色日光</p>
+          <span class="price">NT$150</span>
         </div>
 
       </a>
 
 
-
-      <!-- =====================
-           DISNEY DAY
-      ====================== -->
-
-      <a
-        href="disney-day.html"
-        class="product-card"
-      >
+      <!-- PRODUCT 04 -->
+      <a href="disney-day.html" class="product-card">
 
         <div class="product-image">
-
           <img
             src="images/disney-day-product.jpg"
             alt="DISNEY DAY 迪士尼日光"
           >
-
         </div>
 
-
         <div class="product-info">
-
-          <h2>
-            DISNEY DAY
-          </h2>
-
-          <p>
-            迪士尼日光
-          </p>
-
-          <span class="price">
-            NT$150
-          </span>
-
+          <h2>DISNEY DAY</h2>
+          <p>迪士尼日光</p>
+          <span class="price">NT$150</span>
         </div>
 
       </a>
 
 
-
-      <!-- =====================
-           CREAM HAZE
-      ====================== -->
-
-      <a
-        href="cream-haze.html"
-        class="product-card"
-      >
+      <!-- PRODUCT 05 -->
+      <a href="cream-haze.html" class="product-card">
 
         <div class="product-image">
-
           <img
             src="images/cream-haze-product.jpg"
             alt="CREAM HAZE 奶霜薄霧"
           >
-
         </div>
 
-
         <div class="product-info">
-
-          <h2>
-            CREAM HAZE
-          </h2>
-
-          <p>
-            奶霜薄霧
-          </p>
-
-          <span class="price">
-            NT$150
-          </span>
-
+          <h2>CREAM HAZE</h2>
+          <p>奶霜薄霧</p>
+          <span class="price">NT$150</span>
         </div>
 
       </a>
 
 
-
-      <!-- =====================
-           GREY HAZE
-      ====================== -->
-
-      <a
-        href="grey-haze.html"
-        class="product-card"
-      >
+      <!-- PRODUCT 06 -->
+      <a href="grey-haze.html" class="product-card">
 
         <div class="product-image">
-
           <img
             src="images/grey-haze-product.jpg"
             alt="GREY HAZE 灰色冷調"
           >
-
         </div>
 
-
         <div class="product-info">
-
-          <h2>
-            GREY HAZE
-          </h2>
-
-          <p>
-            灰色冷調
-          </p>
-
-          <span class="price">
-            NT$150
-          </span>
-
+          <h2>GREY HAZE</h2>
+          <p>灰色冷調</p>
+          <span class="price">NT$150</span>
         </div>
 
       </a>
 
 
-
-      <!-- =====================
-           LILAC DAY
-      ====================== -->
-
-      <a
-        href="lilac-day.html"
-        class="product-card"
-      >
+      <!-- PRODUCT 07 -->
+      <a href="lilac-day.html" class="product-card">
 
         <div class="product-image">
-
           <img
             src="images/lilac-day-product.jpg"
             alt="LILAC DAY 丁香日光"
           >
-
         </div>
 
-
         <div class="product-info">
-
-          <h2>
-            LILAC DAY
-          </h2>
-
-          <p>
-            丁香日光
-          </p>
-
-          <span class="price">
-            NT$150
-          </span>
-
+          <h2>LILAC DAY</h2>
+          <p>丁香日光</p>
+          <span class="price">NT$150</span>
         </div>
 
       </a>
 
 
-
-      <!-- =====================
-           MAPLE DAY
-      ====================== -->
-
-      <a
-        href="maple-day.html"
-        class="product-card"
-      >
+      <!-- PRODUCT 08 -->
+      <a href="maple-day.html" class="product-card">
 
         <div class="product-image">
-
           <img
             src="images/maple-day-product.jpg"
             alt="MAPLE DAY 楓糖日光"
           >
-
         </div>
 
-
         <div class="product-info">
-
-          <h2>
-            MAPLE DAY
-          </h2>
-
-          <p>
-            楓糖日光
-          </p>
-
-          <span class="price">
-            NT$150
-          </span>
-
+          <h2>MAPLE DAY</h2>
+          <p>楓糖日光</p>
+          <span class="price">NT$150</span>
         </div>
 
       </a>
 
-      <!-- =====================
-     ZZ DAY
-====================== -->
 
-<a
-  href="milky-sage.html".html"
-  class="product-card"
->
+      <!-- PRODUCT 09 -->
+      <a href="milky-sage.html" class="product-card">
 
-  <div class="product-image">
+        <div class="product-image">
+          <img
+            src="images/milky-sage/cover.jpg"
+            alt="MILKY SAGE 青乳奶蓋"
+          >
+        </div>
 
-    <img
-      src="images/milky-sage/cover.jpg"
-      alt="MILKY SAGE MILKY SAGE"
-    >
+        <div class="product-info">
+          <h2>MILKY SAGE</h2>
+          <p>青乳奶蓋</p>
+          <span class="price">NT$150</span>
+        </div>
 
-  </div>
+      </a>
 
-  <div class="product-info">
 
-    <h2>
-      MILKY SAGE
-    </h2>
+      <!-- PRODUCT 10 -->
+      <a href="cocoa-caramel.html" class="product-card">
 
-    <p>
-      青乳奶蓋
-    </p>
+        <div class="product-image">
+          <img
+            src="images/cocoa-caramel/cover.jpg"
+            alt="COFFEE CARAMEL 可可焦糖"
+          >
+        </div>
 
-    <span class="price">
-      NT$150
-    </span>
+        <div class="product-info">
+          <h2>COFFEE CARAMEL</h2>
+          <p>可可焦糖</p>
+          <span class="price">NT$150</span>
+        </div>
 
-  </div>
-
-</a>
-<!-- =====================
-     cocoa-caramel
-====================== -->
-
-<a
-  href="cocoa-caramel.html"
-  class="product-card"
->
-
-  <div class="product-image">
-
-    <img
-      src="images/cocoa-caramel/cover.jpg"
-      alt="COFFEE CARAMEL COFFEE CARAMEL"
-    >
-
-  </div>
-
-  <div class="product-info">
-
-    <h2>
-      COFFEE CARAMEL
-    </h2>
-
-    <p>
-      可可焦糖
-    </p>
-
-    <span class="price">
-      NT$150
-    </span>
-
-  </div>
-
-</a>
+      </a>
 
     </div>
 
-
   </main>
-
 
 
   <!-- =========================
@@ -495,9 +402,7 @@
 
   <footer class="shop-footer">
 
-    <p>
-      MEIER FILTER
-    </p>
+    <p>MEIER FILTER</p>
 
     <span>
       Find the color that feels like you ♡
@@ -506,186 +411,204 @@
   </footer>
 
 
-
   <!-- =========================
        購物車數量
   ========================== -->
 
   <script>
+    document.addEventListener("DOMContentLoaded", function () {
 
-    document.addEventListener(
-      "DOMContentLoaded",
-      function () {
+      let cart = [];
 
-        let cart = [];
+      try {
+        cart = JSON.parse(
+          localStorage.getItem("cart.html")
+        ) || [];
+      } catch (error) {
+        cart = [];
+      }
 
-        try {
-
-          cart =
-            JSON.parse(
-              localStorage.getItem("meier-cart")
-            ) || [];
-
-        } catch (error) {
-
-          cart = [];
-
-        }
-
-
-        /* 同一款商品只計算一次 */
-
-        const uniqueCart =
-          cart.filter(
-            function (item, index, array) {
-
-              return index ===
-                array.findIndex(
-                  function (product) {
-
-                    return product.id === item.id;
-
-                  }
-                );
-
+      // 同一款商品只計算一次
+      const uniqueCart = cart.filter(
+        function (item, index, array) {
+          return index === array.findIndex(
+            function (product) {
+              return product.id === item.id;
             }
           );
-
-
-        /* 更新購物車數量 */
-
-        const cartCount =
-          document.getElementById(
-            "cart-count"
-          );
-
-        if (cartCount) {
-
-          cartCount.textContent =
-            uniqueCart.length;
-
         }
+      );
 
+      const cartCount = document.getElementById("cart-count");
+
+      if (cartCount) {
+        cartCount.textContent = uniqueCart.length;
       }
-    );
 
+    });
   </script>
 
 
 
-  <!-- =========================
-       商品資料
-  ========================== -->
-
+  <!-- 商品資料 -->
   <script src="products.js"></script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
 
-  <!-- =========================
-       LISHUAN SKY 自動商品卡
-  ========================== -->
+  const CART_KEY = "cart.html";
 
-  <script>
+  // 對應 shop.html 的 10 款商品
+  const productIds = [
+    "creamy-day",
+    "color-breeze",
+    "golden-day",
+    "disney-day",
+    "cream-haze",
+    "grey-haze",
+    "lilac-day",
+    "maple-day",
+    "milky-sage",
+    "cocoa-caramel"
+  ];
 
-    const lishuanSky =
-      PRODUCTS.find(
-        product =>
-          product.id === "cocoa-caramel"
+  function getCart() {
+    try {
+      const saved = JSON.parse(
+        localStorage.getItem(CART_KEY) || "[]"
       );
+      return Array.isArray(saved) ? saved : [];
+    } catch (error) {
+      return [];
+    }
+  }
 
+  function getItemId(item) {
+    return typeof item === "string" ? item : item.id;
+  }
 
-    if (lishuanSky) {
+  
+function updateCartCount() {
+  const cart = getCart();
 
+  const uniqueIds = new Set(
+    cart.map(item =>
+      typeof item === "string" ? item : item.id
+    ).filter(Boolean)
+  );
 
-      /* 找到商品卡 */
+  const count = document.getElementById("cart-count");
 
-      const card =
-        document.getElementById(
-          "lishuan-sky-card"
-        );
+  if (count) {
+    count.textContent = uniqueIds.size;
+  }
+}
 
+  function addToCart(product) {
+    const cart = getCart();
 
-      /* 商品圖片 */
+    const exists = cart.some(
+      item => getItemId(item) === product.id
+    );
 
-      const image =
-        document.getElementById(
-          "lishuan-sky-image"
-        );
-
-
-      /* 英文名稱 */
-
-      const name =
-        document.getElementById(
-          "lishuan-sky-name"
-        );
-
-
-      /* 中文名稱 */
-
-      const chineseName =
-        document.getElementById(
-          "lishuan-sky-cn"
-        );
-
-
-      /* 價格 */
-
-      const price =
-        document.getElementById(
-          "lishuan-sky-price"
-        );
-
-
-      if (card) {
-
-        card.href =
-          `${lishuanSky.id}.html`;
-
-        card.style.display = "";
-
-      }
-
-
-      if (image) {
-
-        image.src =
-          lishuanSky.cover;
-
-        image.alt =
-          `${lishuanSky.name} ${lishuanSky.chineseName}`;
-
-      }
-
-
-      if (name) {
-
-        name.textContent =
-          lishuanSky.name;
-
-      }
-
-
-      if (chineseName) {
-
-        chineseName.textContent =
-          lishuanSky.chineseName;
-
-      }
-
-
-      if (price) {
-
-        price.textContent =
-          `NT$${lishuanSky.price}`;
-
-      }
-
+    if (exists) {
+      alert("這款濾鏡已經在購物車裡 ♡");
+      window.location.href = "cart.html";
+      return;
     }
 
-  </script>
+    cart.push(product);
 
+    localStorage.setItem(
+      CART_KEY,
+      JSON.stringify(cart)
+    );
+
+alert("購物車儲存結果：" + localStorage.getItem("meier-cart"));
+
+    updateCartCount();
+
+    window.location.href = "cart.html";
+  }
+
+  const cards = document.querySelectorAll(
+    ".product-grid .product-card"
+  );
+
+  cards.forEach(function (card, index) {
+
+    const id = productIds[index];
+    if (!id) return;
+
+    const name = card.querySelector("h2")?.textContent.trim();
+    const chineseName = card.querySelector(".product-info p")?.textContent.trim();
+    const image = card.querySelector(".product-image img")?.getAttribute("src");
+
+    const priceText = card.querySelector(".price")?.textContent || "";
+    const price = Number(priceText.replace(/[^\d]/g, ""));
+
+    const product = {
+      id: id,
+      name: name,
+      chineseName: chineseName,
+      price: price,
+      image: image,
+      cover: image
+    };
+
+   
+    // 建立加入購物車按鈕
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "add-cart-btn";
+    button.textContent = "加入購物車 ";
+
+    // 將商品卡片和按鈕放在同一個容器
+    const wrapper = document.createElement("div");
+    wrapper.className = "product-wrapper";
+
+    card.parentNode.insertBefore(wrapper, card);
+    wrapper.appendChild(card);
+    wrapper.appendChild(button);
+
+   
+    // 點擊加入購物車
+    
+button.addEventListener("click", function () {
+  window.location.href =
+    "cart.html?add=" + encodeURIComponent(product.id);
+});
+
+
+  }); // 關閉 cards.forEach
+
+  updateCartCount();
+
+}); // 關閉 DOMContentLoaded
+</script>
+
+
+  
+  updateCartCount();
+
+  // 從購物車返回商店時，重新讀取數量
+  window.addEventListener("pageshow", function () {
+    updateCartCount();
+  });
+
+  // 其他分頁修改購物車時同步數量
+  window.addEventListener("storage", function (event) {
+    if (event.key === CART_KEY) {
+      updateCartCount();
+    }
+  });
+
+});
+</script>
+
+<script src="cart-count.js"></script>
 
 </body>
-
 </html>

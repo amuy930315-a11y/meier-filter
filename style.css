@@ -4132,3 +4132,34 @@ body {
     background-size: cover !important;
     background-position: center center !important;
   }
+
+/* 商品卡片外層 */
+.product-wrapper {
+  width: 100%;
+  min-width: 0;
+}
+
+/* 保留原本商品卡片寬度 */
+.product-wrapper .product-card {
+  display: block;
+  width: 100%;
+}
+
+/* 加入購物車按鈕 */
+.product-wrapper .add-cart-btn {
+  display: block;
+  width: 100%;
+  margin: 8px 0 0;
+  padding: 10px 0;
+  background: transparent;
+  border: none;
+  color: #756553;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.product-wrapper .add-cart-btn:hover {
+  color: #a99a89;
+}
