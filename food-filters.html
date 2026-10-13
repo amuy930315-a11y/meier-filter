@@ -48,7 +48,7 @@
       min-height: 88px;
       padding: 18px 6%;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       background: rgba(255, 255, 255, 0.32);
 
@@ -60,9 +60,27 @@ backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(115, 84, 65, 0.08);
     }
 
-    .logo { display: flex; flex-direction: column; line-height: 1; }
-    .logo-main { font-family: Georgia, serif; font-size: 27px; letter-spacing: 6px; }
-    .logo-sub { margin-top: 7px; font-size: 7px; letter-spacing: 4px; color: #81736b; }
+    
+/* 最上方圖片 LOGO */
+.mobile-center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-center-logo img {
+  display: block;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .mobile-center-logo img {
+    width: 125px;
+  }
+}
+
 
     .nav-actions { display: flex; align-items: center; gap: 24px; }
     .nav-actions a { font-size: 13px; letter-spacing: 1px; }
@@ -214,19 +232,41 @@ backdrop-filter: blur(22px);
         letter-spacing: 1.5px;
       }
     }
+    
+/* 導覽列 LOGO 完全置中 */
+.navbar {
+  justify-content: center;
+}
+
+.mobile-center-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-center-logo img {
+  display: block;
+  width: 150px;
+  height: auto;
+}
+
+@media (max-width: 768px) {
+  .mobile-center-logo img {
+    width: 125px;
+  }
+}
+
   </style>
 </head>
 <body>
   <header class="navbar">
-    <a class="logo" href="index.html">
-      <span class="logo-main">MEIER</span>
-      <span class="logo-sub">FILTER &amp; PRESET</span>
-    </a>
+    
+<a href="index.html" class="mobile-center-logo">
+  <img src="images/logo.png" alt="MEIER FILTER">
+</a>
 
-    <nav class="nav-actions" aria-label="主要選單">
-      <a href="index.html">首頁</a>
-      <a href="shop.html">全部濾鏡</a>
-      <a class="cart-link" href="cart.html">購物車（<span id="cart-count">0</span>）</a>
+
+    <nav class="nav-actions" aria-label="主要選單"
     </nav>
   </header>
 
@@ -263,8 +303,12 @@ backdrop-filter: blur(22px);
   </main>
 
   <footer class="footer">
-    <p class="footer-logo">MEIER</p>
-    <p class="footer-sub">FILTER &amp; PRESET</p>
+
+<!-- 手機版中央 LOGO -->
+<a href="index.html" class="mobile-center-logo">
+  <img src="images/logo.png" alt="MEIER FILTER">
+</a>
+
     <p class="copyright">© 2026 MEIER FILTER 慕依</p>
   </footer>
 

@@ -383,11 +383,17 @@
       const container = document.getElementById("cart-items");
       const count = document.getElementById("cart-count");
       const totalElement = document.getElementById("cart-total");
+      const selectedCount = document.getElementById("selected-count");
       const checkoutBtn = document.getElementById("checkout-btn");
 
      if (count) {
   count.textContent = uniqueCart.length;
-}
+
+
+// 顯示已選商品數量
+const selectedCount = document.getElementById("selected-count");
+
+
       container.innerHTML = "";
 
       if (uniqueCart.length === 0) {
