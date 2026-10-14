@@ -505,18 +505,32 @@ function updateCartCount() {
   }
 }
 
-  function addToCart(product) {
-    const cart = getCart();
+  
+function addToCart(product) {
+  const cart = getCart();
 
-    const exists = cart.some(
-      item => getItemId(item) === product.id
-    );
+  const exists = cart.some(item => {
+    const id = typeof item === "string" ? item : item.id;
+    return String(id) === String(product.id);
+  });
 
-    if (exists) {
-      alert("這款濾鏡已經在購物車裡 ♡");
-      window.location.href = "cart.html";
-      return;
-    }
+  if (exists) {
+    alert("這款濾鏡已經在購物車裡 ♡");
+    return;
+  }
+
+  cart.push(product);
+
+  localStorage.setItem(
+    "meier-cart",
+    JSON.stringify(cart)
+  );
+
+  updateCartCount();
+
+  alert("已成功加入購物車 ♡");
+}
+
 
     cart.push(product);
 
@@ -576,10 +590,28 @@ alert("購物車儲存結果：" + localStorage.getItem("meier-cart"));
    
     // 點擊加入購物車
     
+
 button.addEventListener("click", function () {
-  window.location.href =
-    "cart.html?add=" + encodeURIComponent(product.id);
+  const cart = getCart();
+
+  const exists = cart.some(item => {
+    const id = typeof item === "string" ? item : item.id;
+    return id === product.id;
+  });
+
+  if (exists) {
+    alert("這款濾鏡已經在購物車裡 ♡");
+    return;
+  }
+
+  cart.push(product);
+  localStorage.setItem("meier-cart", JSON.stringify(cart));
+
+  updateCartCount();
+
+  alert("已成功加入購物車 ♡");
 });
+
 
 
   }); // 關閉 cards.forEach

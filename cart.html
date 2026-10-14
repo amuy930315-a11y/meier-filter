@@ -380,21 +380,26 @@
         );
       });
 
-      const container = document.getElementById("cart-items");
-      const count = document.getElementById("cart-count");
-      const totalElement = document.getElementById("cart-total");
-      const selectedCount = document.getElementById("selected-count");
-      const checkoutBtn = document.getElementById("checkout-btn");
-
-     if (count) {
-  count.textContent = uniqueCart.length;
-
-
-// 顯示已選商品數量
+  
+const container = document.getElementById("cart-items");
+const count = document.getElementById("cart-count");
+const totalElement = document.getElementById("cart-total");
 const selectedCount = document.getElementById("selected-count");
+const checkoutBtn = document.getElementById("checkout-btn");
 
+// 更新購物車圖示數量
+if (count) {
+  count.textContent = uniqueCart.length;
+}
 
-      container.innerHTML = "";
+// 更新已選商品數量
+if (selectedCount) {
+  selectedCount.textContent = `已選商品 ${uniqueCart.length} 件`;
+}
+
+// 清空畫面，重新顯示購物車
+container.innerHTML = "";
+
 
       if (uniqueCart.length === 0) {
         container.innerHTML = `
